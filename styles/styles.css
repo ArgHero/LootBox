@@ -1,5 +1,7 @@
 :root{
-    font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
+    --fuente-encabezado: "Alumni Sans Collegiate One";
+    --fuente-texto: "Galindo";
+    --fuente-link:"Irish Grover";
 
     --fuente-encabezado: "Alumni Sans Collegiate One";
     --fuente-texto: "Galindo";
@@ -16,9 +18,6 @@
     color: var(--txt);
 }
 
-/* 
-@media (max-width: 527px){}
-@media (max-width: 1024px){} */
 
 .footer{
     background-color: #003662;
@@ -37,28 +36,6 @@
     }
 }
 
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*ESTILOS PARA LAS TARJETAS*/
 .background-color-card{
     background-color:var(--gray);
@@ -67,4 +44,51 @@
 .text-color-card{
     color: var(---txt);
 }
+section.sobreNosotros{
+    position: relative;
+    width: 100%;
+}
+
+section.sobreNosotros article.titulo{
+    margin-top: 1rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+section.sobreNosotros article.titulo h1{
+    font-family: var(--fuente-encabezado);
+    font-weight: 500;
+}
+section.sobreNosotros article.descripcion{
+    background-color: var(--navy);
+    font-family: var(--fuente-texto);
+    padding: 1rem;
+    border-radius: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+section.sobreNosotros article.descripcion p{
+    color: var(---txt);
+}
+
+#logosEmpresa{
+    background-color: var(--gray);
+    box-shadow: 5px 5px 15px var(--orange);
+    padding: 1%;
+    border-radius: 1rem;
+}
+
+#logosEmpresa div.carousel-inner div.carousel-item img{
+    border-radius: 1rem;
+}
+#separador{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+}
+/* 
+@media (max-width: 527px){}
+@media (max-width: 1024px){} */
 
