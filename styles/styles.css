@@ -1,12 +1,16 @@
 :root{
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
 
-    --bg: #000221;
-    --txt: #d9d4d1;
-    --sky: #00c8df;
-    --navy: #003662;
-    --orange: #d35f18;
-    --gray: #3d444b;
+    --fuente-encabezado: "Alumni Sans Collegiate One";
+    --fuente-texto: "Galindo";
+    --fuente-link:"Irish Grover";
+
+    --bg:#000221;
+    ---txt:#d9d4d1;
+    --sky:#00c8df;
+    --navy:#003652;
+    --orange:#d35f18;
+    --gray:#3d444b;
 
     background-color: var(--bg);
     color: var(--txt);
@@ -57,11 +61,11 @@
 
 /*ESTILOS PARA LAS TARJETAS*/
 .background-color-card{
-    background-color:gray;
+    background-color:var(--gray);
 }
 
 .text-color-card{
-    color: white;
+    color: var(---txt);
 }
 
 <<<<<<< HEAD
