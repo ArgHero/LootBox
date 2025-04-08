@@ -2,3 +2,21 @@
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
 }
 
+.footer{
+    background-color: #003662;
+    color: white;
+    text-align: center ;
+    padding: 16px;
+    font-size: 16px;
+    font-family: 'Irish Grover', cursive;
+   
+}
+
+@media (min-width:768px){
+    .footer{
+        padding: 24px;
+        font-size: size 20px;
+    }
+}
+
+
