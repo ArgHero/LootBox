@@ -35,6 +35,34 @@
         font-size: size 20px;
     }
 }
+@media(max-width: 527px){
+    .sidebar{
+        background-color: rgba(255, 255, 255, 0,15);
+        backdrop-filter: blur(10px);
+    }
+}
+.btns-log-ins {
+    background-color: var(--orange);
+}
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*ESTILOS PARA LAS TARJETAS*/
 .background-color-card{
