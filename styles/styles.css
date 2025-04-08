@@ -1,5 +1,6 @@
 :root{
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
+
     --bg: #000221;
     --txt: #d9d4d1;
     --sky: #00c8df;
@@ -14,3 +15,14 @@
 /* 
 @media (max-width: 527px){}
 @media (max-width: 1024px){} */
+
+/*ESTILOS PARA LAS TARJETAS*/
+.background-color-card{
+    background-color:gray;
+}
+
+.text-color-card{
+    color: white;
+}
+
+
