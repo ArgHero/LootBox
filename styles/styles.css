@@ -1,5 +1,12 @@
 :root{
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
+
+    --bg:#000221;
+    ---txt:#d9d4d1;
+    --sky:#00c8df;
+    --navy:#003652;
+    --orange:#d35f18;
+    --gray:#3d444b;
 }
 
 .footer{
@@ -20,3 +27,34 @@
 }
 
 
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ESTILOS PARA LAS TARJETAS*/
+.background-color-card{
+    background-color:gray;
+}
+
+.text-color-card{
+    color: white;
+}
+
+>>>>>>> 467f0de6400cc597a7e3a30b86bc924f339b17d6
