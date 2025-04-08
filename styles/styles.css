@@ -10,6 +10,9 @@
     --orange:#d35f18;
     --gray:#3d444b;
 
+
+    background-color: var(--bg);
+    color: var(--txt);
 }
 @media(max-width: 527px){
     .sidebar{
@@ -48,4 +51,5 @@
 .text-color-card{
     color: white;
 }
+
 
