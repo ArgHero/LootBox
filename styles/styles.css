@@ -12,6 +12,15 @@
     --orange:#d35f18;
     --gray:#3d444b;
 
+    --bg: #000221;
+    --txt: #d9d4d1;
+    --sky: #00c8df;
+    --navy: #003662;
+    --orange: #d35f18;
+    --gray: #3d444b;
+
+    background-color: var(--bg);
+    color: var(--txt);
 }
 
 
