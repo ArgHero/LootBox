@@ -10,7 +10,7 @@
 
 }
 
-  
+/* Estilos de la mision, vision y valores */
   body {
     background-color: var(--bg);
     color: var(--txt);
@@ -45,23 +45,6 @@
   }
   
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*ESTILOS PARA LAS TARJETAS*/
 .background-color-card{
