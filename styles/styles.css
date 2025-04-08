@@ -1,3 +1,8 @@
 :root{
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
 }
+main div.presentacion{
+    width: 50%;
+    padding: 1%;
+    background-color: red;
+}
