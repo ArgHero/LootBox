@@ -1,6 +1,7 @@
 :root{
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
 
+<<<<<<< HEAD
     --bg: #000221;
     --txt: #d9d4d1;
     --sky: #00c8df;
@@ -15,6 +16,54 @@
 /* 
 @media (max-width: 527px){}
 @media (max-width: 1024px){} */
+=======
+    --bg:#000221;
+    ---txt:#d9d4d1;
+    --sky:#00c8df;
+    --navy:#003652;
+    --orange:#d35f18;
+    --gray:#3d444b;
+}
+
+.footer{
+    background-color: #003662;
+    color: white;
+    text-align: center ;
+    padding: 16px;
+    font-size: 16px;
+    font-family: 'Irish Grover', cursive;
+   
+}
+
+@media (min-width:768px){
+    .footer{
+        padding: 24px;
+        font-size: size 20px;
+    }
+}
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> footerUs
 
 /*ESTILOS PARA LAS TARJETAS*/
 .background-color-card{
@@ -25,4 +74,8 @@
     color: white;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 467f0de6400cc597a7e3a30b86bc924f339b17d6
+>>>>>>> footerUs
