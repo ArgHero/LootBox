@@ -21,7 +21,84 @@
   </head>
   <body>
     <head> </head>
-    <nav></nav><!--No tocar-->
+    <!-- NavBar prueba -->
+    <nav
+      class="navbar navbar-expand-lg bg-dark border-bottom border-body"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">LootBox(logo)</a>
+        <!-- Toggle -->
+        <button
+          class="navbar-toggler shadow-none"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- <form class="d-flex mt-3" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">
+            Search
+          </button>
+        </form> -->
+        <!-- SideBar -->
+        <div
+          class=" sidebar offcanvas offcanvas-start"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+        <!-- SideBard header -->
+          <div class="offcanvas-header text-white border-bottom">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Lootbox(logo)</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white shadow-none"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- SideBar  body-->
+          <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+            <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#about">AboutUS</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#pag1">Pagina1</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#pag2">Pagina2</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#pag3">Pagina3</a>
+              </li>
+            </ul>
+            <!-- login / sing up -->
+             <div class="d-flex  flex-column flex-lg-row justify-content-center align-items-center gap-3">
+              <a href="#login" class="text-white">Login</a>
+              <a href="#singup" class="text-white
+                text-decoration-none px-3 py-1 rounded-4"
+                style="background-color: #f94ca4">Sing up</a>
+             </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--No tocar-->
     <aside></aside>
     <main></main>
     <footer></footer>

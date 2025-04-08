@@ -1,3 +1,10 @@
 :root{
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
 }
+
+@media(max-width: 527px){
+    .sidebar{
+        background-color: rgba(255, 255, 255, 0,15);
+        backdrop-filter: blur(10px);
+    }
+}
