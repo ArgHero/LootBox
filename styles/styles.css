@@ -1,3 +1,16 @@
 :root{
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
+    --bg: #000221;
+    --txt: #d9d4d1;
+    --sky: #00c8df;
+    --navy: #003662;
+    --orange: #d35f18;
+    --gray: #3d444b;
+
+    background-color: var(--bg);
+    color: var(--txt);
 }
+
+/* 
+@media (max-width: 527px){}
+@media (max-width: 1024px){} */
