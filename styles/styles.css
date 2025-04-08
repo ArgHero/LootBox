@@ -1,14 +1,17 @@
 :root{
-    font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
+    --fuente-encabezado: "Alumni Sans Collegiate One";
+    --fuente-texto: "Galindo";
+    --fuente-link:"Irish Grover";
+
     --bg:#000221;
     ---txt:#d9d4d1;
     --sky:#00c8df;
     --navy:#003652;
     --orange:#d35f18;
     --gray:#3d444b;
+    background-color: var(--bg);
 
 }
-
 
 /*ESTILOS PARA LAS TARJETAS*/
 .background-color-card{
@@ -18,10 +21,47 @@
 .text-color-card{
     color: white;
 }
+section.sobreNosotros{
+    position: relative;
+    width: 100%;
+}
 
+section.sobreNosotros article.titulo{
+    margin-top: 1rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+section.sobreNosotros article.titulo h1{
+    font-family: var(--fuente-encabezado);
+    font-weight: 500;
+}
+section.sobreNosotros article.descripcion{
+    background-color: var(--navy);
+    font-family: var(--fuente-texto);
+    padding: 1rem;
+    border-radius: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+section.sobreNosotros article.descripcion p{
+    color: var(---txt);
+}
 
-main div.presentacion{
-    width: 50%;
+#logosEmpresa{
+    background-color: var(--gray);
+    box-shadow: 5px 5px 15px var(--orange);
     padding: 1%;
-    background-color: red;
+    border-radius: 1rem;
+}
+
+#logosEmpresa div.carousel-inner div.carousel-item img{
+    border-radius: 1rem;
+}
+#separador{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
 }
