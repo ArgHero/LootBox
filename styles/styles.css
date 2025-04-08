@@ -1,15 +1,49 @@
 :root{
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
     --bg:#000221;
-    ---txt:#d9d4d1;
+    --txt:#d9d4d1;
     --sky:#00c8df;
     --navy:#003652;
     --orange:#d35f18;
     --gray:#3d444b;
+    --txtCont: #aec0c2;
 
 }
 
-
+  
+  body {
+    background-color: var(--bg);
+    color: var(--txt);
+    font-family: "Galindo";
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: var(--navy);
+    border-radius: 10px;
+    color: var(--txt);
+  }
+  
+  h3 {
+    color: var(--sky);
+    margin-top: 0;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  strong {
+    color: var(--txtCont);
+  }
+  
+  img {
+    margin-right: 15px;
+  }
+  
    
 
 
