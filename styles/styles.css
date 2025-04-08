@@ -1,5 +1,10 @@
 :root{
     font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
+
+    --fuente-encabezado: "Alumni Sans Collegiate One";
+    --fuente-texto: "Galindo";
+    --fuente-link:"Irish Grover";
+
     --bg:#000221;
     ---txt:#d9d4d1;
     --sky:#00c8df;
@@ -33,7 +38,7 @@
 
 
 .tipo-letra{
-    font-family: "Galindo";
+    font-family: var(--fuente-texto);
     font-size: 12px;
 }
 
