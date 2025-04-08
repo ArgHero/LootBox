@@ -22,19 +22,21 @@
 
 
 
-
-
-
-
-
-
-
 /*ESTILOS PARA LAS TARJETAS*/
 .background-color-card{
-    background-color:gray;
+    background-color:var(--gray);
 }
 
 .text-color-card{
-    color: white;
+    color: var(---txt);
 }
 
+
+.tipo-letra{
+    font-family: "Galindo";
+    font-size: 12px;
+}
+
+.shadow-card{
+    box-shadow: 10px 10px 0px var(--sky)
+}
