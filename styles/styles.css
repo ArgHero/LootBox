@@ -15,37 +15,10 @@
     background-color: var(--bg);
     color: var(--txt);
 }
-
-
-.footer{
-    background-color: var(--navy);
-    color: var(--txt);
-    text-align: center ;
-    padding: 16px;
-    font-size: 16px;
-    font-family: 'Irish Grover', cursive;
-   
-}
-
-@media (min-width:768px){
-    .footer{
-        padding: 24px;
-        font-size: size 20px;
-    }
-}
-@media(max-width: 527px){
-    .sidebar{
-        background-color: rgba(255, 255, 255, 0,15);
-        backdrop-filter: blur(10px);
-    }
-}
-.btns-log-ins {
-    background-color: var(--orange);
-}
-
 /* Estilos de la mision, vision y valores */
   body {
     font-family: "Galindo";
+    background-color: var(--bg);
     margin: 0;
     padding: 0;
   }
@@ -64,6 +37,9 @@
     border-radius: 10px;
     background-color: var(--gray);
     box-shadow: 5px 5px 15px var(--orange);
+  }
+  div.info-block table tr td{
+    vertical-align: middle;
   }
 
   h3 {
@@ -85,20 +61,43 @@
   
 
 /*ESTILOS PARA LAS TARJETAS*/
-.background-color-card{
-    background-color:var(--gray);
-    box-shadow: 5px 5px 15px var(--orange);
+aside section.miembros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--navy);
+    border-radius: 0.5em;
 }
-
+aside section.miembros article.card{
+    width: 40%;
+    background-color: var(--gray);
+    box-shadow: 5px 5px 15px var(--orange);
+    border-radius: 1rem;
+    padding-top: 0.5rem;
+}
+aside section.miembros article.card div.presentacion {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+aside section.miembros article.card div.presentacion img{
+    width: 40%;
+    border-radius: 1rem;
+}
+aside section.miembros article.card div.card-body{
+    display: flex;
+    align-items: center;
+}
 .text-color-card{
     color: var(--txt);
 }
+
+/*Estilos del carrusel*/
 
 section.sobreNosotros{
     position: relative;
     width: 100%;
 }
-
 section.sobreNosotros article.titulo{
     margin-top: 1rem;
     position: absolute;
@@ -119,21 +118,6 @@ section.sobreNosotros article.descripcion{
     left: 0;
     bottom: 0;   
 }
-
-@media (max-width: 992px) {
-    section.sobreNosotros article.descripcion {
-        position: static;
-        margin-top: 1rem;
-    }
-}
-
-#logosEmpresa{
-    background-color: var(--gray);
-    box-shadow: 5px 5px 15px var(--orange);
-    padding: 1%;
-    border-radius: 1rem;
-}
-
 #logosEmpresa div.carousel-inner div.carousel-item img{
     border-radius: 1rem;
 }
@@ -142,5 +126,70 @@ section.sobreNosotros article.descripcion{
     flex-direction: column;
     background-color: var(--bg);
 }
+/*Nav bar*/
+#logosEmpresa{
+    background-color: var(--gray);
+    box-shadow: 5px 5px 15px var(--orange);
+    padding: 1%;
+    border-radius: 1rem;
+}
 
+.footer{
+    background-color: var(--navy);
+    color: var(--txt);
+    text-align: center ;
+    padding: 16px;
+    font-size: 16px;
+    font-family: 'Irish Grover', cursive;
+}
+.btns-log-ins {
+    background-color: var(--orange);
+}
+@media (max-width: 992px) {
+    section.sobreNosotros article.descripcion {
+        position: static;
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width:768px){
+    .footer{
+        padding: 24px;
+        font-size: size 20px;
+    }
+    #separador{
+        flex-direction: row;
+        gap: 1em;
+    }
+    main{
+        width: 50%;
+    }
+    aside{
+        width: 40%;
+    }
+
+    aside section.miembros article.card{
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+    }
+    aside section.miembros article.card div.presentacion {
+        flex-direction: column;
+        width: 40%;
+        margin: 0 0.5rem;
+    }
+    aside section.miembros article.card div.presentacion img{
+        width: 100%;
+    }
+    
+}
+
+@media(max-width: 527px){
+    .sidebar{
+        background-color: rgba(255, 255, 255, 0,15);
+        backdrop-filter: blur(10px);
+        width: 100px;
+        
+    }
+}
 

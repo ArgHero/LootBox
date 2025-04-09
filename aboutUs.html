@@ -80,8 +80,8 @@
       </div>
     </div>
   </nav>
-  <!--No tocar-->
-  <div id="separador">
+  <!--Cuerpo principal-->
+  <div id="separador" class="container">
     <main class="container">
       <section class="sobreNosotros">
         <div id="logosEmpresa" class="carousel slide" data-bs-ride="carousel">
@@ -126,7 +126,7 @@
         <div id="mision" class="info-block">
           <table>
             <tr>
-              <td style="vertical-align: top;">
+              <td>
                 <img src="./assets/icons/mision.png" alt="Ícono Misión" width="50">
               </td>
               <td>
@@ -146,7 +146,7 @@
         <div id="vision" class="info-block">
           <table>
             <tr>
-              <td style="vertical-align: top;">
+              <td >
                 <img src="./assets/icons/vision.png" alt="Ícono Visión" width="50">
               </td>
               <td>
@@ -164,7 +164,7 @@
         <div id="valores" class="info-block">
           <table>
             <tr>
-              <td style="vertical-align: top;">
+              <td>
                 <img src="./assets/icons/valores.png" alt="Ícono Valores" width="50">
               </td>
               <td>
@@ -183,87 +183,130 @@
       </section>
     </main>
     <aside>
-      <div class="container">
-        <div class="row justify-content-center">
-
-          <!-- Tarjeta Juan Pablo -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+      <section class="miembros">
+        <!-- Tarjeta Juan Pablo -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/JP.webp" class="card-img-top mt-2 mb-2"
-              alt="Foto de perfil Gabriela Ordoñez">
-            <div class="card-body">
+            alt="Foto de perfil Juan Pablo">
+            <div class="puesto">
               <h5>Juan Pablo Villanueva</h5>
               <h6>Desarrollador Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Especializado en e-commerce en el área de ventas.
-                Apasionado de atender las necesidades de mis clientes con un alto sentido de responsabilidad y apoyo.
-              </p>
             </div>
           </div>
-
-          <!-- Tarjeta Gabriela -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+          <div class="card-body">
+            <p class="card-text text-color-card tipo-letra">Especializado en e-commerce en el área de ventas.
+              Apasionado de atender las necesidades de mis clientes con un alto sentido de responsabilidad y apoyo.
+            </p>
+          </div>
+        </article>
+        <!-- Tarjeta Gabriela -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/Gabriela.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Gabriela Ordoñez">
-            <div class="card-body">
+            <div class="puesto">
               <h5>Gabriela Ordoñez</h5>
               <h6>Desarrolladora Java Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Especializada en programación orientada a objetos,
-                desarrollo web, bases de datos y control de versiones con Git, comprometida con la calidad del código y
-                el trabajo en equipo.</p>
             </div>
           </div>
-
-          <!-- Tarjeta Daniel -->
-          <div class="card m-4 background-color-card shadow-card" style="width: 18rem;">
+          <div class="card-body">
+            <p class="card-text text-color-card tipo-letra">
+              Especializada en programación orientada a objetos, desarrollo web, bases de datos y control de versiones con Git,
+              comprometida con la calidad del código y el trabajo en equipo.
+            </p>
+          </div>
+        </article>
+        <!-- Tarjeta Daniel -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/Daniel.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Daniel Banda-LootBox">
-            <div class="card-body">
+            <div class="puesto">
               <h5>Daniel Banda</h5>
               <h6>Desarrollador Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Soy desarrollador full stack con experiencia en desarrollo
-                web y marketing para ecommerces, disfruto desarrollar proyectos creativos y la fotografía es mi principal hobbie.</p>
             </div>
           </div>
-
-          <!-- Tarjeta Felipe -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+          <div class="card-body">
+            <p class="card-text text-color-card tipo-letra">
+              Soy desarrollador full stack con experiencia en desarrollo web y marketing para ecommerces, disfruto desarrollar
+              proyectos creativos y la fotografía es mi principal hobbie.
+            </p>
+          </div>
+        </article>
+        <!-- Tarjeta Felipe -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/Felipe.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Felipe Alejandro Rosas Mendoza">
-            <div class="card-body">
+            <div class="puesto">
               <h5>Felipe Rosas</h5>
               <h6>Desarrollador Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Especializado en crear herramientas web personalizadas
-                para optimizar procesos, enfocado en escalabilidad y eficiencia.</p>
             </div>
           </div>
-
-          <!-- Tarjeta Alejandro -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+          <div class="card-body">
+            <p class="card-text text-color-card tipo-letra">
+              Especializado en crear herramientas web personalizadas para optimizar procesos, enfocado en escalabilidad y
+              eficiencia.
+            </p>
+          </div>
+        </article>
+        <!-- Tarjeta Alejandro -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/alex.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Alejandro Meza">
-            <div class="card-body">
+            <div class="puesto">
               <h5>Alejandro Meza</h5>
               <h6>Desarrollador Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Me gusta la programación y el aprendizaje continuo. Tengo
-                conocimientos en Java y buenas prácticas de programación, colaboro en equipo para construir soluciones
-                útiles, siempre con ganas de crecer y aportar valor.</p>
             </div>
           </div>
-          <!-- Tarjeta Diego -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+          <div class="card-body">
+            <p class="card-text text-color-card tipo-letra">
+              Me gusta la programación y el aprendizaje continuo. Tengo conocimientos en Java y buenas prácticas de
+              programación, colaboro en equipo para construir soluciones útiles, siempre con ganas de crecer y aportar valor.
+            </p>
+          </div>
+        </article>
+        <!-- Tarjeta Diego -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/Diego.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Adrián Velázquez">
-            <div class="card-body">
-              <h5>Adrián Velázquez </h5>
+            <div class="puesto">
+              <h5>Adrián Velázquez</h5>
               <h6>Desarrollador Java Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Soy desarrollador con interés por el diseño.  
-                He activamente formado parte de equipos de desarrollo, donde he colaborado en diversos proyectos. Considero que una buena experiencia de usuario 
-                es tan importante como un código bien estructurado.</p>
             </div>
           </div>
-
-        </div>
-      </div>
+          <div class="card-body">
+            <p class="card-text text-color-card tipo-letra">
+              Soy desarrollador con interés por el diseño. He activamente formado parte de equipos de desarrollo, donde he
+              colaborado en diversos proyectos. Considero que una buena experiencia de usuario es tan importante como un código
+              bien estructurado.
+            </p>
+          </div>
+        </article>
+        <!-- Tarjeta Saul -->
+        <article class="card m-4">
+          <div class="presentacion">
+            <img src="./assets/images/FotosPerfil/Saul.webp" class="card-img-top mt-2 mb-2"
+              alt="Foto de perfil Saul Hernandez">
+            <div class="puesto">
+              <h5>Saul Hernandez</h5>
+              <h6>SCRUM Master</h6>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-color-card tipo-letra">
+              Desarrollador fullstack especializado en Java que asume el rol de Scrum Master combina su experiencia técnica en
+              desarrollo web y programación orientada a objetos con habilidades de liderazgo, promoviendo la colaboración y el
+              enfoque ágil en equipos de trabajo.
+            </p>
+          </div>
+        </article>
+      </section>
     </aside>
+  </div>
     <footer class="footer">
       <p>By Script Squad</p>
     </footer>
