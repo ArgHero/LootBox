@@ -18,8 +18,8 @@
 
 
 .footer{
-    background-color: #003662;
-    color: white;
+    background-color: var(--navy);
+    color: var(--txt);
     text-align: center ;
     padding: 16px;
     font-size: 16px;
@@ -45,8 +45,6 @@
 
 /* Estilos de la mision, vision y valores */
   body {
-    background-color: var(--bg);
-    color: var(--txt);
     font-family: "Galindo";
     margin: 0;
     padding: 0;
@@ -85,7 +83,6 @@
     margin-right: 15px;
   }
   
-   
 
 /*ESTILOS PARA LAS TARJETAS*/
 .background-color-card{
@@ -120,10 +117,14 @@ section.sobreNosotros article.descripcion{
     border-radius: 1rem;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 0;   
 }
-section.sobreNosotros article.descripcion p{
-    color: var(---txt);
+
+@media (max-width: 992px) {
+    section.sobreNosotros article.descripcion {
+        position: static;
+        margin-top: 1rem;
+    }
 }
 
 #logosEmpresa{
@@ -141,7 +142,5 @@ section.sobreNosotros article.descripcion p{
     flex-direction: column;
     background-color: var(--bg);
 }
-/* 
-@media (max-width: 527px){}
-@media (max-width: 1024px){} */
+
 
