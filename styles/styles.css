@@ -3,6 +3,7 @@
     --fuente-texto: "Galindo";
     --fuente-link:"Irish Grover";
 
+
     --bg:#000221;
     --txt:#d9d4d1;
     --sky:#00c8df;
@@ -59,6 +60,14 @@
     color: var(--txt);
   }
   
+  .info-block{
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: var(--gray);
+    box-shadow: 5px 5px 15px var(--orange);
+  }
+
   h3 {
     color: var(--sky);
     margin-top: 0;
@@ -81,11 +90,13 @@
 /*ESTILOS PARA LAS TARJETAS*/
 .background-color-card{
     background-color:var(--gray);
+    box-shadow: 5px 5px 15px var(--orange);
 }
 
 .text-color-card{
-    color: var(---txt);
+    color: var(--txt);
 }
+
 section.sobreNosotros{
     position: relative;
     width: 100%;
