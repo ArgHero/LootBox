@@ -38,6 +38,7 @@
     background-color: var(--gray);
     box-shadow: 5px 5px 15px var(--orange);
   }
+
   div.info-block table tr td{
     vertical-align: middle;
   }
@@ -69,7 +70,7 @@ aside section.miembros{
     border-radius: 0.5em;
 }
 aside section.miembros article.card{
-    width: 40%;
+    width: 80%;
     background-color: var(--gray);
     box-shadow: 5px 5px 15px var(--orange);
     border-radius: 1rem;
@@ -145,6 +146,8 @@ section.sobreNosotros article.descripcion{
 .btns-log-ins {
     background-color: var(--orange);
 }
+
+/*BREAK POINTS....................................................................*/
 @media (max-width: 992px) {
     section.sobreNosotros article.descripcion {
         position: static;
@@ -165,9 +168,10 @@ section.sobreNosotros article.descripcion{
         width: 50%;
     }
     aside{
-        width: 40%;
+        width: 70%;
     }
 
+    /*modifica ancho de tarjeta*/
     aside section.miembros article.card{
         width: 100%;
         flex-direction: row;
@@ -177,6 +181,7 @@ section.sobreNosotros article.descripcion{
         flex-direction: column;
         width: 40%;
         margin: 0 0.5rem;
+        
     }
     aside section.miembros article.card div.presentacion img{
         width: 100%;
