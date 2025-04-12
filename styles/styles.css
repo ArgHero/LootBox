@@ -93,6 +93,24 @@ aside section.miembros article.card div.card-body{
     color: var(--txt);
 }
 
+
+/* Estilos para logos redes sociales */
+.redes-sociales i {
+    color: var(--sky); 
+  }
+  
+  .redes-sociales i:hover {
+    color: var(--navy);
+  }
+  
+  .redes-sociales i {
+    font-size: 30px; 
+  }
+  
+  a {
+    text-decoration: none;
+  }
+
 /*Estilos del carrusel*/
 
 section.sobreNosotros{
@@ -197,4 +215,3 @@ section.sobreNosotros article.descripcion{
         
     }
 }
-
