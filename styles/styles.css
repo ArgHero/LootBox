@@ -176,7 +176,7 @@ section.sobreNosotros article.descripcion{
 @media (min-width:768px){
     .footer{
         padding: 24px;
-        font-size: size 20px;
+        font-size: 20px;
     }
     #separador{
         flex-direction: row;
