@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!--Fuentes-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,8 +81,8 @@
       </div>
     </div>
   </nav>
-  <!--No tocar-->
-  <div id="separador">
+  <!--Cuerpo principal-->
+  <div id="separador" class="container">
     <main class="container">
       <section class="sobreNosotros">
         <div id="logosEmpresa" class="carousel slide" data-bs-ride="carousel">
@@ -104,19 +105,21 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
+          <article class="titulo">
+            <h1>LootBox</h1>
+          
+          </article>
+          <article class="descripcion">
+            <p>
+              Creamos este espacio para unir a gamers, coleccionistas y fans del
+              universo gaming bajo un mismo techo digital. Nuestras Loot Boxes
+              son nuestra insignia: cajas sorpresa cargadas de artículos
+              exclusivos, coleccionables y accesorios premium que elevan tu
+              experiencia de juego al siguiente nivel.
+            </p>
+          </article>
         </div>
-        <article class="titulo">
-          <h1>LootBox</h1>
-        </article>
-        <article class="descripcion">
-          <p>
-            Creamos este espacio para unir a gamers, coleccionistas y fans del
-            universo gaming bajo un mismo techo digital. Nuestras Loot Boxes
-            son nuestra insignia: cajas sorpresa cargadas de artículos
-            exclusivos, coleccionables y accesorios premium que elevan tu
-            experiencia de juego al siguiente nivel.
-          </p>
-        </article>
+        
       </section>
       <br><br>
       <section>
@@ -124,7 +127,7 @@
         <div id="mision" class="info-block">
           <table>
             <tr>
-              <td style="vertical-align: top;">
+              <td>
                 <img src="./assets/icons/mision.png" alt="Ícono Misión" width="50">
               </td>
               <td>
@@ -144,7 +147,7 @@
         <div id="vision" class="info-block">
           <table>
             <tr>
-              <td style="vertical-align: top;">
+              <td >
                 <img src="./assets/icons/vision.png" alt="Ícono Visión" width="50">
               </td>
               <td>
@@ -162,7 +165,7 @@
         <div id="valores" class="info-block">
           <table>
             <tr>
-              <td style="vertical-align: top;">
+              <td>
                 <img src="./assets/icons/valores.png" alt="Ícono Valores" width="50">
               </td>
               <td>
@@ -181,88 +184,194 @@
       </section>
     </main>
     <aside>
-      <div class="container">
-        <div class="row justify-content-center">
-
-          <!-- Tarjeta Juan Pablo -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+      <section class="miembros">
+        <!-- Tarjeta Juan Pablo -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/JP.webp" class="card-img-top mt-2 mb-2"
-              alt="Foto de perfil Gabriela Ordoñez">
-            <div class="card-body">
+            alt="Foto de perfil Juan Pablo">
+            <div class="puesto">
               <h5>Juan Pablo Villanueva</h5>
               <h6>Desarrollador Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Especializado en e-commerce en el área de ventas.
-                Apasionado de atender las necesidades de mis clientes con un alto sentido de responsabilidad y apoyo.
-              </p>
             </div>
           </div>
-
-          <!-- Tarjeta Gabriela -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">Especializado en e-commerce en el área de ventas.
+              Apasionado de atender las necesidades de mis clientes con un alto sentido de responsabilidad y apoyo.
+            </p>
+            <!-- Redes sociales JP -->
+            <div class="redes-sociales">
+              <a class="m-2" href="https://github.com/Juan-Pablo-Villanueva-Garcia" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a class="m-2" href="https://www.linkedin.com/in/juan-pablo-villanueva-garcia-5306512a2/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+          
+        </article>
+        <!-- Tarjeta Gabriela -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/Gabriela.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Gabriela Ordoñez">
-            <div class="card-body">
+            <div class="puesto">
               <h5>Gabriela Ordoñez</h5>
               <h6>Desarrolladora Java Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Especializada en programación orientada a objetos,
-                desarrollo web, bases de datos y control de versiones con Git, comprometida con la calidad del código y
-                el trabajo en equipo.</p>
             </div>
           </div>
-
-          <!-- Tarjeta Daniel -->
-          <div class="card m-4 background-color-card shadow-card" style="width: 18rem;">
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Especializada en programación orientada a objetos, desarrollo web, bases de datos y control de versiones con Git,
+              comprometida con la calidad del código y el trabajo en equipo.
+            </p>
+            <!-- Redes sociales Gabriela -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/Gabriela-Ordonez" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/gabriela-ordo%C3%B1ez-sanchez/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Daniel -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/Daniel.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Daniel Banda-LootBox">
-            <div class="card-body">
+            <div class="puesto">
               <h5>Daniel Banda</h5>
-              <h6>Developer</h6>
-              <p class="card-text text-color-card tipo-letra">Soy desarrollador full-stack con experiencia en desarrollo
-                web y marketing para ecommerces. Disfruto los proyectos como este ya que me permiten combinar mis
-                conocimientos en fotografía y diseño.</p>
+              <h6>Desarrollador Full Stack</h6>
             </div>
           </div>
-
-          <!-- Tarjeta Felipe -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Soy desarrollador full stack con experiencia en desarrollo web y marketing para ecommerces, disfruto desarrollar
+              proyectos creativos y la fotografía es mi principal hobbie.
+            </p>
+            <!-- Redes sociales Daniel -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/Daniel-Banda" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/daniel-banda-/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Felipe -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/Felipe.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Felipe Alejandro Rosas Mendoza">
-            <div class="card-body">
+            <div class="puesto">
               <h5>Felipe Rosas</h5>
               <h6>Desarrollador Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Especializado en crear herramientas web personalizadas
-                para optimizar procesos, enfocado en escalabilidad y eficiencia.</p>
             </div>
           </div>
-
-          <!-- Tarjeta Alejandro -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Especializado en crear herramientas web personalizadas para optimizar procesos, enfocado en escalabilidad y
+              eficiencia.
+            </p>
+            <!-- Redes sociales Felipe -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/felipelou1199" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/felipe-rosas-mendoza/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Alejandro -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/alex.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Alejandro Meza">
-            <div class="card-body">
+            <div class="puesto">
               <h5>Alejandro Meza</h5>
               <h6>Desarrollador Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Me gusta la programación y el aprendizaje continuo. Tengo
-                conocimientos en Java y buenas prácticas de programación, colaboro en equipo para construir soluciones
-                útiles, siempre con ganas de crecer y aportar valor.</p>
             </div>
           </div>
-          <!-- Tarjeta Diego -->
-          <div class="card m-4 background-color-card" style="width: 18rem">
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Me gusta la programación y el aprendizaje continuo. Tengo conocimientos en Java y buenas prácticas de
+              programación, colaboro en equipo para construir soluciones útiles, siempre con ganas de crecer y aportar valor.
+            </p>
+            <!-- Redes sociales Alejandro -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/alejandroMeza097" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/alejandromezar/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Diego -->
+        <article class="card m-4">
+          <div class="presentacion">
             <img src="./assets/images/FotosPerfil/Diego.webp" class="card-img-top mt-2 mb-2"
               alt="Foto de perfil Adrián Velázquez">
-            <div class="card-body">
-              <h5>Adrián Velázquez </h5>
+            <div class="puesto">
+              <h5>Adrián Velázquez</h5>
               <h6>Desarrollador Java Full Stack</h6>
-              <p class="card-text text-color-card tipo-letra">Soy desarrollador con interés por el diseño.  
-                He activamente formado parte de equipos de desarrollo, donde he colaborado en diversos proyectos. Considero que una buena experiencia de usuario 
-                es tan importante como un código bien estructurado.</p>
             </div>
           </div>
-
-        </div>
-      </div>
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Soy desarrollador con interés por el diseño. He activamente formado parte de equipos de desarrollo, donde he
+              colaborado en diversos proyectos. Considero que una buena experiencia de usuario es tan importante como un código
+              bien estructurado.
+            </p>
+            <!-- Redes sociales Diego -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/adrianvel2904" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/diego-adrian-velazquez-espinosa-8726b51b0/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Saul -->
+        <article class="card m-4">
+          <div class="presentacion">
+            <img src="./assets/images/FotosPerfil/Saul.webp" class="card-img-top mt-2 mb-2"
+              alt="Foto de perfil Saul Hernandez">
+            <div class="puesto">
+              <h5>Saul Hernandez</h5>
+              <h6>SCRUM Master</h6>
+            </div>
+          </div>
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Desarrollador fullstack especializado en Java que asume el rol de Scrum Master combina su experiencia técnica en
+              desarrollo web y programación orientada a objetos con habilidades de liderazgo, promoviendo la colaboración y el
+              enfoque ágil en equipos de trabajo.
+            </p>
+            <!-- Redes sociales Saul -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/ArgHero" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/saul-ahernandez/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+      </section>
     </aside>
+  </div>
     <footer class="footer">
       <p>By Script Squad</p>
     </footer>
