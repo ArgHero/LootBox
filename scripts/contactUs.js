@@ -98,6 +98,8 @@ btnEnviar.addEventListener("click", function(event) {
   } else {
     // Si todo es válido, enviar el formulario <----------Funciones que reciben los valores validados
     alert("Formulario enviado correctamente\nNombre: " + txtNombre.value + "\nMensaje: " + txtMensaje.value);
+    enviarCorreo();
+    console.log("kk");
 
     // Limpiar los campos después de enviar
     txtNombre.value = "";
@@ -151,7 +153,8 @@ txtCorreo.addEventListener("blur",(event)=>{
 
 //email....
 //DECLARACION DE VARIABLES...
-
+function enviarCorreo(){
+  emailjs.init('jqeDzbQ777n58fxQr');
 const formCorreo = document.getElementsByTagName("form").item(0);
 
 formCorreo.addEventListener("submit", (e) =>{
@@ -196,6 +199,9 @@ formCorreo.addEventListener("submit", (e) =>{
       },
     );
 });
+}
+
+
 
 
 
