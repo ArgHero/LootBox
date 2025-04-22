@@ -1,29 +1,176 @@
 :root{
-    font-family: "Alumni Sans Collegiate One", "Irish Grover","Galindo", sans-serif;
+    --fuente-encabezado: "Alumni Sans Collegiate One";
+    --fuente-texto: "Galindo";
+    --fuente-link:"Irish Grover";
 
-    --bg: #000221;
-    --txt: #d9d4d1;
-    --sky: #00c8df;
-    --navy: #003662;
-    --orange: #d35f18;
-    --gray: #3d444b;
+
+    --bg:#000221;
+    --txt:#d9d4d1;
+    --sky:#00c8df;
+    --navy:#003652;
+    --orange:#d35f18;
+    --gray:#3d444b;
+    --txtCont: #aec0c2;
 
     background-color: var(--bg);
     color: var(--txt);
 }
+/* Estilos de la mision, vision y valores */
+  body {
+    font-family: "Galindo";
+    background-color: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: var(--navy);
+    border-radius: 10px;
+    color: var(--txt);
+  }
+  
+  .info-block{
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: var(--gray);
+    box-shadow: 5px 5px 15px var(--orange);
+  }
 
-/* 
-@media (max-width: 527px){}
-@media (max-width: 1024px){} */
+  div.info-block table tr td{
+    vertical-align: middle;
+  }
+
+  h3 {
+    color: var(--sky);
+    margin-top: 0;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  strong {
+    color: var(--txtCont);
+  }
+  
+  img {
+    margin-right: 15px;
+  }
+  
+
+/*ESTILOS PARA LAS TARJETAS*/
+aside section.miembros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--navy);
+    border-radius: 0.5em;
+}
+aside section.miembros article.card{
+    width: 80%;
+    background-color: var(--gray);
+    box-shadow: 5px 5px 15px var(--orange);
+    border-radius: 1rem;
+    padding-top: 0.5rem;
+}
+aside section.miembros article.card div.presentacion {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+aside section.miembros article.card div.presentacion img{
+    width: 40%;
+    border-radius: 1rem;
+}
+aside section.miembros article.card div.card-body{
+    display: flex;
+    align-items: center;
+}
+.text-color-card{
+    color: var(--txt);
+}
+
+
+/* Estilos para logos redes sociales */
+.redes-sociales i {
+    color: var(--sky); 
+  }
+  
+  .redes-sociales i:hover {
+    color: var(--navy);
+  }
+  
+  .redes-sociales i {
+    font-size: 30px; 
+  }
+  
+  a {
+    text-decoration: none;
+  }
+
+/*Estilos del carrusel*/
+
+section.sobreNosotros{
+    position: relative;
+    width: 100%;
+}
+section.sobreNosotros article.titulo{
+    margin-top: 1rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+section.sobreNosotros article.titulo h1{
+    font-family: var(--fuente-encabezado);
+    font-weight: 500;
+}
+section.sobreNosotros article.descripcion{
+    background-color: var(--navy);
+    font-family: var(--fuente-texto);
+    padding: 1rem;
+    border-radius: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;   
+}
+#logosEmpresa div.carousel-inner div.carousel-item img{
+    border-radius: 1rem;
+}
+#separador{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+}
+/*Nav bar*/
+#logosEmpresa{
+    background-color: var(--gray);
+    box-shadow: 5px 5px 15px var(--orange);
+    padding: 1%;
+    border-radius: 1rem;
+}
 
 .footer{
-    background-color: #003662;
-    color: white;
+    background-color: var(--navy);
+    color: var(--txt);
     text-align: center ;
     padding: 16px;
     font-size: 16px;
     font-family: 'Irish Grover', cursive;
-   
+}
+.btns-log-ins {
+    background-color: var(--orange);
+}
+
+/*BREAK POINTS....................................................................*/
+@media (max-width: 992px) {
+    section.sobreNosotros article.descripcion {
+        position: static;
+        margin-top: 1rem;
+    }
 }
 
 @media (min-width:768px){
@@ -31,41 +178,40 @@
         padding: 24px;
         font-size: 20px;
     }
+    #separador{
+        flex-direction: row;
+        gap: 1em;
+    }
+    main{
+        width: 50%;
+    }
+    aside{
+        width: 70%;
+    }
+
+    /*modifica ancho de tarjeta*/
+    aside section.miembros article.card{
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+    }
+    aside section.miembros article.card div.presentacion {
+        flex-direction: column;
+        width: 40%;
+        margin: 0 0.5rem;
+        
+    }
+    aside section.miembros article.card div.presentacion img{
+        width: 100%;
+    }
+    
 }
 
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*ESTILOS PARA LAS TARJETAS*/
-.background-color-card{
-    background-color:gray;
+@media(max-width: 527px){
+    .sidebar{
+        background-color: rgba(255, 255, 255, 0,15);
+        backdrop-filter: blur(10px);
+        width: 100px;
+        
+    }
 }
-
-.text-color-card{
-    color: white;
-}
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 467f0de6400cc597a7e3a30b86bc924f339b17d6
->>>>>>> footerUs

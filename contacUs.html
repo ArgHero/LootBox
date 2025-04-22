@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+
+  <!--Fuentes-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/styles/styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=Galindo&family=Irish+Grover&display=swap"
+    href="https://fonts.google.com/specimen/Irish+Grover?query=iris+grover" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <title> ContactUs </title>
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+  <!-- NavBar prueba -->
+  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">LootBox(logo)</a>
+      <!-- Toggle -->
+      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- <form class="d-flex mt-3" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">
+            Search
+          </button>
+        </form> -->
+      <!-- SideBar -->
+      <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <!-- SideBard header -->
+        <div class="offcanvas-header text-white border-bottom">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            Lootbox(logo)
+          </h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <!-- SideBar  body-->
+        <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+          <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#about">AboutUS</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#contact">ContactUs</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#pag2">Pagina2</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#pag3">Pagina3</a>
+            </li>
+          </ul>
+          <!-- login / sing up -->
+          <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+            <a href="#login" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Login</a>
+            <a href="#singup" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Registrate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!--No tocar-->
+  <div id="separador">
+    <main class="container">
+      <section class="sobreNosotros">
+        <div id="logosEmpresa" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/images/logoLootBox1.webp" class="d-block w-100" alt="Logo de Facebook" />
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/images/logoLootBox2.webp" class="d-block w-100" alt="Logo de Instagram />
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/images/logoLootBox3.webp" class="d-block w-100" alt="Nicho de la empresa" />
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#logosEmpresa" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#logosEmpresa" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <article class="titulo">
+          <h1>LootBox</h1>
+        </article>
+        <article class="descripcion">
+          <p>
+            Creamos este espacio para unir a gamers, coleccionistas y fans del
+            universo gaming bajo un mismo techo digital. Nuestras Loot Boxes
+            son nuestra insignia: cajas sorpresa cargadas de artículos
+            exclusivos, coleccionables y accesorios premium que elevan tu
+            experiencia de juego al siguiente nivel.
+          </p>
+        </article>
+      </section>
+      <br><br>
+      <section>
+        <!-- Misión -->
+        <div id="facebook" class="info-block">
+          <table>
+            <tr>
+              <td style="vertical-align: top;">
+                <img src="./assets/images/F.png" alt="Logo Facebook" width="50">
+              </td>
+              <td>
+                <h3> Perfil de Facebook</h3>
+                <p>
+                  ¡Explora, juega y sorpréndete! 
+                  En Loot Box encontrarás videojuegos, artículos gamer 
+                  y cajas sorpresa con productos únicos y coleccionables. 
+                  ¡Cada caja es una nueva aventura! 🚀✨
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Visión -->
+        <div id="instagram" class="info-block">
+          <table>
+            <tr>
+              <td style="vertical-align: top;">
+                <img src="./assets/images/i.png" alt="Logo Instagram" width="50">
+              </td>
+              <td>
+                <h3> Instagram </h3>
+                <p>
+                  🎮 Videojuegos | Accesorios | Cajas sorpresa
+                  📦 ¡Cada box es una aventura!
+                  🚀 Envíos a todo México
+                  📩 DM para pedidos
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Valores -->
+        <!-- <div id="whatsApp" class="info-block">
+          <table>
+            <tr>
+              <td style="vertical-align: top;">
+                <img src="./assets/icons/" alt="Ícono WhatApp" width="50">
+              </td>
+              <td>
+                <h3>WhatsApp</h3>
+                <p></p>
+              </td>
+            </tr>
+          </table>
+        </div> -->
+      </section>
+    </main>
+    <aside>
+      <div class="container">
+        <div class="row justify-content-center">
+          <form>
+            <div class="alert alert-danger fade show" style="display:none;"
+            role="alert" id="alertValidaciones">
+            <p id="alertValidacionesTexto"></p>
+            </div>
+            <fieldset>
+              <legend> Formulario</legend>
+              <div class="mb-3">
+                <label for="txtNombre" class="form-label"> Nombre </label>
+                <input type="text" id="txtNombre" class="form-control"  autofocus placeholder="Ingresa tú nombre">
+              </div>
+              <div class="mb-3">
+                <label for="txtCorreo" class="form-label"> Correo Electrónico </label>
+                <input type="text" id="txtCorreo" class="form-control" placeholder="Ingresa tú correo electrónico">
+              </div>
+              <div class="mb-3">
+                <label for="txtTel" class="form-label"> Teléfono </label>
+                <input type="text" id="txtTel" class="form-control" placeholder="Ingresa tú teléfono">
+              </div>
+              <div class="mb-3">
+                <!-- <label for="txtMensaje" class="form-label"> Mensaje </label>
+                <input type="text" id="txtMensaje" class="form-control" placeholder="Ingresa tú mensaje" >
+              </div> -->
+              <div class="mb-3">
+                <label for="txtMensaje"> Mensaje o Comentarios </label>
+                <textarea class="form-control" placeholder="Dejanos tu mensaje o comentario" id="txtMensaje"></textarea>
+            </div>
+              </div>
+              <button type="submit" class="btn btn-primary" id="btnEnviar"> Enviar </button>
+            </fieldset>
+          </form>
+      </div>
+    </aside>
+    <footer class="footer">
+      <p>By Script Squad</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"></script>
+      <script src="./scripts/contactUs.js"></script>
+</body>
+
+</html>

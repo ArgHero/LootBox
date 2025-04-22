@@ -1,24 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-      crossorigin="anonymous"
-    />
-    
-    <!--Fuentes-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="/styles/styles.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=Galindo&family=Irish+Grover&display=swap"
-      href="https://fonts.google.com/specimen/Irish+Grover?query=iris+grover"
-      rel="stylesheet"
-    />
 
     <title>AboutUs</title>
 
@@ -26,80 +7,374 @@
   <body>
     <nav></nav><!--No tocar-->
 
+  <!--Fuentes-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=Galindo&family=Irish+Grover&display=swap"
+    href="https://fonts.google.com/specimen/Irish+Grover?query=iris+grover" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <title>AboutUs</title>
+</head>
 
-    <aside>
-    <div class="container">
+<body>
+  <!-- NavBar prueba -->
+  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">LootBox(logo)</a>
+      <!-- Toggle -->
+      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="row justify-content-center">
-
-
-            <div class="card m-4 background-color-card" style="width: 18rem;">
-                <img src="/assets/images/descarga.png" class="card-img-top mt-2 mb-2" alt="...">
-                <div class="card-body ">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-    
-            <div class="card m-4 background-color-card" style="width: 18rem;">
-                <img src="/assets/images/descarga.png" class="card-img-top mt-2 mb-2" alt="...">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-
-            <div class="card m-4 background-color-card" style="width: 18rem;">
-              <img src="/assets/images/descarga.png" class="card-img-top mt-2 mb-2" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-          </div>
-
-
-          <div class="card m-4 background-color-card" style="width: 18rem;">
-            <img src="/assets/images/descarga.png" class="card-img-top mt-2 mb-2" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
+      <!-- <form class="d-flex mt-3" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">
+            Search
+          </button>
+        </form> -->
+      <!-- SideBar -->
+      <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <!-- SideBard header -->
+        <div class="offcanvas-header text-white border-bottom">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            Lootbox(logo)
+          </h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
         </div>
-
-        <div class="card m-4 background-color-card" style="width: 18rem;">
-          <img src="/assets/images/descarga.png" class="card-img-top mt-2 mb-2" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- SideBar  body-->
+        <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+          <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#about">AboutUS</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#pag1">Pagina1</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#pag2">Pagina2</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#pag3">Pagina3</a>
+            </li>
+          </ul>
+          <!-- login / sing up -->
+          <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+            <a href="#login" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Login</a>
+            <a href="#singup" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Registrate</a>
           </div>
+        </div>
       </div>
-
-
-      <div class="card m-4 background-color-card" style="width: 18rem;">
-        <img src="/assets/images/descarga.png" class="card-img-top mt-2 mb-2" alt="...">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
     </div>
-
-
-    <div class="card m-4 background-color-card" style="width: 18rem;">
-      <img src="/assets/images/descarga.png" class="card-img-top mt-2 mb-2" alt="...">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-  </div>
-
+  </nav>
+  <!--Cuerpo principal-->
+  <div id="separador" class="container">
+    <main class="container">
+      <section class="sobreNosotros">
+        <div id="logosEmpresa" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/images/logoLootBox1.webp" class="d-block w-100" alt="Logo de la empresa" />
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/images/logoLootBox2.webp" class="d-block w-100" alt="Actividades de la empresa" />
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/images/logoLootBox3.webp" class="d-block w-100" alt="Nicho de la empresa" />
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#logosEmpresa" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#logosEmpresa" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <article class="titulo">
+            <h1>LootBox</h1>
+          
+          </article>
+          <article class="descripcion">
+            <p>
+              Creamos este espacio para unir a gamers, coleccionistas y fans del
+              universo gaming bajo un mismo techo digital. Nuestras Loot Boxes
+              son nuestra insignia: cajas sorpresa cargadas de artículos
+              exclusivos, coleccionables y accesorios premium que elevan tu
+              experiencia de juego al siguiente nivel.
+            </p>
+          </article>
         </div>
         
+      </section>
+      <br><br>
+      <section>
+        <!-- Misión -->
+        <div id="mision" class="info-block">
+          <table>
+            <tr>
+              <td>
+                <img src="./assets/icons/mision.png" alt="Ícono Misión" width="50">
+              </td>
+              <td>
+                <h3>Misión</h3>
+                <p>
+                  Ofrecer productos relacionados a los videojuegos de la más alta calidad con los precios más bajos del
+                  mercado al brindar una experiencia de compra accesible y segura para satisfacer las necesidades y
+                  deseos
+                  de los gamers.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
 
-    </div>
+        <!-- Visión -->
+        <div id="vision" class="info-block">
+          <table>
+            <tr>
+              <td >
+                <img src="./assets/icons/vision.png" alt="Ícono Visión" width="50">
+              </td>
+              <td>
+                <h3>Visión</h3>
+                <p>
+                  Ser los líderes en la compra y venta de videojuegos, proporcionando una experiencia amigable y única
+                  para cualquier tipo de jugador, sin importar su experiencia o plataforma.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Valores -->
+        <div id="valores" class="info-block">
+          <table>
+            <tr>
+              <td>
+                <img src="./assets/icons/valores.png" alt="Ícono Valores" width="50">
+              </td>
+              <td>
+                <h3>Valores</h3>
+                <ul>
+                  <li><strong>Honestidad:</strong> Información clara y veraz para decisiones con confianza.</li>
+                  <li><strong>Transparencia:</strong> Detalles claros sobre precios, envíos y garantías.</li>
+                  <li><strong>Seguridad:</strong> Protección de datos y pagos seguros.</li>
+                  <li><strong>Orientación al cliente:</strong> Atención personalizada y soluciones efectivas.</li>
+                  <li><strong>Lealtad:</strong> Recompensamos la fidelidad con respeto y compromiso.</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </main>
+    <aside>
+      <section class="miembros">
+        <!-- Tarjeta Juan Pablo -->
+        <article class="card m-4">
+          <div class="presentacion">
+            <img src="./assets/images/FotosPerfil/JP.webp" class="card-img-top mt-2 mb-2"
+            alt="Foto de perfil Juan Pablo">
+            <div class="puesto">
+              <h5>Juan Pablo Villanueva</h5>
+              <h6>Desarrollador Full Stack</h6>
+            </div>
+          </div>
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">Especializado en e-commerce en el área de ventas.
+              Apasionado de atender las necesidades de mis clientes con un alto sentido de responsabilidad y apoyo.
+            </p>
+            <!-- Redes sociales JP -->
+            <div class="redes-sociales">
+              <a class="m-2" href="https://github.com/Juan-Pablo-Villanueva-Garcia" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a class="m-2" href="https://www.linkedin.com/in/juan-pablo-villanueva-garcia-5306512a2/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+          
+        </article>
+        <!-- Tarjeta Gabriela -->
+        <article class="card m-4">
+          <div class="presentacion">
+            <img src="./assets/images/FotosPerfil/Gabriela.webp" class="card-img-top mt-2 mb-2"
+              alt="Foto de perfil Gabriela Ordoñez">
+            <div class="puesto">
+              <h5>Gabriela Ordoñez</h5>
+              <h6>Desarrolladora Java Full Stack</h6>
+            </div>
+          </div>
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Especializada en programación orientada a objetos, desarrollo web, bases de datos y control de versiones con Git,
+              comprometida con la calidad del código y el trabajo en equipo.
+            </p>
+            <!-- Redes sociales Gabriela -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/Gabriela-Ordonez" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/gabriela-ordo%C3%B1ez-sanchez/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Daniel -->
+        <article class="card m-4">
+          <div class="presentacion">
+            <img src="./assets/images/FotosPerfil/Daniel.webp" class="card-img-top mt-2 mb-2"
+              alt="Foto de perfil Daniel Banda-LootBox">
+            <div class="puesto">
+              <h5>Daniel Banda</h5>
+              <h6>Desarrollador Full Stack</h6>
+            </div>
+          </div>
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Soy desarrollador full stack con experiencia en desarrollo web y marketing para ecommerces, disfruto desarrollar
+              proyectos creativos y la fotografía es mi principal hobbie.
+            </p>
+            <!-- Redes sociales Daniel -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/Daniel-Banda" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/daniel-banda-/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Felipe -->
+        <article class="card m-4">
+          <div class="presentacion">
+            <img src="./assets/images/FotosPerfil/Felipe.webp" class="card-img-top mt-2 mb-2"
+              alt="Foto de perfil Felipe Alejandro Rosas Mendoza">
+            <div class="puesto">
+              <h5>Felipe Rosas</h5>
+              <h6>Desarrollador Full Stack</h6>
+            </div>
+          </div>
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Especializado en crear herramientas web personalizadas para optimizar procesos, enfocado en escalabilidad y
+              eficiencia.
+            </p>
+            <!-- Redes sociales Felipe -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/felipelou1199" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/felipe-rosas-mendoza/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Alejandro -->
+        <article class="card m-4">
+          <div class="presentacion">
+            <img src="./assets/images/FotosPerfil/alex.webp" class="card-img-top mt-2 mb-2"
+              alt="Foto de perfil Alejandro Meza">
+            <div class="puesto">
+              <h5>Alejandro Meza</h5>
+              <h6>Desarrollador Full Stack</h6>
+            </div>
+          </div>
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Me gusta la programación y el aprendizaje continuo. Tengo conocimientos en Java y buenas prácticas de
+              programación, colaboro en equipo para construir soluciones útiles, siempre con ganas de crecer y aportar valor.
+            </p>
+            <!-- Redes sociales Alejandro -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/alejandroMeza097" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/alejandromezar/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Diego -->
+        <article class="card m-4">
+          <div class="presentacion">
+            <img src="./assets/images/FotosPerfil/Diego.webp" class="card-img-top mt-2 mb-2"
+              alt="Foto de perfil Adrián Velázquez">
+            <div class="puesto">
+              <h5>Adrián Velázquez</h5>
+              <h6>Desarrollador Java Full Stack</h6>
+            </div>
+          </div>
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Soy desarrollador con interés por el diseño. He activamente formado parte de equipos de desarrollo, donde he
+              colaborado en diversos proyectos. Considero que una buena experiencia de usuario es tan importante como un código
+              bien estructurado.
+            </p>
+            <!-- Redes sociales Diego -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/adrianvel2904" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/diego-adrian-velazquez-espinosa-8726b51b0/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+        <!-- Tarjeta Saul -->
+        <article class="card m-4">
+          <div class="presentacion">
+            <img src="./assets/images/FotosPerfil/Saul.webp" class="card-img-top mt-2 mb-2"
+              alt="Foto de perfil Saul Hernandez">
+            <div class="puesto">
+              <h5>Saul Hernandez</h5>
+              <h6>SCRUM Master</h6>
+            </div>
+          </div>
+          <div class="card-body flex-column">
+            <p class="card-text text-color-card tipo-letra text-center">
+              Desarrollador fullstack especializado en Java que asume el rol de Scrum Master combina su experiencia técnica en
+              desarrollo web y programación orientada a objetos con habilidades de liderazgo, promoviendo la colaboración y el
+              enfoque ágil en equipos de trabajo.
+            </p>
+            <!-- Redes sociales Saul -->
+          <div class="redes-sociales">
+            <a class="m-2" href="https://github.com/ArgHero" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a class="m-2" href="https://www.linkedin.com/in/saul-ahernandez/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          </div>
+        </article>
+      </section>
     </aside>
-
-
-    <main></main>
+  </div>
     <footer class="footer">
       <p>By Script Squad</p>
     </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      crossorigin="anonymous"></script>
+</body>
+
 </html>
