@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="./styles/styles.css" />
   <title> ContactUs </title>
   <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="icon" type="image/png" href="./assets/icons/favicon-lootbox.png">
 </head>
 
 <body>
@@ -56,13 +57,13 @@
         <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
           <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#about">AboutUS</a>
+              <a class="nav-link" href="./aboutUs.html">AboutUS</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#contact">ContactUs</a>
+              <a class="nav-link" href="./contacUs.html">ContactUs</a>
             </li>
             <li class="nav-item mx-2">
               <a class="nav-link" href="#pag2">Pagina2</a>
@@ -81,10 +82,13 @@
     </div>
   </nav>
   <!--No tocar-->
-  <div class="container">
-    <div class="row">
+  <div class="container my-4 px-4">
+    <div class="row justify-content-center">
       <!-- Redes -->
-      <div class="col-4">.
+      <div class="col-12 col-md-4 mb-4">
+        <legend>¿Tienes dudas o comentarios?</legend>
+        <p>Utiliza éste formulario para contactarnos<p>
+        
         <div id="facebook" class="info-block">
           <table>
             <tr>
@@ -126,10 +130,11 @@
       </div>
       
       <!-- Form -->
-      <div class="col-6">    <aside>
-        <div class="container">
+      <div class="col-12 col-md-6 mb-4 d-flex flex-column justify-content-center align-items-center">
+        <aside>
+        <div class="container px-4 px-md-8">
           <div class="row justify-content-center">
-            <form>
+            <form class="w-100 p-3">
               <div class="alert alert-danger fade show" style="display:none;"
               role="alert" id="alertValidaciones">
               <p id="alertValidacionesTexto"></p>
@@ -138,20 +143,20 @@
                 <legend> Formulario</legend>
                 <div class="mb-3">
                   <label for="txtNombre" class="form-label"> Nombre </label>
-                  <input type="text" id="txtNombre" class="form-control"  autofocus placeholder="Ingresa tú nombre">
+                  <input type="text" id="txtNombre" class="form-control"  autofocus placeholder="Ingresa tu nombre" name="nombre">
                 </div>
                 <div class="mb-3">
                   <label for="txtCorreo" class="form-label"> Correo Electrónico </label>
-                  <input type="text" id="txtCorreo" class="form-control" placeholder="Ingresa tú correo electrónico">
+                  <input type="text" id="txtCorreo" class="form-control" placeholder="Ingresa tú correo electrónico" name="email">
                 </div>
                 <div class="mb-3">
                   <label for="txtTel" class="form-label"> Teléfono </label>
-                  <input type="tel" id="txtTel" class="form-control" placeholder="Ingresa tú teléfono">
+                  <input type="tel" id="txtTel" class="form-control" placeholder="Ingresa tú teléfono" name="telefono">
                 </div>
                 <div class="mb-3">
                 <div class="mb-3">
                   <label for="txtMensaje"> Mensaje o Comentarios </label>
-                  <textarea class="form-control" placeholder="Dejanos tu mensaje o comentario" id="txtMensaje"></textarea>
+                  <textarea class="form-control" placeholder="Dejanos tu mensaje o comentario" id="txtMensaje" name="mensaje"></textarea>
               </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="btnEnviar"> Enviar </button>
