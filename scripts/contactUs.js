@@ -9,6 +9,9 @@ const btnEnviar = document.getElementById("btnEnviar");
 const alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
 const alertValidaciones = document.getElementById("alertValidaciones");
 
+//querySelecto
+const formCorreo = document.querySelector("#formCorreo");
+
 // Se valida el nombre
 function validarNombre() {
   const nombreCompleto = txtNombre.value.trim();
@@ -97,7 +100,6 @@ btnEnviar.addEventListener("click", function(event) {
     alertValidaciones.style.display = "block";
   } else {
     // Si todo es válido, enviar el formulario <----------Funciones que reciben los valores validados
-    alert("Formulario enviado correctamente\nNombre: " + txtNombre.value + "\nMensaje: " + txtMensaje.value);
     enviarCorreo();
     console.log("kk");
 
@@ -154,13 +156,14 @@ txtCorreo.addEventListener("blur",(event)=>{
 //email....
 //DECLARACION DE VARIABLES...
 function enviarCorreo(){
-  emailjs.init('jqeDzbQ777n58fxQr');
-const formCorreo = document.getElementsByTagName("form").item(0);
+  console.log("llego")
+  const entries = {
+    nombre: txtNombre.value.trim(),
+    email: txtCorreo.value.trim(),
+    telefono: txtTel.value.trim(),
+    mensaje: txtMensaje.value.trim()
+  };
 
-formCorreo.addEventListener("submit", (e) =>{
-  e.preventDefault();
-  const data = new FormData(e.target);
-  const entries = Object.fromEntries((data.entries()));
   console.log(entries);
   //entries.status = 1;
   /*const statusCode = entries.status == 1 ? 200 : 400;
@@ -177,29 +180,27 @@ formCorreo.addEventListener("submit", (e) =>{
   const alertConfig = jsons[statusCode];
   */
 
-
   emailjs.send("service_5nrp32q", "template_3picx8s", entries).then(
-  
-      (response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        Swal.fire({
-            title: "Genial!",
-            text: "Correo enviado!",
-            icon: "success"
-          });
-      },
-      (error) => {
-        console.log('FAILED...', error);
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-            footer: '<a href="#">Why do I have this issue?</a>'
-          });
-      },
-    );
-});
+    (response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      Swal.fire({
+          title: "Genial!",
+          text: "Correo enviado!",
+          icon: "success"
+      });
+    },
+    (error) => {
+      console.log('FAILED...', error);
+      Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+      });
+    },
+  );
 }
+
 
 
 
