@@ -9,9 +9,6 @@ const btnEnviar = document.getElementById("btnEnviar");
 const alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
 const alertValidaciones = document.getElementById("alertValidaciones");
 
-let correoValido = false;
-let telefonoValido = false;
-
 // Se valida el nombre
 function validarNombre() {
   const nombreCompleto = txtNombre.value.trim();
@@ -37,9 +34,11 @@ function validarTelefono() {
   return telPattern.test(content);
 };//validarTelefono()
 
-// Botón enviar
+//--------------------Botón enviar---------------------
 btnEnviar.addEventListener("click", function(event) {
   event.preventDefault();
+  // Ocultar la alerta de validaciones ya que todo está bien
+  alertValidaciones.style.display = "none";
   let isValid = true;
 
   // Limpiar los mensajes anteriores
@@ -51,22 +50,44 @@ btnEnviar.addEventListener("click", function(event) {
   
   // Validar que el campo no esté vacío o tenga al menos un nombre y apellido
   if (txtNombre.value.trim() === "") {
-    txtNombre.style.border = "solid 3px red";
+    txtNombre.style.border = "2px solid red";
     alertValidacionesTexto.innerHTML += "<strong>El campo Nombre no puede estar vacío.</strong><br/>";
     isValid = false;
   } else if (!validarNombre()) {
-    txtNombre.style.border = "solid 3px red";
+    txtNombre.style.border = "2px solid red";
     alertValidacionesTexto.innerHTML += "<strong>El nombre debe contener al menos un nombre y un apellido.</strong><br/>";
+    isValid = false;
+  }
+
+  // Validar que el campo no esté vacío o y que el correo sea válido
+  if (txtCorreo.value.trim() === "") {
+    txtCorreo.style.border = "2px solid red";
+    alertValidacionesTexto.innerHTML += "<strong>El campo Correo Electrónico no puede estar vacío.</strong><br/>";
+    isValid = false;
+  } else if (!validarEmail()) {
+    txtCorreo.style.border = "2px solid red";
+    alertValidacionesTexto.innerHTML += "<strong>El correo electrónico no es válido.</strong><br/>";
+    isValid = false;
+  }
+
+  // Validar que el campo no esté vacío o y que el número de teléfono sea válido.
+  if (txtTel.value.trim() === "") {
+    txtTel.style.border = "2px solid red";
+    alertValidacionesTexto.innerHTML += "<strong>El campo Teléfono no puede estar vacío.</strong><br/>";
+    isValid = false;
+  } else if (!validarTelefono()) {
+    txtTel.style.border = "2px solid red";
+    alertValidacionesTexto.innerHTML += "<strong>El número telefónico no es válido.</strong><br/>";
     isValid = false;
   }
 
   // Validar que el campo no esté vacío o tenga entre 10 y 150 caracteres
   if (txtMensaje.value.trim() === "") {
-    txtMensaje.style.border = "solid 3px red";
+    txtMensaje.style.border = "2px solid red";
     alertValidacionesTexto.innerHTML += "<strong>El campo Mensaje no puede estar vacío.</strong><br/>";
     isValid = false;
   } else if (!validarMensaje()) {
-    txtMensaje.style.border = "solid 3px red";
+    txtMensaje.style.border = "2px solid red";
     alertValidacionesTexto.innerHTML += "<strong>El mensaje debe tener entre 10 y 150 caracteres.</strong><br/>";
     isValid = false;
   }
@@ -75,7 +96,7 @@ btnEnviar.addEventListener("click", function(event) {
   if (!isValid) {
     alertValidaciones.style.display = "block";
   } else {
-    // Si todo es válido, enviar el formulario
+    // Si todo es válido, enviar el formulario <----------Funciones que reciben los valores validados
     alert("Formulario enviado correctamente\nNombre: " + txtNombre.value + "\nMensaje: " + txtMensaje.value);
 
     // Limpiar los campos después de enviar
@@ -83,25 +104,24 @@ btnEnviar.addEventListener("click", function(event) {
     txtMensaje.value = "";
     txtCorreo.value = "";
     txtTel.value = "";
-
+    
     txtNombre.focus();
-
-    // Ocultar la alerta de validaciones ya que todo está bien
-    alertValidaciones.style.display = "none";
   }
 });//btnEnviar-Click
 
-//---------LimpiarContorno----
+//---------LimpiarContorno--------------------
 const cleanBorder = (event)=>{
   const contenedor = event.target;
   contenedor.style.border = "";
 };//cleanBorder()
 
+//---------Colorear contornos-----------------
 const colorBorder = (event)=>{
   const contenedor = event.target;
   contenedor.style.border = "2px solid red";
 };//colorBorder()
 
+//---------Limpiar bordes al clickear--------
 txtNombre.addEventListener("click",cleanBorder);
 txtMensaje.addEventListener("click",cleanBorder);
 txtTel.addEventListener("click",cleanBorder);
