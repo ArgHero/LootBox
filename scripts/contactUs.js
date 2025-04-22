@@ -9,8 +9,6 @@ const btnEnviar = document.getElementById("btnEnviar");
 const alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
 const alertValidaciones = document.getElementById("alertValidaciones");
 
-//querySelecto
-const formCorreo = document.querySelector("#formCorreo");
 
 // Se valida el nombre
 function validarNombre() {
@@ -156,15 +154,13 @@ txtCorreo.addEventListener("blur",(event)=>{
 //email....
 //DECLARACION DE VARIABLES...
 function enviarCorreo(){
-  console.log("llego")
+ //Entradas para mandar el correo
   const entries = {
     nombre: txtNombre.value.trim(),
     email: txtCorreo.value.trim(),
     telefono: txtTel.value.trim(),
     mensaje: txtMensaje.value.trim()
   };
-
-  console.log(entries);
   //entries.status = 1;
   /*const statusCode = entries.status == 1 ? 200 : 400;
   const jsons = {
@@ -182,7 +178,6 @@ function enviarCorreo(){
 
   emailjs.send("service_5nrp32q", "template_3picx8s", entries).then(
     (response) => {
-      console.log('SUCCESS!', response.status, response.text);
       Swal.fire({
           title: "Genial!",
           text: "Correo enviado!",
@@ -190,7 +185,6 @@ function enviarCorreo(){
       });
     },
     (error) => {
-      console.log('FAILED...', error);
       Swal.fire({
           icon: "error",
           title: "Oops...",
