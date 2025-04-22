@@ -99,7 +99,6 @@ btnEnviar.addEventListener("click", function(event) {
   } else {
     // Si todo es válido, enviar el formulario <----------Funciones que reciben los valores validados
     enviarCorreo();
-    console.log("kk");
 
     // Limpiar los campos después de enviar
     txtNombre.value = "";
