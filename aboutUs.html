@@ -1,79 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-  </head>
+  <head>
   <!--Fuentes-->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=Galindo&family=Irish+Grover&display=swap"
-    href="https://fonts.google.com/specimen/Irish+Grover?query=iris+grover" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="./styles/styles.css" />
   <title>AboutUs</title>
 </head>
 
 <body>
-  <!-- NavBar prueba -->
-  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="">LootBox(logo)</a>
-      <!-- Toggle -->
-      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <!-- NavBar -->
+  <div id="navbar-container">
 
-      <!-- <form class="d-flex mt-3" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">
-            Search
-          </button>
-        </form> -->
-      <!-- SideBar -->
-      <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel">
-        <!-- SideBard header -->
-        <div class="offcanvas-header text-white border-bottom">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-            Lootbox(logo)
-          </h5>
-          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"
-            aria-label="Close"></button>
-        </div>
-        <!-- SideBar  body-->
-        <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
-          <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="#about">AboutUS</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="#pag1">Pagina1</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="#pag2">Pagina2</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="#pag3">Pagina3</a>
-            </li>
-          </ul>
-          <!-- login / sing up -->
-          <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-            <a href="#login" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Login</a>
-            <a href="#singup" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Registrate</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
+  </div><!--NavBar-->
+  <div id="main-container"></div>
+
   <!--Cuerpo principal-->
   <div id="separador" class="container">
     <main class="container">
@@ -365,12 +303,12 @@
       </section>
     </aside>
   </div>
-    <footer class="footer">
-      <p>By Script Squad</p>
-    </footer>
+  <!-- Footer -->
+  <div id="footer-container"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
       crossorigin="anonymous"></script>
+      <script type="module" src="./scripts/loader.js"></script>
 </body>
 
 </html>
