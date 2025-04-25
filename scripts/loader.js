@@ -21,7 +21,7 @@ function loadContainers(){
     .catch(error => console.error('Error cargando el footer:', error));
   fetch(fuentesPath)
     .then(response => response.text())
-    .then(data => fuentes.innerHTML = data)
+    .then(data => fuentes.insertAdjacentHTML("beforeend", data))
     .catch(error => console.error('Error cargando el fuentes:', error));
 };//loadContainers()
 
