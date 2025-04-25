@@ -66,20 +66,21 @@
       </form> <br>
 
     <!-- Tabla -->
+<!-- Tabla -->
     <table class="container table table-striped">
         <tr class="table-primary">
             <th class="table-primary" style="width:10%;">SKU</th>
             <th class="table-primary" style="width:50%;">Producto</th>
-            <th class="table-primary">precio</th>
-            <th class="table-primary">Cantidad</th>
+            <th class="table-primary d-none d-md-table-cell">Precio</th> <!-- Agregado d-none d-md-table-cell -->
+            <th class="table-primary d-none d-md-table-cell">Cantidad</th> <!-- Agregado d-none d-md-table-cell -->
             <th class="table-primary"></th>
         </tr>
         <tr class="table-dark">
             <td class="table-dark">...</td>
             <td class="table-dark">...</td>
-            <td class="table-dark">...</td>
-            <td class="">...</td>
-            <td class="d-flex justify-content-end">
+            <td class="table-dark d-none d-md-table-cell">...</td> <!-- Agregado d-none d-md-table-cell -->
+            <td class="d-none d-md-table-cell">...</td> <!-- Agregado d-none d-md-table-cell -->
+            <td class="d-flex justify-content-end ">
                 <button type="button" class="btn btn-warning me-3">Editar</button>
                 <button type="button" class="btn btn-danger">Eliminar</button>
             </td>
