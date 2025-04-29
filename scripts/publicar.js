@@ -7,7 +7,9 @@ const precio = document.getElementById("precio");
 const costo = document.getElementById("costo");
 const cantidad = document.getElementById("cantidad");
 const btnPublicar = document.getElementById("btn-publicar");
+
 const tablaItems = document.getElementById("tabla-items");
+const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
 
 
 
@@ -51,8 +53,12 @@ btnPublicar.addEventListener("click",function(event){
     <td>${producto.value}</td>
     <td>${precio.value}</td>
     <td>${cantidad.value}</td>
+     <td class="d-flex justify-content-end">
+                <button type="button" class="btn btn-warning me-3">Editar</button>
+                <button type="button" class="btn btn-danger">Eliminar</button>
+    </td>
     </tr>`;
 
-    tablaItems.insertAdjacentHTML("beforeend",row);
+    cuerpoTabla.insertAdjacentHTML("beforeend",row);
 
 });
