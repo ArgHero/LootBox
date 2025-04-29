@@ -161,10 +161,9 @@ section.sobreNosotros article.descripcion{
     background-color: var(--navy);
     color: var(--txt);
     text-align: center ;
-    padding: 16px;
-    font-size: 16px;
     font-family: 'Irish Grover', cursive;
 }
+
 .btns-log-ins {
     background-color: var(--orange);
 }
