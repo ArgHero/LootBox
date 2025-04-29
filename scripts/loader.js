@@ -1,3 +1,5 @@
+const productosL = localStorage.getItem('productos');
+
 const navPath = "./assets/components/navbar.html";
 const footPath = "./assets/components/footer.html";
 const fuentesPath = "./assets/components/fuentes.html";
@@ -33,4 +35,28 @@ function resaltarNav(){
 
 
 document.addEventListener("DOMContentLoaded", loadContainers);
+
+
+//=================Productos por default=================================
+
+if (!productosL) {
+  fetch('./assets/documents/Productos.txt')
+  .then(response => {
+    if (!response.ok) throw new Error('No se pudo cargar el archivo');
+    return response.text(); // Usamos text() porque es un archivo .txt
+  })
+  .then(text => {
+    const data = JSON.parse(text);
+    // Verifica si es un array
+    if (Array.isArray(data)) {
+      localStorage.setItem('productos', JSON.stringify(data));
+      console.log('Productos cargados correctamente al localStorage.');
+    } else {
+      console.error('El archivo no contiene un array válido.');
+    }
+  })
+  .catch(error => {
+    console.error('Error al cargar o parsear el archivo:', error);
+  });
+  }
 
