@@ -30,7 +30,7 @@
             <div class="row mb-3">
                 <div class="col-md-4">
                         <label for="Input" class="form-label">SKU</label>
-                        <input type="text" class="form-control" placeholder="SKU">
+                        <input type="text" class="form-control" placeholder="SKU" id="sku">
                 </div>
                 <div class="col-md-8 mb-3">
                     <label for="Select" class="form-label">Categoría</label>
@@ -40,33 +40,33 @@
                 </div> 
                 <div class="mb-3">
                     <label for="Input" class="form-label">Producto</label>
-                    <input type="text" class="form-control" placeholder="Nombre del producto">
+                    <input type="text" class="form-control" placeholder="Nombre del producto" id="producto">
                 </div>
             </div>  
             <div class="mb-3">
                 <label for="TextInput"  class="form-label">Descripción del producto</label>
-                <textarea class="form-control" rows="4" placeholder="Escribe aquí..."></textarea>          
+                <textarea class="form-control" rows="4" placeholder="Escribe aquí..." id="descripcion"></textarea>          
             </div>
           <div class="row mb-3">
                 <div class="col-md-4">
                 <label for="Input" class="form-label">Precio</label>
-                <input type="text" class="form-control" placeholder="$00.00">
+                <input type="text" class="form-control" placeholder="$00.00" id="precio">
         </div>
          <div class="col-md-4">
                 <label for="Input" class="form-label">Costo</label>
-                <input type="text" class="form-control" placeholder="$00.00">
+                <input type="text" class="form-control" placeholder="$00.00" id="costo">
                 </div>
           <div class="col-md-4">
             <label for="Input" class="form-label">Cantidad</label>
-            <input type="text" class="form-control" placeholder="0">
+            <input type="text" class="form-control" placeholder="0" id="cantidad">
             </div>
         </div>
-          <button type="submit" class="btn btn-primary">Publicar</button>
+          <button type="submit" class="btn btn-primary" id="btn-publicar">Publicar</button>
         </fieldset>
       </form> <br>
 
     <!-- Tabla -->
-    <table class="container table table-striped">
+    <table class="container table table-striped" id="tabla-items">
         <tr class="table-primary">
             <th class="table-primary" style="width:10%;">SKU</th>
             <th class="table-primary" style="width:50%;">Producto</th>
@@ -74,6 +74,9 @@
             <th class="table-primary">Cantidad</th>
             <th class="table-primary"></th>
         </tr>
+        <tbody>
+          
+        </tbody>
         <tr class="table-dark">
             <td class="table-dark">...</td>
             <td class="table-dark">...</td>
