@@ -1,5 +1,4 @@
-const telPattern = new RegExp("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}(?!(?:-\s\.?)?(\d)\x01{3})$")//("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$");
-
+const telPattern = new RegExp("^(?!.*(\\d)([-.\\s()]?)(?:\\1\\2?){9}$)(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{2,4}\\)?[-.\\s]?)?\\d{3,4}[-.\\s]?\\d{4}$");
 const emailPattern = new RegExp("[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+");
 
 const txtCorreo = document.getElementById("txtCorreo");
