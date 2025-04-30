@@ -7,58 +7,148 @@ const precio = document.getElementById("precio");
 const costo = document.getElementById("costo");
 const cantidad = document.getElementById("cantidad");
 const btnPublicar = document.getElementById("btn-publicar");
-
 const tablaItems = document.getElementById("tabla-items");
 const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
+const listaProductos = JSON.parse(localStorage.getItem('productos'));
+console.log(listaProductos);
+console.log(typeof(listaProductos));
+//console.log(productos[0].name)
+//console.log(productos[0].description)
 
 
 
-
-
-
-
-//FUNCIONES PARA VALIDACION DE CAMPOS...
-//FUNCION QUE VALIDA LA CANTIDAD...
-
+//FUNCION VALIDAR CANTIDAD...
 function validarCantidad() {
-
-    //VERIFICA EXISTA UN VALOR INGREADO...
-    if(cantidad.value.trim().length <= 0){
+    // CANTIDAD
+    if (cantidad.value.trim().length <= 0) {
+        alert("La cantidad no puede estar vacía.");
+        cantidad.focus();
         return false;
     }
 
-    //VARIFICA QUE EL VALOR INGRESADO SEA UN NUMERO...
-    if(isNaN(cantidad.value)){
+    // VERIFICAR NÚMERO
+    if (isNaN(cantidad.value)) {
+        alert("La cantidad debe ser un número.");
+        cantidad.focus();
         return false;
     }
 
-    //VERIFICA QUE EL NUMERO INGREASADO SEA MAYOR QUE CERO...
-    if(Number(cantidad.value)<=0){
+    // Cantidad no 0
+    if (Number(cantidad.value) <= 0) {
+        alert("La cantidad debe ser mayor que cero.");
+        cantidad.focus();
         return false;
     }
-    
+
     return true;
-
 }
 
 
 
 
-//OREJA PARA EL BOTON DE PUBLICAR...
-btnPublicar.addEventListener("click",function(event){
+//FUNCION VALDIAR SKU...
+function validarSKU() {
+    if (sku.value.trim().length < 1) {
+        alert("El SKU es obligatorio.");
+        sku.focus();
+        return false;
+    }
+    return true;
+}
 
+
+
+//FUNCION VALDIAR PRODUCTO...
+function validarProducto() {
+    if (producto.value.trim().length < 3) {
+        alert("El nombre del producto debe tener al menos 3 caracteres.");
+        producto.focus();
+        return false;
+    }
+    return true;
+}
+
+//FUNCIONA VALIDAR DESCRIPCION...
+function validarDescripcion() {
+    if (descripcion.value.trim().length < 5) {
+        alert("La descripción del producto debe tener al menos 5 caracteres.");
+        descripcion.focus();
+        return false;
+    }
+    return true;
+}
+
+// FUNCION VALIDAR PRECIO...
+function validarPrecio() {
+    if (isNaN(precio.value) || Number(precio.value) <= 0) {
+        alert("El precio debe ser un número mayor que 0.");
+        precio.focus();
+        return false;
+    }
+    return true;
+}
+
+//FUNCION VALIDAR COSTO...
+function validarCosto() {
+    if (isNaN(costo.value) || Number(costo.value) <= 0) {
+        alert("El costo debe ser un número mayor que 0.");
+        costo.focus();
+        return false;
+    }
+    return true;
+}
+
+//FUNCION PARA MOSTAR DATOS DE LOCALSTORAGE...
+function mostrarDatosLocal(){
+    listaProductos.forEach(element => {
+        console.log(element);
+        let row = `<tr>
+        <td>${element.category}</td>
+        <td>${element.name}</td>
+        <td>${element.price}</td>
+        <td>${element.rating.rate}</td>
+         <td class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-warning me-3">Editar</button>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+        </td>
+        </tr>`;
+        cuerpoTabla.insertAdjacentHTML("beforeend",row);
+    });
+}
+
+
+// AGREGAR
+btnPublicar.addEventListener("click", function (event) {
     event.preventDefault();
-    let row = `<tr>
-    <td>${sku.value}</td>
-    <td>${producto.value}</td>
-    <td>${precio.value}</td>
-    <td>${cantidad.value}</td>
-     <td class="d-flex justify-content-end">
-                <button type="button" class="btn btn-warning me-3">Editar</button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
-    </td>
-    </tr>`;
 
-    cuerpoTabla.insertAdjacentHTML("beforeend",row);
+    // Validar todos los campos antes de agregar el producto
+    if (!validarSKU() || !validarProducto() || !validarDescripcion() || !validarPrecio() || !validarCosto() || !validarCantidad()) {
+        
+    }
+    else{
+        let row = `<tr>
+        <td>${sku.value}</td>
+        <td>${producto.value}</td>
+        <td>${precio.value}</td>
+        <td>${cantidad.value}</td>
+         <td class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-warning me-3">Editar</button>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+        </td>
+        </tr>`;
+    
+        cuerpoTabla.insertAdjacentHTML("beforeend",row);
+        sku.value = "";
+        producto.value = "";
+        descripcion.value = "";
+        precio.value = "";
+        costo.value = "";
+        cantidad.value = "";
+
+    }
+
+
 
 });
+
+mostrarDatosLocal();
