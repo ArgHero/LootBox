@@ -14,11 +14,11 @@ function createCards(prods) {
   main.insertAdjacentHTML(
     "beforeend",
         `
-        <div id="${prods.id}" class="card p-3" style="width: 18rem;">
+        <div id="${prods.id}" class="card p-3 text-white bg-dark" style="width: 18rem;">
             <div class="ratio ratio-1x1">
                 <img src="${prods.img}" class="card-img-top" alt="">
             </div>        
-            <div class="card-body d-flex flex-wrap justify-content-center gap-3">
+            <div class="card-body d-flex flex-wrap justify-content-center gap-3 ">
                 <h5 class="card-title">${prods.name}</h5>
                 <p class="card-text text-truncate text-break">${
                   prods.description
@@ -27,12 +27,12 @@ function createCards(prods) {
                     Saber más...
                 </button>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">$ ${prods.price}</li>
-                <li class="list-group-item">⭐ ${prods.rating.rate} (${
+            <ul class="list-group list-group-flush" >
+                <li class="list-group-item text-white bg-dark">$ ${prods.price}</li>
+                <li class="list-group-item text-white bg-dark">⭐ ${prods.rating.rate} (${
                 prods.rating.count
                 }) </li>
-                <li class="list-group-item">${prods.category.toUpperCase()}</li>
+                <li class="list-group-item text-white bg-dark">${prods.category.toUpperCase()}</li>
             </ul>
         </div>
         `);//insertAdjacentHTML
