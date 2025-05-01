@@ -158,6 +158,13 @@ btnPublicar.addEventListener("click", function (event) {
         costo.value = "";
         cantidad.value = "";
 
+        Swal.fire({
+            icon: "success",
+            title: "¡Producto publicado!",
+            text: "El producto se ha guardado exitosamente.",
+            confirmButtonText: "Aceptar"
+          });
+
     }
 
 
