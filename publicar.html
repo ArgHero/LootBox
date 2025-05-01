@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-md-8 mb-3">
                     <label for="Select" class="form-label">Categoría</label>
-                        <select class="form-select">
+                        <select class="form-select" id="selector-categoria">
                             <option>Selecciona la categoría</option> 
                         </select>
                 </div> 
@@ -42,6 +42,10 @@
                     <label for="Input" class="form-label">Producto</label>
                     <input type="text" class="form-control" placeholder="Nombre del producto" id="producto">
                 </div>
+                <div class="mb-3">
+                  <label for="Input" class="form-label">URL de la imagen</label>
+                  <input type="text" class="form-control" placeholder="URL" id="URL-imagen">
+              </div>
             </div>  
             <div class="mb-3">
                 <label for="TextInput"  class="form-label">Descripción del producto</label>
@@ -70,7 +74,8 @@
     <table class="container table table-striped" id="tabla-items">
       <thead>
         <th class="table-primary" style="width:10%;">SKU</th>
-            <th class="table-primary" style="width:50%;">Producto</th>
+            <th class="table-primary" style="width:35%;">Producto</th>
+            <th class="table-primary d-none d-md-table-cell">Categoría</th>
             <th class="table-primary d-none d-md-table-cell">Precio</th> <!-- Agregado d-none d-md-table-cell -->
             <th class="table-primary d-none d-md-table-cell">Cantidad</th> <!-- Agregado d-none d-md-table-cell -->
             <th class="table-primary"></th>
