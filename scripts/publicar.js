@@ -131,6 +131,7 @@ btnPublicar.addEventListener("click", function (event) {
         <td>${producto.value}</td>
         <td>${precio.value}</td>
         <td>${cantidad.value}</td>
+         <td><img src="${urlImagen.value}" alt="Imagen del producto" style="max-width: 100px; max-height: 100px;"></td>
          <td class="d-flex justify-content-end">
                     <button type="button" class="btn btn-warning me-3">Editar</button>
                     <button type="button" class="btn btn-danger">Eliminar</button>
@@ -138,7 +139,7 @@ btnPublicar.addEventListener("click", function (event) {
         </tr>`;
         let nuevoProducto = {
             name: `${sku.value}`,
-            img: "xxxxxxxx",
+            img: `${urlImagen.value}`,
             description: `${descripcion.value}`,
             category: "Periféricos",
             price: 599.99,
@@ -157,6 +158,7 @@ btnPublicar.addEventListener("click", function (event) {
         precio.value = "";
         costo.value = "";
         cantidad.value = "";
+        urlImagen.value = "";
 
         Swal.fire({
             icon: "success",
