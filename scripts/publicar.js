@@ -116,7 +116,7 @@ btnPublicar.addEventListener("click", function (event) {
     else{
         let nuevoProducto = {
             name: `${sku.value}`,
-            img: "xxxxxxxx",
+            img: `${urlImagen.value}`,
             description: `${descripcion.value}`,
             category: "Periféricos",
             price: 599.99,
@@ -146,6 +146,7 @@ function addRow(element){
             <td>${element.name}</td>
             <td>${element.price}</td>
             <td>${element.price}</td>
+            <td><img src="${urlImagen.value}" alt="Imagen del producto" style="max-width: 100px; max-height: 100px;"></td>
             <td class="d-flex justify-content-end">
                         <button type="button" class="btn btn-warning me-3">Editar</button>
                         <button type="button" class="btn btn-danger" onClick="deleteComp(event)">Eliminar</button>
@@ -161,6 +162,7 @@ function cleanForm(){
     precio.value = "";
     costo.value = "";
     cantidad.value = "";
+    urlImagen.value = "";
     sku.focus();
 }//cleanForm()
 
