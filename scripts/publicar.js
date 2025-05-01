@@ -142,18 +142,18 @@ btnPublicar.addEventListener("click", function (event) {
 function addRow(element){
     cuerpoTabla.insertAdjacentHTML("beforeend",`
         <tr>
+            <td><img src="${element.img}" alt="${element.name}" style="max-width: 4rem; max-height: 4rem;"></td>
             <td>${element.category}</td>
             <td>${element.name}</td>
             <td>${element.price}</td>
             <td>${element.price}</td>
-            <td><img src="${urlImagen.value}" alt="Imagen del producto" style="max-width: 100px; max-height: 100px;"></td>
-            <td class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-warning me-3">Editar</button>
-                        <button type="button" class="btn btn-danger" onClick="deleteComp(event)">Eliminar</button>
+            <td>
+                <button type="button" class="btn btn-warning p-1 d-inline-block mb-1">Editar</button>
+                <button type="button" class="btn btn-danger p-1 d-inline-block" onClick="deleteComp(event)">Eliminar</button>
             </td>
         </tr>`
     );  
-}
+}//adRow()
 
 function cleanForm(){
     sku.value = "";
@@ -168,3 +168,12 @@ function cleanForm(){
 
 
 //--------------Eliminar Componentes
+function deleteComp(event){
+    event.preventDefault();
+    //Si se cambia el orden de la tabla es necesario ajustar el numero de item
+    const prodName = event.target.parentElement.parentElement.getElementsByTagName("td").item(2).innerText;
+    const indexDel = listaProductos.findIndex(producto=>producto.name===prodName);
+    listaProductos.splice(indexDel,1);
+    localStorage.setItem('productos', JSON.stringify(listaProductos));
+    mostrarDatosLocal();
+}//deleteComp()
