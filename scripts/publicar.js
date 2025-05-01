@@ -1,4 +1,4 @@
-const skuPath = new RegExp("^[a-zA-Z0-9]{1,3}$");
+const skuPath = new RegExp("^[a-zA-Z0-9]{1,4}$");
 
 const sku = document.getElementById("sku");
 const producto = document.getElementById("producto");
@@ -6,7 +6,9 @@ const descripcion = document.getElementById("descripcion");
 const precio = document.getElementById("precio");
 const costo = document.getElementById("costo");
 const cantidad = document.getElementById("cantidad");
+const urlImage = document.getElementById("url-imagen");
 const btnPublicar = document.getElementById("btn-publicar");
+
 const tablaItems = document.getElementById("tabla-items");
 const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
 
@@ -115,14 +117,17 @@ btnPublicar.addEventListener("click", function (event) {
     }//if
     else{
         let nuevoProducto = {
-            name: `${sku.value}`,
-            img: `${urlImagen.value}`,
-            description: `${descripcion.value}`,
+            sku: sku.value,
+            name: producto.value,
+            img: urlImage.value,
+            description: descripcion.value,
             category: "Periféricos",
-            price: 599.99,
+            price: Number(precio.value),
+            cost: Number(costo.value),
+            stock: Number(cantidad.value),
             rating: {
-              rate: 4.6,
-              count: 89
+              rate: 4.8,
+              count: 77
             }
         };
         addRow(nuevoProducto);
@@ -143,10 +148,11 @@ function addRow(element){
     cuerpoTabla.insertAdjacentHTML("beforeend",`
         <tr>
             <td><img src="${element.img}" alt="${element.name}" style="max-width: 4rem; max-height: 4rem;"></td>
-            <td>${element.category}</td>
+            <td>${element.sku}</td>
             <td>${element.name}</td>
+            <td>${element.category}</td>
             <td>${element.price}</td>
-            <td>${element.price}</td>
+            <td>${element.stock}</td>
             <td>
                 <button type="button" class="btn btn-warning p-1 d-inline-block mb-1">Editar</button>
                 <button type="button" class="btn btn-danger p-1 d-inline-block" onClick="deleteComp(event)">Eliminar</button>
@@ -162,7 +168,7 @@ function cleanForm(){
     precio.value = "";
     costo.value = "";
     cantidad.value = "";
-    urlImagen.value = "";
+    urlImage.value = "";
     sku.focus();
 }//cleanForm()
 

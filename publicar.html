@@ -30,45 +30,47 @@
             <div class="row mb-3">
                 <div class="col-md-4">
                         <label for="Input" class="form-label">SKU</label>
-                        <input type="text" class="form-control" placeholder="SKU" id="sku">
+                        <input type="text" class="form-control" placeholder="SKU" id="sku" maxlength="4">
                 </div>
                 <div class="col-md-8 mb-3">
                     <label for="Select" class="form-label">Categoría</label>
                         <select class="form-select" id="selector-categoria">
-                            <option>Selecciona la categoría</option> 
+                            <option selected disabled>Selecciona la categoría</option>
+                            <option value="a">Consolas</option>
+                            <option value="b">Merch</option>
+                            <option value="c">Periféricos</option>
+                            <option value="d">Videojuegos</option>
                         </select>
                 </div> 
                 <div class="mb-3">
                     <label for="Input" class="form-label">Producto</label>
-                    <input type="text" class="form-control" placeholder="Nombre del producto" id="producto">
+                    <input type="text" class="form-control" placeholder="Nombre del producto" id="producto" required>
                 </div>
-                <div class="mb-3">
-                  <label for="Input" class="form-label">URL de la imagen</label>
-                  <input type="text" class="form-control" placeholder="URL" id="URL-imagen">
-              </div>
+                
             </div>  
             <div class="mb-3">
                 <label for="TextInput"  class="form-label">Descripción del producto</label>
-                <textarea class="form-control" rows="4" placeholder="Escribe aquí..." id="descripcion"></textarea>          
+                <textarea class="form-control" rows="4" placeholder="Escribe aquí..." id="descripcion" required></textarea>          
             </div>
           <div class="row mb-3">
                 <div class="col-md-4">
                 <label for="Input" class="form-label">Precio</label>
-                <input type="text" class="form-control" placeholder="$00.00" id="precio">
+                <input type="text" class="form-control" placeholder="$00.00" id="precio" required>
         </div>
          <div class="col-md-4">
                 <label for="Input" class="form-label">Costo</label>
-                <input type="text" class="form-control" placeholder="$00.00" id="costo">
+                <input type="text" class="form-control" placeholder="$00.00" id="costo" required>
                 </div>
           <div class="col-md-4">
             <label for="Input" class="form-label">Cantidad</label>
-            <input type="text" class="form-control" placeholder="0" id="cantidad">
+            <input type="text" class="form-control" placeholder="0" id="cantidad" required>
             </div>
 
             <div class="mb-3 mt-3">
               <label for="url-imagen" class="form-label">URL de la imagen del producto</label>
-              <input type="url" class="form-control" id="url-imagen" placeholder="https://ejemplo.com/imagen.jpg">
+              <input type="url" class="form-control" id="url-imagen" placeholder="https://ejemplo.com/imagen.jpg" required>
           </div>
+         
 
         </div>
 
