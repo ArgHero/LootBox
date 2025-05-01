@@ -106,7 +106,7 @@ function mostrarDatosLocal(){
         <td>${element.category}</td>
         <td>${element.name}</td>
         <td>${element.price}</td>
-        <td>${element.rating.rate}</td>
+        <td>${element.price}</td>
          <td class="d-flex justify-content-end">
                     <button type="button" class="btn btn-warning me-3">Editar</button>
                     <button type="button" class="btn btn-danger">Eliminar</button>
@@ -136,7 +136,20 @@ btnPublicar.addEventListener("click", function (event) {
                     <button type="button" class="btn btn-danger">Eliminar</button>
         </td>
         </tr>`;
-    
+        let nuevoProducto = {
+            name: `${sku.value}`,
+            img: "xxxxxxxx",
+            description: `${descripcion.value}`,
+            category: "Periféricos",
+            price: 599.99,
+            rating: {
+              rate: 4.6,
+              count: 89
+            }
+        };
+        listaProductos.push(nuevoProducto);
+        localStorage.setItem('productos', JSON.stringify(listaProductos));
+        
         cuerpoTabla.insertAdjacentHTML("beforeend",row);
         sku.value = "";
         producto.value = "";
