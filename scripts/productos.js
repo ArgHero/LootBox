@@ -10,6 +10,7 @@ getData();
 function getData() {
   const prodsData = localStorage.getItem('productos');
   let prods = [];
+  main.innerHTML = '';
   if (prodsData) {
       try {
           prods = JSON.parse(prodsData);
@@ -51,6 +52,7 @@ function createCards(prods) {
         </div>
         `);//insertAdjacentHTML
 } //createCards()
+
 
 if (localStorage.getItem('productos')) {
   getData();

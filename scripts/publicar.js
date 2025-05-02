@@ -9,15 +9,22 @@ const cantidad = document.getElementById("cantidad");
 const urlImage = document.getElementById("url-imagen");
 const btnPublicar = document.getElementById("btn-publicar");
 const selectorCategoria = document.getElementById("selector-categoria");
-const validaURL = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/i;
+const validaURL = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:/?#[\]@!$&'()+,;=])?$/i;
 
 
 const tablaItems = document.getElementById("tabla-items");
 const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
 
-const listaProductos = JSON.parse(localStorage.getItem('productos'))||[];
+let listaProductos = [];
 
-mostrarDatosLocal();
+// const listaProductos = JSON.parse(localStorage.getItem('productos'))||[];
+
+function mostrarDatosLocal(){
+  cuerpoTabla.innerHTML = "";
+  listaProductos.forEach(addRow);
+}
+
+// mostrarDatosLocal();
 
 
 function limpiarAlertasYEstilos() {
@@ -97,10 +104,10 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
 }
 
 //FUNCION PARA MOSTAR DATOS DE LOCALSTORAGE...
-function mostrarDatosLocal(){
-    cuerpoTabla.innerHTML = "";
-    listaProductos.forEach(addRow);
-}
+// function mostrarDatosLocal(){
+//     cuerpoTabla.innerHTML = "";
+//     listaProductos.forEach(addRow);
+// }
 
 // AGREGAR
 btnPublicar.addEventListener("click", function (event) {
@@ -233,7 +240,7 @@ function editComp(event) {
       const urlImagenEditar = document.getElementById("urlImagenEditar");
       const precioEditar = document.getElementById("precioEditar");
       const canditadEditar = document.getElementById("canditadEditar");
-
+      
   
       // Validar
       const valido = validarCamposProducto({
@@ -324,3 +331,24 @@ function deleteComp(event){
     localStorage.setItem('productos', JSON.stringify(listaProductos));
     mostrarDatosLocal();
 }//deleteComp()
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Esperar a que los productos por defecto (si no existen) se carguen
+  window.addEventListener('productosCargados', () => {
+      listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
+      mostrarDatosLocal();
+  });
+
+  // Cargar los datos de localStorage inmediatamente si ya existen
+  if (localStorage.getItem('productos')) {
+      listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
+      mostrarDatosLocal();
+  } else {
+      // Si no hay productos en localStorage, intentar cargarlos por defecto
+      // Esto asegura que si la carga por defecto falla o es lenta,
+      // al menos intentaremos mostrar algo cuando el evento se dispare.
+      const initialLoad = JSON.parse(localStorage.getItem('productos')) || [];
+      listaProductos = initialLoad;
+      mostrarDatosLocal();
+  }
+});
