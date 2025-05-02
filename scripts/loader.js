@@ -1,4 +1,3 @@
-
 const productosL = localStorage.getItem('productos');
 
 const navPath = "./assets/components/navbar.html";
@@ -61,9 +60,4 @@ if (!productosL) {
     console.error('Error al cargar o parsear el archivo:', error);
   });
   }
-
-
-  //-------------------------------carga de datos-----------------------------------
-
-
 

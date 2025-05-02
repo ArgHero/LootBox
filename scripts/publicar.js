@@ -26,13 +26,13 @@ function limpiarAlertasYEstilos() {
   // Elimina clases de error
   const campos = document.querySelectorAll('.border-danger');
   campos.forEach(campo => {
-      campo.classList.remove('border', 'border-danger', 'border-3');
+    campo.classList.remove('border', 'border-danger', 'border-3');
   });
 
   // Limpia todos los contenedores de alertas
   const alertas = document.querySelectorAll('[id$="-alert-container"]');
   alertas.forEach(container => {
-      container.innerHTML = '';
+    container.innerHTML = '';
   });
 }
 
@@ -50,114 +50,115 @@ function mostrarError(campo, containerId, mensaje) {
 
 //FUNCION VALIDAR VALIDAR
 function validarCamposProducto({ sku, producto, descripcion, precio, costo, cantidad }) {
-   
-    const skuTxt = sku.value.trim();
-    const productoTxt = producto.value.trim();
-    const descripcionTxt = descripcion.value.trim();
-    const urlTxt = urlImage.value.trim();
 
-    let hayErrores = false;
+  const skuTxt = sku.value.trim();
+  const productoTxt = producto.value.trim();
+  const descripcionTxt = descripcion.value.trim();
+  const urlTxt = urlImage.value.trim();
 
-    limpiarAlertasYEstilos();
- 
+  let hayErrores = false;
 
-    if (!skuPath.test(skuTxt)) {
-      mostrarError(sku, 'sku-alert-container', 'El SKU debe tener entre 1 y 3 caracteres alfanuméricos.');
-      hayErrores = true;
-    }
-    if (productoTxt.length < 3) {
-      mostrarError(producto, 'producto-alert-container', 'El nombre del producto debe tener al menos 3 caracteres.');
-      hayErrores = true;
-    }
+  limpiarAlertasYEstilos();
 
-    if (descripcionTxt.length < 5) {
-      mostrarError(descripcion, 'descripcion-alert-container', 'La descripción debe tener al menos 5 caracteres.');
-      hayErrores = true;
-    }
 
-    if (isNaN(precio.value) || Number(precio.value) <= 0) {
-      mostrarError(precio, 'precio-alert-container', 'El precio debe ser un número mayor que 0.');
-      hayErrores = true;
-    }
+  if (!skuPath.test(skuTxt)) {
+    mostrarError(sku, 'sku-alert-container', 'El SKU debe tener entre 1 y 4 caracteres alfanuméricos.');
+    hayErrores = true;
+  }
+  if (productoTxt.length < 3) {
+    mostrarError(producto, 'producto-alert-container', 'El nombre del producto debe tener al menos 3 caracteres.');
+    hayErrores = true;
+  }
 
-    if (isNaN(costo.value) || Number(costo.value) <= 0) {
-      mostrarError(costo, 'costo-alert-container', 'El costo debe ser un número mayor que 0.');
-      hayErrores = true;
-    }
+  if (descripcionTxt.length < 5) {
+    mostrarError(descripcion, 'descripcion-alert-container', 'La descripción debe tener al menos 5 caracteres.');
+    hayErrores = true;
+  }
 
-    if (isNaN(cantidad.value) || Number(cantidad.value) <= 0) {
-      mostrarError(cantidad, 'cantidad-alert-container', 'La cantidad debe ser un número mayor que 0.');
-      hayErrores = true;
-    }
+  if (isNaN(precio.value) || Number(precio.value) <= 0) {
+    mostrarError(precio, 'precio-alert-container', 'El precio debe ser un número mayor que 0.');
+    hayErrores = true;
+  }
 
-    if (!validaURL.test(urlTxt)) {
-      mostrarError(urlImage, 'URL-alert-container', 'Debes ingresar una URL válida de imagen (jpg, png, etc).');
-      hayErrores = true;
-    }
+  if (isNaN(costo.value) || Number(costo.value) <= 0) {
+    mostrarError(costo, 'costo-alert-container', 'El costo debe ser un número mayor que 0.');
+    hayErrores = true;
+  }
 
-    return !hayErrores;
+  if (isNaN(cantidad.value) || Number(cantidad.value) <= 0) {
+    mostrarError(cantidad, 'cantidad-alert-container', 'La cantidad debe ser un número mayor que 0.');
+    hayErrores = true;
+  }
+
+  if (!validaURL.test(urlTxt)) {
+    mostrarError(urlImage, 'URL-alert-container', 'Debes ingresar una URL válida de imagen (jpg, png, etc).');
+    hayErrores = true;
+  }
+
+  return !hayErrores;
 }
 
 // AGREGAR
 btnPublicar.addEventListener("click", function (event) {
-    event.preventDefault();
-    
+  event.preventDefault();
 
-    //mandar Elementos a validar
-    const valido = validarCamposProducto({
-        sku,
-        producto,
-        descripcion,
-        precio,
-        costo,
-        cantidad,
-    });
+  //mandar Elementos a validar
+  const valido = validarCamposProducto({
+    sku,
+    producto,
+    descripcion,
+    precio,
+    costo,
+    cantidad,
+  });
 
-    if (!valido) return;
+  if (!valido) return;
 
-    const nuevoProducto = {
-        sku: sku.value.trim(),
-        name: producto.value.trim(),
-        img: urlImage.value,
-        description: descripcion.value,
-        price: Number(precio.value),
-        cost: Number(costo.value),
-        stock: Number(cantidad.value),
-        category: selectorCategoria.value,
-        rating: {
-          rate: parseFloat((Math.random() * 5).toFixed(1)),
-          count: Math.floor(Math.random() * 1001) 
-        }
-    };
+  const nuevoProducto = {
+    id: Date.now(), // Añadir un ID único al producto
+    sku: sku.value.trim(),
+    name: producto.value.trim(),
+    img: urlImage.value,
+    description: descripcion.value,
+    price: Number(precio.value),
+    cost: Number(costo.value),
+    stock: Number(cantidad.value),
+    category: selectorCategoria.value,
+    rating: {
+      rate: parseFloat((Math.random() * 5).toFixed(1)),
+      count: Math.floor(Math.random() * 1001)
+    }
+  };
 
-    addRow(nuevoProducto);
-    listaProductos.push(nuevoProducto);
-    localStorage.setItem('productos', JSON.stringify(listaProductos));
+  addRow(nuevoProducto);
+  listaProductos.push(nuevoProducto);
+  localStorage.setItem('productos', JSON.stringify(listaProductos));
+  window.dispatchEvent(new Event('productosCargados'));
 
-    Swal.fire({
-        icon: "success",
-        title: "¡Producto publicado!",
-        text: "El producto se ha guardado exitosamente.",
-        confirmButtonText: "Aceptar"
-    });
+  Swal.fire({
+    icon: "success",
+    title: "¡Producto publicado!",
+    text: "El producto se ha guardado exitosamente.",
+    confirmButtonText: "Aceptar"
+  });
 
-    cleanForm();
+  cleanForm();
 });
 
-//Editar 
+//Editar
 function editComp(event) {
-    const fila = event.target.closest("tr");
-    const nombreProducto = fila.getElementsByTagName("td")[2].innerText;
-    const index = listaProductos.findIndex(prod => prod.name === nombreProducto);
-    const producto = listaProductos[index];
-    console.log(producto);
-    
-    // Borra modal existente
-    const modalExistente = document.getElementById("modalEditar");
-    if (modalExistente) modalExistente.remove();
+  const fila = event.target.closest("tr");
+  const nombreProducto = fila.getElementsByTagName("td")[2].innerText;
+  const index = listaProductos.findIndex(prod => prod.name === nombreProducto);
+  const producto = listaProductos[index];
+  console.log(producto);
 
-    // Crear el modal dinámicamente
-    const modalHTML = `
+  // Borra modal existente
+  const modalExistente = document.getElementById("modalEditar");
+  if (modalExistente) modalExistente.remove();
+
+  // Crear el modal dinámicamente
+  const modalHTML = `
     <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -193,7 +194,7 @@ function editComp(event) {
                 <label for="precioEditar" class="form-label">Precio</label>
                 <input type="number" class="form-control" id="precioEditar" value="${producto.price}">
               </div>
-              
+
               <div class="col-md-4">
                 <label for="canditadEditar" class="form-label">Cantidad</label>
                 <input type="text" class="form-control" placeholder="${producto.stock}" id="canditadEditar" value="${producto.stock}" required>
@@ -219,121 +220,110 @@ function editComp(event) {
       </div>
     </div>`;
 
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-    document.getElementById("formEditarProducto").addEventListener("submit", function (e) {
-      e.preventDefault();
-  
-      // Obtener referencias
-      const skuEditar = document.getElementById("skuEditar");
-      const productoEditar = document.getElementById("productoEditar");
-      const descripcionEditar = document.getElementById("descripcionEditar");
-      const urlImagenEditar = document.getElementById("urlImagenEditar");
-      const precioEditar = document.getElementById("precioEditar");
-      const canditadEditar = document.getElementById("canditadEditar");
-      
-  
-      // Validar
-      const valido = validarCamposProducto({
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  document.getElementById("formEditarProducto").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-          sku: skuEditar,
-          producto: productoEditar,
-          descripcion: descripcionEditar,
-          precio: precioEditar,
-          costo: { value: 1, focus: () => {} }, 
-          cantidad: { value: 1, focus: () => {} }, 
-          urlImagen: urlImagenEditar,
-      });
-  
-      if (!valido) return;
-  
-      const idx = document.getElementById("indexEditar").value;
-  
-      listaProductos[idx] = {
-          name: productoEditar.value.trim(),
-          sku: skuEditar.value.trim(),
-          description: descripcionEditar.value.trim(),
-          img: urlImagenEditar.value.trim(),
-          price: Number(precioEditar.value),
-          stock: Number(canditadEditar.value),
-          category: categoriaEditar.value,
-          rating: {
-            rate: parseFloat((Math.random() * 5).toFixed(1)),
-            count: Math.floor(Math.random() * 1001) 
-          }
-      };
-  
-      localStorage.setItem('productos', JSON.stringify(listaProductos));
-      mostrarDatosLocal();
-      const modalElement = document.getElementById("modalEditar");
-      const modalInstance = bootstrap.Modal.getInstance(modalElement);
-      modalInstance.hide();
-  
-      Swal.fire({
-          icon: "success",
-          title: "¡Producto actualizado!",
-          text: "Los cambios se han guardado.",
-          confirmButtonText: "Aceptar"
-      });
+    // Obtener referencias
+    const skuEditar = document.getElementById("skuEditar");
+    const productoEditar = document.getElementById("productoEditar");
+    const descripcionEditar = document.getElementById("descripcionEditar");
+    const urlImagenEditar = document.getElementById("urlImagenEditar");
+    const precioEditar = document.getElementById("precioEditar");
+    const canditadEditar = document.getElementById("canditadEditar");
+
+
+    // Validar
+    const valido = validarCamposProducto({
+      sku: skuEditar,
+      producto: productoEditar,
+      descripcion: descripcionEditar,
+      precio: precioEditar,
+      costo: { value: 1, focus: () => {} },
+      cantidad: { value: 1, focus: () => {} },
+      urlImagen: urlImagenEditar,
+    });
+
+    if (!valido) return;
+
+    const idx = document.getElementById("indexEditar").value;
+
+    listaProductos[idx] = {
+      id: listaProductos[idx].id, // Mantener el ID original
+      name: productoEditar.value.trim(),
+      sku: skuEditar.value.trim(),
+      description: descripcionEditar.value.trim(),
+      img: urlImagenEditar.value.trim(),
+      price: Number(precioEditar.value),
+      stock: Number(canditadEditar.value),
+      category: categoriaEditar.value,
+      rating: {
+        rate: parseFloat((Math.random() * 5).toFixed(1)),
+        count: Math.floor(Math.random() * 1001)
+      }
+    };
+
+    localStorage.setItem('productos', JSON.stringify(listaProductos));
+    mostrarDatosLocal();
+    const modalElement = document.getElementById("modalEditar");
+    const modalInstance = bootstrap.Modal.getInstance(modalElement);
+    modalInstance.hide();
+
+    Swal.fire({
+      icon: "success",
+      title: "¡Producto actualizado!",
+      text: "Los cambios se han guardado.",
+      confirmButtonText: "Aceptar"
+    });
   });
 
-    // Mostrar el modal
-    const nuevoModal = new bootstrap.Modal(document.getElementById("modalEditar"));
-    nuevoModal.show();
+  // Mostrar el modal
+  const nuevoModal = new bootstrap.Modal(document.getElementById("modalEditar"));
+  nuevoModal.show();
 }
 
 
 function addRow(element){
-    cuerpoTabla.insertAdjacentHTML("beforeend",`
-        <tr>
-            <td><img src="${element.img}" alt="${element.name}" style="max-width: 4rem; max-height: 4rem;"></td>
-            <td>${element.sku}</td>
-            <td>${element.name}</td>
-            <td>${element.category || 'Sin Categoría'}</td>
-            <td>${element.price}</td>
-            <td>${element.stock}</td>
-            <td>
-                <button type="button" class="btn btn-warning p-1 d-inline-block mb-1" onClick="editComp(event)">Editar</button>
-                <button type="button" class="btn btn-danger p-1 d-inline-block" onClick="deleteComp(event)">Eliminar</button>
-            </td>
-        </tr>`
-    );  
+  cuerpoTabla.insertAdjacentHTML("beforeend",`
+      <tr>
+        <td><img src="${element.img}" alt="${element.name}" style="max-width: 4rem; max-height: 4rem;"></td>
+        <td>${element.sku}</td>
+        <td>${element.name}</td>
+        <td>${element.category || 'Sin Categoría'}</td>
+        <td>${element.price}</td>
+        <td>${element.stock}</td>
+        <td>
+          <button type="button" class="btn btn-warning p-1 d-inline-block mb-1" onClick="editComp(event)">Editar</button>
+          <button type="button" class="btn btn-danger p-1 d-inline-block" onClick="deleteComp(event)">Eliminar</button>
+        </td>
+      </tr>`
+  );
 }//adRow()
 
 function cleanForm(){
-    sku.value = "";
-    producto.value = "";
-    descripcion.value = "";
-    precio.value = "";
-    costo.value = "";
-    cantidad.value = "";
-    urlImage.value = "";
-    sku.focus();
+  sku.value = "";
+  producto.value = "";
+  descripcion.value = "";
+  precio.value = "";
+  costo.value = "";
+  cantidad.value = "";
+  urlImage.value = "";
+  sku.focus();
 }//cleanForm()
 
 
 //--------------Eliminar Componentes
 function deleteComp(event){
-    event.preventDefault();
-    const prodName = event.target.parentElement.parentElement.getElementsByTagName("td").item(2).innerText;
-    const indexDel = listaProductos.findIndex(producto=>producto.name===prodName);
-    listaProductos.splice(indexDel,1);
-    localStorage.setItem('productos', JSON.stringify(listaProductos));
-    mostrarDatosLocal();
+  event.preventDefault();
+  const prodName = event.target.parentElement.parentElement.getElementsByTagName("td").item(2).innerText;
+  const indexDel = listaProductos.findIndex(producto=>producto.name===prodName);
+  listaProductos.splice(indexDel,1);
+  localStorage.setItem('productos', JSON.stringify(listaProductos));
+  mostrarDatosLocal();
 }//deleteComp()
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  window.addEventListener('productosCargados', () => {
-      listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
-      mostrarDatosLocal();
-  });
-
-  if (localStorage.getItem('productos')) {
-      listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
-      mostrarDatosLocal();
-  } else {
-      const initialLoad = JSON.parse(localStorage.getItem('productos')) || [];
-      listaProductos = initialLoad;
-      mostrarDatosLocal();
-  }
+  // Inicializar la lista de productos al cargar la página
+  listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
+  mostrarDatosLocal();
 });
