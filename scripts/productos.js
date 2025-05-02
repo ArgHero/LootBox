@@ -2,13 +2,19 @@ const main = document.getElementsByTagName("main").item(0);
 const modalTitulo = document.getElementById("modalTitulo");
 const modalBody = document.getElementsByClassName("modal-body").item(0);
 const ulMenu = document.getElementById("ulMenu");
+
+
 //Obtener datos
 getData();
-
 function getData() {
   const prods = JSON.parse(localStorage.getItem('productos'))||[];
   prods.forEach(createCards);
+  
 }
+
+
+
+
 
 function createCards(prods) {
   main.insertAdjacentHTML(
