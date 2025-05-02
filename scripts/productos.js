@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const main = document.getElementsByTagName("main").item(0);
 const modalTitulo = document.getElementById("modalTitulo");
 const modalBody = document.getElementsByClassName("modal-body").item(0);
@@ -7,9 +8,16 @@ const ulMenu = document.getElementById("ulMenu");
 //Obtener datos
 getData();
 function getData() {
-  const prods = JSON.parse(localStorage.getItem('productos'))||[];
-  prods.forEach(createCards);
-  
+  const prodsData = localStorage.getItem('productos');
+  let prods = [];
+  if (prodsData) {
+      try {
+          prods = JSON.parse(prodsData);
+          prods.forEach(createCards);
+      } catch (error) {
+          console.error("Error al analizar los datos de productos de localStorage:", error);
+      }
+  }
 }
 
 
@@ -44,6 +52,12 @@ function createCards(prods) {
         `);//insertAdjacentHTML
 } //createCards()
 
+if (localStorage.getItem('productos')) {
+  getData();
+} else {
+  window.addEventListener('productosCargados', getData);
+}
+
 function modalProducto(event) {
   event.preventDefault();
   //let nombreProducto = event.target.parentElement.getElementsByTagName("h5").item(0).innerText.trim();
@@ -59,4 +73,4 @@ function modalProducto(event) {
     .innerText.trim();
 };//modalProducto
 
-
+});
