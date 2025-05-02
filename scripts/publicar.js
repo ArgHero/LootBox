@@ -9,6 +9,8 @@ const cantidad = document.getElementById("cantidad");
 const urlImage = document.getElementById("url-imagen");
 const btnPublicar = document.getElementById("btn-publicar");
 const selectorCategoria = document.getElementById("selector-categoria");
+const validaURL = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/i;
+
 
 const tablaItems = document.getElementById("tabla-items");
 const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
@@ -18,54 +20,80 @@ const listaProductos = JSON.parse(localStorage.getItem('productos'))||[];
 mostrarDatosLocal();
 
 
+function limpiarAlertasYEstilos() {
+  // Elimina clases de error
+  const campos = document.querySelectorAll('.border-danger');
+  campos.forEach(campo => {
+      campo.classList.remove('border', 'border-danger', 'border-3');
+  });
+
+  // Limpia todos los contenedores de alertas
+  const alertas = document.querySelectorAll('[id$="-alert-container"]');
+  alertas.forEach(container => {
+      container.innerHTML = '';
+  });
+}
+
+function mostrarError(campo, containerId, mensaje) {
+  campo.classList.add('border', 'border-danger', 'border-3');
+  const contenedor = document.getElementById(containerId);
+  contenedor.innerHTML = `
+      <div class="alert alert-danger py-1 px-2 mb-1" role="alert" style="display: inline-block;">
+          ${mensaje}
+      </div>`;
+  campo.focus();
+}
+
+
+
 //FUNCION VALIDAR VALIDAR
-function validarCamposProducto({ sku, producto, descripcion, precio, costo, cantidad }) {
+function validarCamposProducto({ sku, producto, descripcion, precio, costo, cantidad, categoria }) {
+   
     const skuTxt = sku.value.trim();
     const productoTxt = producto.value.trim();
     const descripcionTxt = descripcion.value.trim();
+    const urlTxt = urlImage.value.trim();
 
-    if (!skuTxt) {
-        alert("El SKU es obligatorio.");
-        sku.focus();
-        return false;
-    }
+    let hayErrores = false;
+
+    limpiarAlertasYEstilos();
+ 
+
     if (!skuPath.test(skuTxt)) {
-        alert("El SKU debe tener entre 1 y 3 caracteres alfanuméricos.");
-        sku.focus();
-        return false;
+      mostrarError(sku, 'sku-alert-container', 'El SKU debe tener entre 1 y 3 caracteres alfanuméricos.');
+      hayErrores = true;
     }
     if (productoTxt.length < 3) {
-        alert("El nombre del producto debe tener al menos 3 caracteres.");
-        producto.focus();
-        return false;
+      mostrarError(producto, 'producto-alert-container', 'El nombre del producto debe tener al menos 3 caracteres.');
+      hayErrores = true;
     }
 
     if (descripcionTxt.length < 5) {
-        alert("La descripción debe tener al menos 5 caracteres.");
-        descripcion.focus();
-        return false;
+      mostrarError(descripcion, 'descripcion-alert-container', 'La descripción debe tener al menos 5 caracteres.');
+      hayErrores = true;
     }
 
     if (isNaN(precio.value) || Number(precio.value) <= 0) {
-        alert("El precio debe ser un número mayor que 0.");
-        precio.focus();
-        return false;
+      mostrarError(precio, 'precio-alert-container', 'El precio debe ser un número mayor que 0.');
+      hayErrores = true;
     }
 
     if (isNaN(costo.value) || Number(costo.value) <= 0) {
-        alert("El costo debe ser un número mayor que 0.");
-        costo.focus();
-        return false;
+      mostrarError(costo, 'costo-alert-container', 'El costo debe ser un número mayor que 0.');
+      hayErrores = true;
     }
 
     if (isNaN(cantidad.value) || Number(cantidad.value) <= 0) {
-        alert("La cantidad debe ser un número mayor que 0.");
-        cantidad.focus();
-        
-        return false;
+      mostrarError(cantidad, 'cantidad-alert-container', 'La cantidad debe ser un número mayor que 0.');
+      hayErrores = true;
     }
 
-    return true;
+    if (!validaURL.test(urlTxt)) {
+      mostrarError(urlImage, 'URL-alert-container', 'Debes ingresar una URL válida de imagen (jpg, png, etc).');
+      hayErrores = true;
+    }
+
+    return !hayErrores;
 }
 
 //FUNCION PARA MOSTAR DATOS DE LOCALSTORAGE...
@@ -263,7 +291,7 @@ function addRow(element){
             <td><img src="${element.img}" alt="${element.name}" style="max-width: 4rem; max-height: 4rem;"></td>
             <td>${element.sku}</td>
             <td>${element.name}</td>
-            <td>${element.category}</td>
+            <td>${element.category || 'Sin Categoría'}</td>
             <td>${element.price}</td>
             <td>${element.stock}</td>
             <td>

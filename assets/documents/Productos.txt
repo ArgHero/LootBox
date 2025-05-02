@@ -5,7 +5,9 @@
     "description": "Consola de nueva generación con soporte para 4K y SSD ultrarrápido.",
     "category": "Consolas",
     "price": 9999.99,
-    "rating": { "rate": 4.8, "count": 852 }
+    "rating": { "rate": 4.8, "count": 852 },
+    "sku": 2384,
+    "stock": 112
   },
   {
     "name": "Xbox Series X",
@@ -13,7 +15,9 @@
     "description": "La consola más potente de Microsoft con 1TB SSD y 12 teraflops.",
     "category": "Consolas",
     "price": 8499.99,
-    "rating": { "rate": 4.7, "count": 713 }
+    "rating": { "rate": 4.7, "count": 713 },
+    "sku": 2591,
+    "stock": 74
   },
   {
     "name": "Nintendo Switch OLED",
@@ -21,7 +25,9 @@
     "description": "Consola híbrida con pantalla OLED de 7 pulgadas y mejor audio.",
     "category": "Consolas",
     "price": 6899.99,
-    "rating": { "rate": 4.6, "count": 631 }
+    "rating": { "rate": 4.6, "count": 631 },
+    "sku": 2723,
+    "stock": 186
   },
   {
     "name": "Steam Deck",
@@ -29,7 +35,9 @@
     "description": "Consola portátil de Valve para juegos de PC en cualquier lugar.",
     "category": "Consolas",
     "price": 7549.00,
-    "rating": { "rate": 4.5, "count": 298 }
+    "rating": { "rate": 4.5, "count": 298 },
+    "sku": 2944,
+    "stock": 37
   },
   {
     "name": "PlayStation 5 Digital Edition",
@@ -37,7 +45,9 @@
     "description": "Versión sin lector de discos con el mismo poder gráfico de PS5.",
     "category": "Consolas",
     "price": 8499.99,
-    "rating": { "rate": 4.7, "count": 401 }
+    "rating": { "rate": 4.7, "count": 401 },
+    "sku": 2175,
+    "stock": 91
   },
   {
     "name": "Funko Pop! Master Chief",
@@ -45,7 +55,9 @@
     "description": "Figura coleccionable de Halo para fanáticos de la saga.",
     "category": "Merch",
     "price": 650.00,
-    "rating": { "rate": 4.9, "count": 587 }
+    "rating": { "rate": 4.9, "count": 587 },
+    "sku": 1894,
+    "stock": 53
   },
   {
     "name": "Tayto",
@@ -53,7 +65,9 @@
     "description": "Cheese & Onion Chips, el snack favorito de gamers irlandeses.",
     "category": "Merch",
     "price": 99.00,
-    "rating": { "rate": 4.3, "count": 126 }
+    "rating": { "rate": 4.3, "count": 126 },
+    "sku": 1637,
+    "stock": 117
   },
   {
     "name": "Taza The Legend of Zelda",
@@ -61,7 +75,9 @@
     "description": "Taza mágica que revela mapa de Hyrule con calor.",
     "category": "Merch",
     "price": 245.00,
-    "rating": { "rate": 4.6, "count": 342 }
+    "rating": { "rate": 4.6, "count": 342 },
+    "sku": 1548,
+    "stock": 200
   },
   {
     "name": "Playera ROG Limited Edition",
@@ -69,7 +85,9 @@
     "description": "Camiseta oficial ASUS Republic of Gamers para entusiastas.",
     "category": "Merch",
     "price": 599.00,
-    "rating": { "rate": 4.4, "count": 229 }
+    "rating": { "rate": 4.4, "count": 229 },
+    "sku": 1472,
+    "stock": 14
   },
   {
     "name": "Almohada Among Us",
@@ -77,7 +95,9 @@
     "description": "Cojín con forma del tripulante más sospechoso del espacio.",
     "category": "Merch",
     "price": 349.50,
-    "rating": { "rate": 4.7, "count": 312 }
+    "rating": { "rate": 4.7, "count": 312 },
+    "sku": 1349,
+    "stock": 78
   },
   {
     "name": "Logitech G Pro X Superlight",
@@ -85,7 +105,9 @@
     "description": "Mouse inalámbrico ultraligero con sensor HERO.",
     "category": "Periféricos",
     "price": 2300.00,
-    "rating": { "rate": 4.8, "count": 764 }
+    "rating": { "rate": 4.8, "count": 764 },
+    "sku": 3594,
+    "stock": 132
   },
   {
     "name": "SteelSeries Arctis Nova Pro",
@@ -93,7 +115,9 @@
     "description": "Audífonos con DAC para audio envolvente y precisión.",
     "category": "Periféricos",
     "price": 4590.00,
-    "rating": { "rate": 4.6, "count": 421 }
+    "rating": { "rate": 4.6, "count": 421 },
+    "sku": 3187,
+    "stock": 56
   },
   {
     "name": "Razer BlackWidow V4",
@@ -101,7 +125,9 @@
     "description": "Teclado mecánico RGB con switches verdes.",
     "category": "Periféricos",
     "price": 2850.00,
-    "rating": { "rate": 4.7, "count": 536 }
+    "rating": { "rate": 4.7, "count": 536 },
+    "sku": 3751,
+    "stock": 107
   },
   {
     "name": "Elgato Stream Deck Mini",
@@ -109,7 +135,9 @@
     "description": "Controlador compacto con 6 teclas LCD programables.",
     "category": "Periféricos",
     "price": 1500.00,
-    "rating": { "rate": 4.8, "count": 389 }
+    "rating": { "rate": 4.8, "count": 389 },
+    "sku": 3416,
+    "stock": 92
   },
   {
     "name": "Corsair MM300 PRO",
@@ -117,7 +145,9 @@
     "description": "Alfombrilla de gran tamaño con superficie resistente a salpicaduras.",
     "category": "Periféricos",
     "price": 499.99,
-    "rating": { "rate": 4.5, "count": 185 }
+    "rating": { "rate": 4.5, "count": 185 },
+    "sku": 3062,
+    "stock": 23
   },
   {
     "name": "God of War Ragnarök",
@@ -125,7 +155,9 @@
     "description": "Kratos y Atreus enfrentan el fin del mundo nórdico en esta épica secuela.",
     "category": "Videojuegos",
     "price": 1250.00,
-    "rating": { "rate": 4.9, "count": 972 }
+    "rating": { "rate": 4.9, "count": 972 },
+    "sku": 4285,
+    "stock": 65
   },
   {
     "name": "The Legend of Zelda: Tears of the Kingdom",
@@ -133,7 +165,9 @@
     "description": "La nueva aventura de Link por los cielos de Hyrule.",
     "category": "Videojuegos",
     "price": 999.00,
-    "rating": { "rate": 4.9, "count": 891 }
+    "rating": { "rate": 4.9, "count": 891 },
+    "sku": 4123,
+    "stock": 173
   },
   {
     "name": "Call of Duty: Modern Warfare II",
@@ -141,7 +175,9 @@
     "description": "Shooter táctico con multijugador renovado y campaña intensa.",
     "category": "Videojuegos",
     "price": 1225.00,
-    "rating": { "rate": 4.6, "count": 647 }
+    "rating": { "rate": 4.6, "count": 647 },
+    "sku": 4672,
+    "stock": 104
   },
   {
     "name": "Elden Ring",
@@ -149,7 +185,9 @@
     "description": "RPG de mundo abierto de los creadores de Dark Souls.",
     "category": "Videojuegos",
     "price": 999.00,
-    "rating": { "rate": 4.8, "count": 739 }
+    "rating": { "rate": 4.8, "count": 739 },
+    "sku": 4921,
+    "stock": 142
   },
   {
     "name": "Hogwarts Legacy",
@@ -157,6 +195,8 @@
     "description": "Explora el mundo mágico como un estudiante de Hogwarts en 1800.",
     "category": "Videojuegos",
     "price": 1350.49,
-    "rating": { "rate": 4.7, "count": 693 }
+    "rating": { "rate": 4.7, "count": 693 },
+    "sku": 4456,
+    "stock": 49
   }
 ]
