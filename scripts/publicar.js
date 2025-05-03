@@ -85,8 +85,8 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
     hayErrores = true;
   }
 
-  if (isNaN(cantidad.value) || Number(cantidad.value) <= 0) {
-    mostrarError(cantidad, 'cantidad-alert-container', 'La cantidad debe ser un número mayor que 0.');
+  if (!/^\d+$/.test(cantidad.value) || Number(cantidad.value) <= 0) {
+    mostrarError(cantidad, 'cantidad-alert-container', 'La cantidad debe ser un número mayor que 0 y sin decimales.');
     hayErrores = true;
   }
 
@@ -309,6 +309,7 @@ function cleanForm(){
   cantidad.value = "";
   urlImage.value = "";
   sku.focus();
+  selectorCategoria.selectedIndex = 0;
 }//cleanForm()
 
 
