@@ -76,14 +76,37 @@ btnEnviar.addEventListener("click", function(event) {
     isValid = false;
   }
 
-  // Si todo es válido, se envía el correo
+  // LocalStorage
   if (isValid) {
-    txtNombre.value = "";
-    txtCorreo.value = "";
-    txtTel.value = "";
-    txtPassword.value = "";
-    txtConfirmar.value = "";
+    const nombre = document.getElementById("txtNombre").value.trim();
+    const correo = document.getElementById("txtCorreo").value.trim();
+    const telefono = document.getElementById("txtTel").value.trim();
+    const password = document.getElementById("txtPassword").value.trim(); 
 
-    txtNombre.focus();
+    const usuarios = JSON.parse(localStorage.getItem('users')) || [];
+    const correoExiste = usuarios.some(usuario => usuario.email.toLowerCase() === correo.toLowerCase());
+
+    const nuevoUsuario = {
+        nombre: nombre,
+        email: correo,
+        telefono: telefono,
+        password: password
+    };
+
+    if (correoExiste) {
+        alert("Este correo ya está registrado");
+    } else {
+        usuarios.push(nuevoUsuario);
+        localStorage.setItem('users', JSON.stringify(usuarios));
+        alert("Contacto guardado");
+
+        txtNombre.value = "";
+        txtCorreo.value = "";
+        txtTel.value = "";
+        txtPassword.value = "";
+        txtConfirmar.value = "";
+
+        txtNombre.focus();
+    }
   }
 });
