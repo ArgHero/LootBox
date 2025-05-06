@@ -9,7 +9,7 @@ const cantidad = document.getElementById("cantidad");
 const urlImage = document.getElementById("url-imagen");
 const btnPublicar = document.getElementById("btn-publicar");
 const selectorCategoria = document.getElementById("selector-categoria");
-const validaURL = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/i;
+const validaURL = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:/?#[\]@!$&'()+,;=])?$/i;
 
 
 const tablaItems = document.getElementById("tabla-items");
@@ -17,10 +17,15 @@ const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
 
 let listaProductos = [];
 
+// const listaProductos = JSON.parse(localStorage.getItem('productos'))||[];
+
 function mostrarDatosLocal(){
   cuerpoTabla.innerHTML = "";
   listaProductos.forEach(addRow);
 }
+
+// mostrarDatosLocal();
+
 
 function limpiarAlertasYEstilos() {
   // Elimina clases de error
@@ -49,7 +54,7 @@ function mostrarError(campo, containerId, mensaje) {
 
 
 //FUNCION VALIDAR VALIDAR
-function validarCamposProducto({ sku, producto, descripcion, precio, costo, cantidad }) {
+function validarCamposProducto({ sku, producto, descripcion, precio, costo, cantidad, categoria }) {
    
     const skuTxt = sku.value.trim();
     const productoTxt = producto.value.trim();
@@ -98,6 +103,12 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
     return !hayErrores;
 }
 
+//FUNCION PARA MOSTAR DATOS DE LOCALSTORAGE...
+// function mostrarDatosLocal(){
+//     cuerpoTabla.innerHTML = "";
+//     listaProductos.forEach(addRow);
+// }
+
 // AGREGAR
 btnPublicar.addEventListener("click", function (event) {
     event.preventDefault();
@@ -123,7 +134,6 @@ btnPublicar.addEventListener("click", function (event) {
         price: Number(precio.value),
         cost: Number(costo.value),
         stock: Number(cantidad.value),
-        category: selectorCategoria.value,
         rating: {
           rate: parseFloat((Math.random() * 5).toFixed(1)),
           count: Math.floor(Math.random() * 1001) 
@@ -196,7 +206,7 @@ function editComp(event) {
               
               <div class="col-md-4">
                 <label for="canditadEditar" class="form-label">Cantidad</label>
-                <input type="text" class="form-control" placeholder="${producto.stock}" id="canditadEditar" value="${producto.stock}" required>
+                <input type="text" class="form-control" placeholder="0" id="canditadEditar" value"${producto.stock}" required>
               </div>
 
               <div class="mb-3">
@@ -314,6 +324,7 @@ function cleanForm(){
 //--------------Eliminar Componentes
 function deleteComp(event){
     event.preventDefault();
+    //Si se cambia el orden de la tabla es necesario ajustar el numero de item
     const prodName = event.target.parentElement.parentElement.getElementsByTagName("td").item(2).innerText;
     const indexDel = listaProductos.findIndex(producto=>producto.name===prodName);
     listaProductos.splice(indexDel,1);
@@ -322,16 +333,20 @@ function deleteComp(event){
 }//deleteComp()
 
 document.addEventListener("DOMContentLoaded", () => {
-
+  // Esperar a que los productos por defecto (si no existen) se carguen
   window.addEventListener('productosCargados', () => {
       listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
       mostrarDatosLocal();
   });
 
+  // Cargar los datos de localStorage inmediatamente si ya existen
   if (localStorage.getItem('productos')) {
       listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
       mostrarDatosLocal();
   } else {
+      // Si no hay productos en localStorage, intentar cargarlos por defecto
+      // Esto asegura que si la carga por defecto falla o es lenta,
+      // al menos intentaremos mostrar algo cuando el evento se dispare.
       const initialLoad = JSON.parse(localStorage.getItem('productos')) || [];
       listaProductos = initialLoad;
       mostrarDatosLocal();
