@@ -53,7 +53,7 @@ function mostrarError(campo, containerId, mensaje) {
 
 
 //FUNCION VALIDAR VALIDAR
-function validarCamposProducto({ sku, producto, descripcion, precio, costo, cantidad }) {
+function validarCamposProducto({ sku, producto, descripcion, precio, costo, cantidad, fileInput }) {
 
   const skuTxt = sku.value.trim();
   const productoTxt = producto.value.trim();
@@ -94,16 +94,11 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
     hayErrores = true;
   }
 
-  if (!imageCoded) {
-    //id= fileUpload
-    //mostrarError(fileInput.parentElement(), 'cantidad-alert-container', 'La cantidad debe ser un número mayor que 0.');
+  if (!fileInput.files.length) {
+    mostrarError(fileInput, 'fileUpload-alert-container', 'La imagen del producto es necesaria');
     hayErrores = true;
   }
-
-  // if (!validaURL.test(urlTxt)) {
-  //   mostrarError(urlImage, 'URL-alert-container', 'Debes ingresar una URL válida de imagen (jpg, png, etc).');
-  //   hayErrores = true;
-  // }
+  
 
   return !hayErrores;
 }
@@ -120,6 +115,7 @@ btnPublicar.addEventListener("click", function (event) {
     precio,
     costo,
     cantidad,
+    fileInput
   });
 
   if (!valido) return;
@@ -318,7 +314,6 @@ function cleanForm(){
   costo.value = "";
   cantidad.value = "";
   urlImage.value = "";
-  fileInput.value = "";
   sku.focus();
 }//cleanForm()
 
