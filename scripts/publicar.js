@@ -12,6 +12,7 @@ const btnPublicar = document.getElementById("btn-publicar");
 const selectorCategoria = document.getElementById("selector-categoria");
 //-Cargar Imagenes
 const fileInput = document.getElementById("fileUpload");
+const fileImageContainer = document.getElementById("fileImageContainer");
 //const imageOutput = document.getElementById("output");
 const spinner = document.getElementsByClassName("spinner-border").item(0);
 let imageCoded;
@@ -95,7 +96,7 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
   }
 
   if (!fileInput.files.length) {
-    mostrarError(fileInput, 'fileUpload-alert-container', 'La imagen del producto es necesaria.');
+    mostrarError(fileImageContainer, 'fileUpload-alert-container', 'La imagen del producto es necesaria.');
     hayErrores = true;
   }
   
