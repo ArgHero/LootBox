@@ -1,4 +1,5 @@
 const skuPath = new RegExp("^[a-zA-Z0-9]{1,4}$");
+const validaURL = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/i;
 
 const sku = document.getElementById("sku");
 const producto = document.getElementById("producto");
@@ -9,8 +10,11 @@ const cantidad = document.getElementById("cantidad");
 const urlImage = document.getElementById("url-imagen");
 const btnPublicar = document.getElementById("btn-publicar");
 const selectorCategoria = document.getElementById("selector-categoria");
-const validaURL = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/i;
-
+//-Cargar Imagenes
+const fileInput = document.getElementById("fileUpload");
+//const imageOutput = document.getElementById("output");
+const spinner = document.getElementsByClassName("spinner-border").item(0);
+let imageCoded;
 
 const tablaItems = document.getElementById("tabla-items");
 const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
@@ -49,12 +53,12 @@ function mostrarError(campo, containerId, mensaje) {
 
 
 //FUNCION VALIDAR VALIDAR
-function validarCamposProducto({ sku, producto, descripcion, precio, costo, cantidad }) {
+function validarCamposProducto({ sku, producto, descripcion, precio, costo, cantidad, fileInput }) {
 
   const skuTxt = sku.value.trim();
   const productoTxt = producto.value.trim();
   const descripcionTxt = descripcion.value.trim();
-  const urlTxt = urlImage.value.trim();
+  //const urlTxt = urlImage.value.trim();
 
   let hayErrores = false;
 
@@ -90,10 +94,11 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
     hayErrores = true;
   }
 
-  if (!validaURL.test(urlTxt)) {
-    mostrarError(urlImage, 'URL-alert-container', 'Debes ingresar una URL válida de imagen (jpg, png, etc).');
+  if (!fileInput.files.length) {
+    mostrarError(fileInput, 'fileUpload-alert-container', 'La imagen del producto es necesaria');
     hayErrores = true;
   }
+  
 
   return !hayErrores;
 }
@@ -110,6 +115,7 @@ btnPublicar.addEventListener("click", function (event) {
     precio,
     costo,
     cantidad,
+    fileInput
   });
 
   if (!valido) return;
@@ -118,7 +124,7 @@ btnPublicar.addEventListener("click", function (event) {
     id: Date.now(), // Añadir un ID único al producto
     sku: sku.value.trim(),
     name: producto.value.trim(),
-    img: urlImage.value,
+    img: imageCoded,
     description: descripcion.value,
     price: Number(precio.value),
     cost: Number(costo.value),
@@ -253,7 +259,7 @@ function editComp(event) {
       name: productoEditar.value.trim(),
       sku: skuEditar.value.trim(),
       description: descripcionEditar.value.trim(),
-      img: urlImagenEditar.value.trim(),
+      img: imageCoded,
       price: Number(precioEditar.value),
       stock: Number(canditadEditar.value),
       category: categoriaEditar.value,
@@ -328,3 +334,28 @@ document.addEventListener("DOMContentLoaded", () => {
   listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
   mostrarDatosLocal();
 });
+
+//----Cargar imágenes
+fileInput.addEventListener("change", async () => {
+  imageCoded = null;
+  spinner.classList.remove("visually-hidden");
+  let [file] = fileInput.files;
+
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    //imageOutput.src = event.target.result;
+    imageCoded = event.target.result;
+    spinner.classList.add("visually-hidden");
+  };
+
+  reader.onerror = (err) => {
+      console.error("Error reading file:", err);
+      alert("An error occurred while reading the file.");
+      spinner.classList.add("visually-hidden");
+  };
+
+
+  reader.readAsDataURL(file);
+  
+  
+})
