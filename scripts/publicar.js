@@ -21,15 +21,10 @@ const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
 
 let listaProductos = [];
 
-// const listaProductos = JSON.parse(localStorage.getItem('productos'))||[];
-
 function mostrarDatosLocal(){
   cuerpoTabla.innerHTML = "";
   listaProductos.forEach(addRow);
 }
-
-// mostrarDatosLocal();
-
 
 function limpiarAlertasYEstilos() {
   // Elimina clases de error
@@ -112,12 +107,6 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
 
   return !hayErrores;
 }
-
-//FUNCION PARA MOSTAR DATOS DE LOCALSTORAGE...
-// function mostrarDatosLocal(){
-//     cuerpoTabla.innerHTML = "";
-//     listaProductos.forEach(addRow);
-// }
 
 // AGREGAR
 btnPublicar.addEventListener("click", function (event) {
@@ -218,7 +207,7 @@ function editComp(event) {
 
               <div class="col-md-4">
                 <label for="canditadEditar" class="form-label">Cantidad</label>
-                <input type="text" class="form-control" placeholder="0" id="canditadEditar" value"${producto.stock}" required>
+                <input type="text" class="form-control" placeholder="${producto.stock}" id="canditadEditar" value="${producto.stock}" required>
               </div>
 
               <div class="mb-3">
