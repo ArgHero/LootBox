@@ -8,8 +8,11 @@ const txtTel = document.getElementById("txtTel");
 const txtPassword = document.getElementById("txtPassword");
 const txtConfirmar = document.getElementById("txtConfirmar");
 const btnEnviar = document.getElementById("btnEnviar");
+const alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
+const alertValidaciones = document.getElementById("alertValidaciones");
 
-// Validaciones
+
+//Validaciones
 function validarNombre() {
     const nombreCompleto = txtNombre.value.trim();
     const partesNombre = nombreCompleto.split(" ");
@@ -27,86 +30,137 @@ function validarTelefono() {
 }
 
 function validarPassword() {
-  const content = txtPassword.value.trim();
-  return passwordPattern.test(content);
+    const content = txtPassword.value.trim();
+    return passwordPattern.test(content);
 }
 
 function coincidenPasswords() {
-  return txtPassword.value === txtConfirmar.value;
+    return txtPassword.value === txtConfirmar.value;
 }
 
 btnEnviar.addEventListener("click", function(event) {
-  event.preventDefault();
-  let isValid = true;
+    event.preventDefault();
+    alertValidaciones.style.display = "none";
+    alertValidacionesTexto.innerHTML = "";
 
+    //Quitar bordes rojos
 
-  // Validación Nombre y Apellido
-  if (txtNombre.value.trim() === "") {
-    isValid = false;
-  } else if (!validarNombre()) {
-    isValid = false;
-  }
+    txtNombre.style.border = "";
+    txtCorreo.style.border = "";
+    txtTel.style.border = "";
+    txtPassword.style.border = "";
+    txtConfirmar.style.border = "";
+    let isValid = true;
 
-  // Validación Email
-  if (txtCorreo.value.trim() === "") {
-    isValid = false;
-  } else if (!validarEmail()) {
-    isValid = false;
-  }
+//Validación de nombre y apellido
 
-  // Validación Teléfono
-  if (txtTel.value.trim() === "") {
-    isValid = false;
-  } else if (!validarTelefono()) {
-    isValid = false;
-  }
-
-
-  // Validación contraseña
-  if (txtPassword.value.trim() === "") {
-    isValid = false;
-  } else if (!validarPassword()) {
-    isValid = false;
-  }
-
-  // Validación confirmación contraseña
-  if (txtConfirmar.value.trim() === "") {
-    isValid = false;
-  } else if (!coincidenPasswords()) {
-    isValid = false;
-  }
-
-  // LocalStorage
-  if (isValid) {
-    const nombre = document.getElementById("txtNombre").value.trim();
-    const correo = document.getElementById("txtCorreo").value.trim();
-    const telefono = document.getElementById("txtTel").value.trim();
-    const password = document.getElementById("txtPassword").value.trim(); 
-
-    const usuarios = JSON.parse(localStorage.getItem('users')) || [];
-    const correoExiste = usuarios.some(usuario => usuario.email.toLowerCase() === correo.toLowerCase());
-
-    const nuevoUsuario = {
-        nombre: nombre,
-        email: correo,
-        telefono: telefono,
-        password: password
-    };
-
-    if (correoExiste) {
-        alert("Este correo ya está registrado");
-    } else {
-        usuarios.push(nuevoUsuario);
-        localStorage.setItem('users', JSON.stringify(usuarios));
-        alert("Contacto guardado");
-
-        txtNombre.value = "";
-        txtCorreo.value = "";
-        txtTel.value = "";
-        txtPassword.value = "";
-        txtConfirmar.value = "";
-
-        txtNombre.focus();
+    if (txtNombre.value.trim() === "") {
+        txtNombre.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>El campo Nombre no puede estar vacío.</strong><br/><br/>";
+        isValid = false;
+    } else if (!validarNombre()) {
+        txtNombre.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>Debe ingresar al menos nombre y apellido.</strong><br/><br/>";
+        isValid = false;
     }
+
+//Validación de correo electrónico
+
+    if (txtCorreo.value.trim() === "") {
+        txtCorreo.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>El campo Correo no puede estar vacío.</strong><br/><br/>";
+        isValid = false;
+    } else if (!validarEmail()) {
+        txtCorreo.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>Formato de correo inválido.</strong><br/><br/>";
+        isValid = false;
+    }
+
+//Validación de teléfono
+
+    if (txtTel.value.trim() === "") {
+        txtTel.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>El campo Teléfono no puede estar vacío.</strong><br/><br/>";
+        isValid = false;
+    } else if (!validarTelefono()) {
+        txtTel.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>Formato de teléfono inválido.</strong><br/><br/>";
+        isValid = false;
+    }
+
+//Validación Contraseña
+
+    if (txtPassword.value.trim() === "") {
+        txtPassword.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>La contraseña no puede estar vacía.</strong><br/><br/>";
+        isValid = false;
+    } else if (!validarPassword()) {
+        txtPassword.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.</strong><br/>";
+        isValid = false;
+    }
+
+    if (txtConfirmar.value.trim() === "") {
+        txtConfirmar.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>Debe confirmar la contraseña.</strong><br/><br/>";
+        isValid = false;
+    } else if (!coincidenPasswords()) {
+        txtConfirmar.style.border = "2px solid red";
+        alertValidacionesTexto.innerHTML += "<strong>Las contraseñas no coinciden.</strong><br/><br/>";
+        isValid = false;
+    }
+
+//Check de Términos y condiciones
+
+    if (!document.getElementById('chkTerminos').checked) {
+      alertValidacionesTexto.innerHTML += "<strong>Debe aceptar los términos y condiciones.</strong>";
+      document.getElementById('chkTerminos').style.border = "2px solid red";  // Añadir borde rojo si no está seleccionado
+      isValid = false;
+  } else {
+      document.getElementById('chkTerminos').style.border = "";  // Limpiar el borde rojo si está seleccionado
   }
+
+//LocalStorage
+
+    if (!isValid) {
+        alertValidaciones.style.display = "block";
+    } else {
+        const nombre = txtNombre.value.trim();
+        const correo = txtCorreo.value.trim();
+        const telefono = txtTel.value.trim();
+        const password = txtPassword.value.trim();
+
+        const usuarios = JSON.parse(localStorage.getItem('users')) || [];
+        const correoExiste = usuarios.some(usuario => usuario.email.toLowerCase() === correo.toLowerCase());
+
+        const nuevoUsuario = {
+            nombre: nombre,
+            email: correo,
+            telefono: telefono,
+            password: password
+        };
+
+        if (correoExiste) {
+            Swal.fire("Error", "Este correo ya está registrado", "error");
+        } else {
+            usuarios.push(nuevoUsuario);
+            localStorage.setItem('users', JSON.stringify(usuarios));
+            Swal.fire("Registro exitoso", "El usuario fue guardado correctamente", "success");
+
+            // Limpiar todos los campos del formulario
+            txtNombre.value = "";
+            txtCorreo.value = "";
+            txtTel.value = "";
+            txtPassword.value = "";
+            txtConfirmar.value = "";
+
+            // Limpiar el check de términos
+            document.getElementById('chkTerminos').checked = false;
+
+            document.getElementById('chkTerminos').style.border = "";
+
+            // INICIO en el primer campo
+            txtNombre.focus();
+        }
+    }
 });
