@@ -1,6 +1,6 @@
 const telPattern = new RegExp("^(?!.*(\\d)([-.\\s()]?)(?:\\1\\2?){9}$)(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{2,4}\\)?[-.\\s]?)?\\d{3,4}[-.\\s]?\\d{4}$");
 const emailPattern = new RegExp("[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+");
-const passwordPattern = new RegExp("^[A-Za-z0-9_!%*]{8,}$");
+const passwordPattern = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$");
 
 const txtNombre = document.getElementById("txtNombre");
 const txtCorreo = document.getElementById("txtCorreo");
@@ -78,7 +78,6 @@ btnEnviar.addEventListener("click", function(event) {
 
   // Si todo es válido, se envía el correo
   if (isValid) {
-    enviarCorreo();
     txtNombre.value = "";
     txtCorreo.value = "";
     txtTel.value = "";
