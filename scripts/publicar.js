@@ -95,7 +95,7 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
   }
 
   if (!fileInput.files.length) {
-    mostrarError(fileInput, 'fileUpload-alert-container', 'La imagen del producto es necesaria');
+    mostrarError(fileInput, 'fileUpload-alert-container', 'La imagen del producto es necesaria.');
     hayErrores = true;
   }
   

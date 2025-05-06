@@ -57,7 +57,7 @@
   }
   
   strong {
-    color: var(--bg);
+    color: var(#58151c);
   }
   
   img {
@@ -166,6 +166,21 @@ section.sobreNosotros article.descripcion{
 
 .btns-log-ins {
     background-color: var(--orange);
+}
+
+/* Alertas debajo de los labels */
+#sku-alert-container,
+#categoria-alert-container,
+#producto-alert-container,
+#descripcion-alert-container,
+#precio-alert-container,
+#costo-alert-container,
+#cantidad-alert-container,
+#fileUpload-alert-container {
+  display: block;
+  color: red;
+  font-size: 14 px;
+  margin-bottom: 4px;
 }
 
 /*BREAK POINTS....................................................................*/
