@@ -52,7 +52,7 @@ btnEnviar.addEventListener("click", function(event) {
   // Validar que el campo no esté vacío o tenga al menos un nombre y apellido
   if (txtNombre.value.trim() === "") {
     txtNombre.style.border = "2px solid red";
-    alertValidacionesTexto.innerHTML += "<strong>El campo Nombre no puede estar vacío.</strong><br/>";
+    alertValidacionesTexto.innerHTML += "<strong>El campo Nombre y Apellido no puede estar vacío.</strong><br/>";
     isValid = false;
   } else if (!validarNombre()) {
     txtNombre.style.border = "2px solid red";
