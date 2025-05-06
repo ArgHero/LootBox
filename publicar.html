@@ -31,7 +31,7 @@
                 <div class="col-md-4">
                         <label for="Input" class="form-label">SKU</label>
                         <span id="sku-alert-container"></span>
-                        <input type="text" class="form-control" placeholder="SKU" id="sku" maxlength="4">
+                        <input type="text" class="form-control" placeholder="SKU" id="sku" minlength="1" maxlength="4">
                 </div>
                 <div class="col-md-8 mb-3">
                     <label for="Select" class="form-label">Categoría</label>
@@ -51,33 +51,47 @@
                 </div>
                 
             </div>  
-            <div class="mb-3">
-                <label for="TextInput"  class="form-label">Descripción del producto</label>
-                <span id="descripcion-alert-container"></span>
-                <textarea class="form-control" rows="4" placeholder="Escribe aquí..." id="descripcion" required></textarea>          
-            </div>
+          <div class="mb-3">
+              <label for="TextInput"  class="form-label">Descripción del producto</label>
+              <span id="descripcion-alert-container"></span>
+              <textarea class="form-control" rows="4" placeholder="Escribe aquí..." id="descripcion" required></textarea>          
+          </div>
           <div class="row mb-3">
-                <div class="col-md-4">
-                <label for="Input" class="form-label">Precio</label>
-                <span id="precio-alert-container"></span>
-                <input type="text" class="form-control" placeholder="$00.00" id="precio" required>
-        </div>
-         <div class="col-md-4">
-                <label for="Input" class="form-label">Costo</label>
-                <span id="costo-alert-container"></span>
-                <input type="text" class="form-control" placeholder="$00.00" id="costo" required>
-                </div>
+            <div class="col-md-4">
+            <label for="Input" class="form-label">Precio</label>
+            <span id="precio-alert-container"></span>
+            <input type="text" class="form-control" placeholder="$00" id="precio" required>
+          </div>
+          <div class="col-md-4">
+            <label for="Input" class="form-label">Costo</label>
+            <span id="costo-alert-container"></span>
+            <input type="text" class="form-control" placeholder="$00" id="costo" required>
+          </div>
           <div class="col-md-4">
             <label for="Input" class="form-label">Cantidad</label>
             <span id="cantidad-alert-container"></span>
             <input type="text" class="form-control" placeholder="0" id="cantidad" required>
-            </div>
+          </div>
 
-            <div class="mb-3 mt-3">
+          <div class="mb-3 mt-3">
+            <label for="fileUpload" class="form-label">Cargar la imágen del producto</label>
+            <div class="d-flex justify-content-around align-items-center  p-3 rounded-3 bg-white shadow text-dark">
+              
+              <span class="spinner-border text-secondary visually-hidden" role="status"></span>
+              <input type="file" id="fileUpload" accept="image/*" >
+            </div>
+            
+          </div>
+
+          <div class="mb-3 mt-3">
+            <img id="output" src="" alt="">
+          </div>
+
+            <!-- <div class="mb-3 mt-3">
               <label for="url-imagen" class="form-label">URL de la imagen del producto</label>
               <span id="URL-alert-container"></span>
               <input type="url" class="form-control" id="url-imagen" placeholder="https://ejemplo.com/imagen.jpg" required>
-          </div>
+          </div> -->
          
 
         </div>
@@ -86,7 +100,6 @@
         </fieldset>
       </form> <br>
 
-    <!-- Tabla -->
 <!-- Tabla -->
     <table class="container table table-striped" id="tabla-items" >
       <thead class="w-100">
