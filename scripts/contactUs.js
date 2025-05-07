@@ -1,4 +1,4 @@
-const telPattern = new RegExp("^(?!.*(\\d)([-.\\s()]?)(?:\\1\\2?){9}$)(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{2,4}\\)?[-.\\s]?)?\\d{3,4}[-.\\s]?\\d{4}$");
+const telPattern = new RegExp("^\\(?\\d{2}\\)?[-\\s]?\\d{4}[-\\s]?\\d{4}$");
 const emailPattern = new RegExp("[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+");
 
 const txtCorreo = document.getElementById("txtCorreo");
@@ -31,7 +31,18 @@ function validarEmail() {
 
 // Validar correo electrónico
 function validarTelefono() {
-  const content = txtTel.value.trim();
+    const content = txtTel.value.trim();
+    if (!telPattern.test(content)) return false;
+    const limpio = content.replace(/\D/g, '');
+  
+    // Verificar que haya 10 dígitos
+    if (limpio.length !== 10) return false;
+  
+    const bloque1 = limpio.slice(2, 6);
+    const bloque2 = limpio.slice(6, 10);
+    const repetidos = /(\d)\1{3}/;
+    if (repetidos.test(bloque1) || repetidos.test(bloque2)) return false;
+
   return telPattern.test(content);
 };//validarTelefono()
 
@@ -80,6 +91,8 @@ btnEnviar.addEventListener("click", function(event) {
     txtTel.style.border = "2px solid red";
     alertValidacionesTexto.innerHTML += "<strong>El número telefónico no es válido.</strong><br/>";
     isValid = false;
+  } else {
+    txtTel.style.border = ""; 
   }
 
   // Validar que el campo no esté vacío o tenga entre 10 y 150 caracteres
