@@ -197,7 +197,7 @@ function enviarCorreo(){
 
 
 
-history.pushState({}, '', '/contactanos');
+//history.pushState({}, '', '/contactanos');
 
 
 

@@ -1,2 +1,2 @@
-history.pushState({}, '', '/inicio');
+//history.pushState({}, '', '/inicio');
 

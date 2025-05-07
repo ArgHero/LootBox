@@ -63,4 +63,4 @@ function modalProducto(event) {
 document.addEventListener("DOMContentLoaded", actualizarProductos);
 // Cargar productos si ya existen al cargar la página
 window.addEventListener('productosCargados', actualizarProductos);
-history.pushState({}, '', '/nuestrosProductos');
+//history.pushState({}, '', '/nuestrosProductos');
