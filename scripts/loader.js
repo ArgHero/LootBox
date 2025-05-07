@@ -28,8 +28,11 @@ function loadContainers(){
 };//loadContainers()
 
 function resaltarNav(){
-  const paginas = ["index.html","aboutUs.html","contacUs.html","prodList.html","publicar.html"];
+  const paginas = ["index.html","aboutUs.html","contacUs.html","prodList.html","publicar.html","registro.html"];
   const navFocus = document.getElementById("navbar-container").getElementsByClassName("nav-item")[paginas.indexOf(nombrePagina)].getElementsByTagName("a").item(0);
+  console.log(paginas.indexOf(nombrePagina));
+  console.log(navFocus);
+
   navFocus.classList.add("active");
 };//resaltarNav()
 
