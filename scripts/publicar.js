@@ -416,4 +416,3 @@ fileInput.addEventListener("change", async () => {
 document.addEventListener("DOMContentLoaded", mostrarDatosLocal);
 //----Cargar tabla si no existia el local storage
 window.addEventListener('productosCargados',mostrarDatosLocal);
-history.pushState({}, '', '/publicar');
