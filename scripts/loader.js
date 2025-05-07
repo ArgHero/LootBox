@@ -50,7 +50,7 @@ if (!productosL) {
     // Verifica si es un array
     if (Array.isArray(data)) {
       localStorage.setItem('productos', JSON.stringify(data));
-      console.log('Productos cargados correctamente al localStorage.');
+      //console.log('Productos cargados correctamente al localStorage.');
       window.dispatchEvent(new Event('productosCargados'));
     } else {
       console.error('El archivo no contiene un array válido.');

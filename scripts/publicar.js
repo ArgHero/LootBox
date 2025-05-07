@@ -23,6 +23,7 @@ const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
 let listaProductos = [];
 
 function mostrarDatosLocal(){
+  listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
   cuerpoTabla.innerHTML = "";
   listaProductos.forEach(addRow);
 }
@@ -330,11 +331,7 @@ function deleteComp(event){
   mostrarDatosLocal();
 }//deleteComp()
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Inicializar la lista de productos al cargar la página
-  listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
-  mostrarDatosLocal();
-});
+
 
 //----Cargar imágenes
 fileInput.addEventListener("change", async () => {
@@ -354,9 +351,10 @@ fileInput.addEventListener("change", async () => {
       alert("An error occurred while reading the file.");
       spinner.classList.add("visually-hidden");
   };
-
-
   reader.readAsDataURL(file);
-  
-  
-})
+});
+
+//-----
+document.addEventListener("DOMContentLoaded", mostrarDatosLocal);
+//----Cargar tabla si no existia el local storage
+window.addEventListener('productosCargados',mostrarDatosLocal);
