@@ -129,25 +129,25 @@ txtTel.addEventListener("click",cleanBorder);
 txtCorreo.addEventListener("click",cleanBorder);
 
 //----------Validación rápida-----------------
-txtNombre.addEventListener("blur",(event)=>{
-  if(!validarNombre())
-    colorBorder(event);
-});//txtNombre-blur
+// txtNombre.addEventListener("blur",(event)=>{
+//   if(!validarNombre())
+//     colorBorder(event);
+// });//txtNombre-blur
 
-txtMensaje.addEventListener("blur",(event)=>{
-  if(!validarMensaje())
-    colorBorder(event);
-});//txtMensaje-blur
+// txtMensaje.addEventListener("blur",(event)=>{
+//   if(!validarMensaje())
+//     colorBorder(event);
+// });//txtMensaje-blur
 
-txtTel.addEventListener("blur",(event)=>{
-  if(!validarTelefono())
-    colorBorder(event);
-});//txtTel-blur
+// txtTel.addEventListener("blur",(event)=>{
+//   if(!validarTelefono())
+//     colorBorder(event);
+// });//txtTel-blur
 
-txtCorreo.addEventListener("blur",(event)=>{
-  if(!validarEmail())
-    colorBorder(event);
-});//txtCorreo-blur
+// txtCorreo.addEventListener("blur",(event)=>{
+//   if(!validarEmail())
+//     colorBorder(event);
+// });//txtCorreo-blur
 
 
 //email....
