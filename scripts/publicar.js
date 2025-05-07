@@ -96,6 +96,7 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
     hayErrores = true;
   }
 
+  
   if (!fileInput.files.length) {
     mostrarError(fileImageContainer, 'fileUpload-alert-container', 'La imagen del producto es necesaria.');
     hayErrores = true;
@@ -159,7 +160,7 @@ function editComp(event) {
   const nombreProducto = fila.getElementsByTagName("td")[2].innerText;
   const index = listaProductos.findIndex(prod => prod.name === nombreProducto);
   const producto = listaProductos[index];
-  console.log(producto);
+
 
   // Borra modal existente
   const modalExistente = document.getElementById("modalEditar");
@@ -194,9 +195,13 @@ function editComp(event) {
               </div>
 
               <div class="mb-3">
-                <label for="urlImagenEditar" class="form-label">URL de Imagen</label>
-                <input type="text" class="form-control" id="urlImagenEditar" value="${producto.img}">
+              <label for="fileUploadEditar" class="form-label">Cargar la imagen del producto</label>
+              <span id="fileUploadEditar-alert-container"></span>
+              <div class="d-flex justify-content-around align-items-center p-3 rounded-3 bg-white shadow text-dark" id="fileImageContainerEditar">
+                <span class="spinner-border text-secondary visually-hidden" role="status" id="spinnerEditar"></span>
+                <input type="file" id="fileUploadEditar" accept="image/*">
               </div>
+            </div>
 
               <div class="mb-3">
                 <label for="precioEditar" class="form-label">Precio</label>
@@ -228,7 +233,35 @@ function editComp(event) {
       </div>
     </div>`;
 
-  document.body.insertAdjacentHTML('beforeend', modalHTML);
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    const fileInputEditar = document.getElementById("fileUploadEditar");
+      const spinnerEditar = document.getElementById("spinnerEditar");
+        let imageCodedEditar; // Variable para la imagen del modal
+          
+          fileInputEditar.addEventListener("change", async () => {
+            imageCodedEditar = null;       spinnerEditar.classList.remove("visually-hidden");
+            const [file] = fileInputEditar.files;
+          
+        if (file) {
+              const reader = new FileReader();
+                reader.onload = (event) => {
+              imageCodedEditar = event.target.result;
+            spinnerEditar.classList.add("visually-hidden");
+              };
+          
+          reader.onerror = (err) => {
+          console.error("Error reading file:", err);
+          alert("An error occurred while reading the file.");
+        spinnerEditar.classList.add("visually-hidden");
+          };
+          reader.readAsDataURL(file);
+          } else {
+          spinnerEditar.classList.add("visually-hidden"); // Ocultar el spinner si no hay archivo
+          }
+     });
+    
+  
   document.getElementById("formEditarProducto").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -236,23 +269,47 @@ function editComp(event) {
     const skuEditar = document.getElementById("skuEditar");
     const productoEditar = document.getElementById("productoEditar");
     const descripcionEditar = document.getElementById("descripcionEditar");
-    const urlImagenEditar = document.getElementById("urlImagenEditar");
     const precioEditar = document.getElementById("precioEditar");
     const canditadEditar = document.getElementById("canditadEditar");
 
 
     // Validar
-    const valido = validarCamposProducto({
-      sku: skuEditar,
-      producto: productoEditar,
-      descripcion: descripcionEditar,
-      precio: precioEditar,
-      costo: { value: 1, focus: () => {} },
-      cantidad: { value: 1, focus: () => {} },
-      urlImagen: urlImagenEditar,
-    });
-
-    if (!valido) return;
+    let hayErrores = false;
+     limpiarAlertasYEstilos(); // Asegúrate de que esta función limpie las alertas del modal también
+    
+     // Validar los campos de texto
+     if (!skuPath.test(skuEditar.value.trim())) {
+         mostrarError(skuEditar, 'skuEditar-alert-container', 'El SKU debe tener entre 1 y 4 caracteres alfanuméricos.');
+         hayErrores = true;
+       }
+     if (productoEditar.value.trim().length < 3) {
+         mostrarError(productoEditar, 'productoEditar-alert-container', 'El nombre del producto debe tener al menos 3 caracteres.');
+         hayErrores = true;
+     }
+     if (descripcionEditar.value.trim().length < 5) {
+         mostrarError(descripcionEditar, 'descripcionEditar-alert-container', 'La descripción debe tener al menos 5 caracteres.');
+         hayErrores = true;
+     }
+     if (isNaN(precioEditar.value) || Number(precioEditar.value) <= 0) {
+         mostrarError(precioEditar, 'precioEditar-alert-container', 'El precio debe ser un número mayor que 0.');
+         hayErrores = true;
+     }
+     if (!/^\d+$/.test(canditadEditar.value) || Number(canditadEditar.value) <= 0) {
+         mostrarError(canditadEditar, 'canditadEditar-alert-container', 'La cantidad debe ser un número mayor que 0 y sin decimales.');
+         hayErrores = true;
+     }
+    
+     // Validar la imagen SOLO si se ha seleccionado un nuevo archivo
+     if (fileInputEditar.files.length > 0) {
+         // Aquí podrías agregar validaciones más específicas para el tipo o tamaño del archivo si lo deseas
+     } else if (!listaProductos[document.getElementById("indexEditar").value].img) {
+         // Si no se seleccionó una nueva imagen Y el producto original no tenía imagen
+         mostrarError(document.getElementById('fileImageContainerEditar'), 'fileUploadEditar-alert-container', 'La imagen del producto es necesaria.');
+         hayErrores = true;
+     }
+    
+     if (hayErrores) return;
+    
 
     const idx = document.getElementById("indexEditar").value;
 
@@ -261,7 +318,7 @@ function editComp(event) {
       name: productoEditar.value.trim(),
       sku: skuEditar.value.trim(),
       description: descripcionEditar.value.trim(),
-      img: imageCoded,
+      img: imageCodedEditar !== undefined ? imageCodedEditar : listaProductos[idx].img,
       price: Number(precioEditar.value),
       stock: Number(canditadEditar.value),
       category: categoriaEditar.value,
@@ -270,6 +327,7 @@ function editComp(event) {
         count: Math.floor(Math.random() * 1001)
       }
     };
+
 
     localStorage.setItem('productos', JSON.stringify(listaProductos));
     mostrarDatosLocal();
@@ -358,3 +416,4 @@ fileInput.addEventListener("change", async () => {
 document.addEventListener("DOMContentLoaded", mostrarDatosLocal);
 //----Cargar tabla si no existia el local storage
 window.addEventListener('productosCargados',mostrarDatosLocal);
+history.pushState({}, '', '/publicar');
