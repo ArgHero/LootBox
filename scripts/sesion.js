@@ -6,6 +6,12 @@ const alertValidaciones = document.getElementById("alertValidaciones");
 
 
 // Iniciar sesión
+
+// Si ya inició sesión, ya no volver a iniciar
+if (sessionStorage.getItem("usuarioActivo")) {
+    window.location.href = "./index.html";
+}
+
 btnEnviar.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -44,7 +50,9 @@ btnEnviar.addEventListener("click", function (event) {
 
     if (usuarioEncontrado) {
         Swal.fire("Bienvenido", `Hola ${usuarioEncontrado.nombre}`, "success").then(()=>{
+            sessionStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));  
             window.location.href = "./index.html";
+            
         });
     } else {
         const correoExiste = usuarios.some(usuario => usuario.email.toLowerCase() === correo.toLowerCase());
