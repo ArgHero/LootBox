@@ -31,8 +31,11 @@ function loadContainers(){
 
 function resaltarNav(){
   const paginas = ["index.html","sobreNosotros.html","contactanos.html","nuestrosProductos.html","publicar.html","registro.html"];
-  const navFocus = navBar.getElementsByClassName("nav-item")[paginas.indexOf(nombrePagina)].getElementsByTagName("a").item(0);
-  navFocus.classList.add("active");
+  const index = paginas.indexOf(nombrePagina);
+  if(index!==-1){
+    const navFocus = navBar.getElementsByClassName("nav-item")[index].getElementsByTagName("a").item(0);
+    navFocus.classList.add("active");
+  }
 };//resaltarNav()
 
 //======================Sesión de usuario===============================
