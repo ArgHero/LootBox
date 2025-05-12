@@ -351,20 +351,23 @@ function editComp(event) {
 
 function addRow(element){
   cuerpoTabla.insertAdjacentHTML("beforeend",`
-      <tr>
-        <td><img src="${element.img}" alt="${element.name}" style="max-width: 4rem; max-height: 4rem;"></td>
-        <td>${element.sku}</td>
-        <td>${element.name}</td>
-        <td>${element.category || 'Sin Categoría'}</td>
-        <td>${element.price}</td>
-        <td>${element.stock}</td>
-        <td>
-          <button type="button" class="btn btn-warning p-1 d-inline-block mb-1" onClick="editComp(event)">Editar</button>
-          <button type="button" class="btn btn-danger p-1 d-inline-block" onClick="deleteComp(event)">Eliminar</button>
-        </td>
-      </tr>`
+    <tr>
+      <td data-label=""><img src="${element.img}" alt="${element.name}" style="max-width: 4rem; max-height: 4rem;"></td>
+      <td data-label="SKU">${element.sku}</td>
+      <td data-label="Producto">
+        <div class="label-mobile">Producto:</div>
+        <div class="value-mobile">${element.name}</div>
+      </td>
+      <td data-label="Categoría">${element.category || 'Sin Categoría'}</td>
+      <td data-label="Precio">${element.price}</td>
+      <td data-label="Cantidad">${element.stock}</td>
+      <td data-label="Acciones">
+        <button type="button" class="btn btn-warning p-1 d-inline-block mb-1" onClick="editComp(event)">Editar</button>
+        <button type="button" class="btn btn-danger p-1 d-inline-block" onClick="deleteComp(event)">Eliminar</button>
+      </td>
+    </tr>`
   );
-}//adRow()
+}//addRow()
 
 function cleanForm(){
   sku.value = "";
