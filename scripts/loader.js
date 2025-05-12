@@ -54,7 +54,7 @@ function inicioSesion(){
 
 function cerrarSesion(event){
   event.preventDefault();
-  sessionStorage.removeItem("session");
+  sessionStorage.removeItem("usuarioActivo");
   window.location.href = "./index.html";
 }//cerrarSesion()
 //=================Productos por default=================================

@@ -18,76 +18,75 @@
 
 <body>
 
-  <!-- navbar -->
   <div id="navbar-container"></div>
   <div id="main-container"></div>
-  <main class="container mt-4">
+  <main class="container mt-4" >
+    <div class="row">
 
-  <div class="container">
-  <div class="row">
-    <div class="col-12 col-md-6 mb-0 d-flex flex-column justify-content-center align-items-center">
-      <aside>
-      <div class="container">
-        <div class="row justify-content-center">
-          <form class="w-100">
-       
-              <legend> Registro </legend>
-                <label for="txtNombre" class="form-label"> Nombre y Apellido</label>
-                <input type="text" id="txtNombre" class="form-control"  autofocus placeholder="Ingresa tu nombre" name="nombre">
-              </div>
-              <div class="mb-3">
-                <label for="txtCorreo" class="form-label"> Correo Electrónico </label>
-                <input type="email" id="txtCorreo" class="form-control" placeholder="Ingresa tu correo electrónico" name="email">
-              </div>
-              <div class="mb-3">
-                <label for="txtTel" class="form-label"> Teléfono </label>
-                <input type="tel" id="txtTel" class="form-control" placeholder="Ingresa tu teléfono" name="telefono" maxlength="10">
+      <div class="col-12 col-md-6 mb-0 d-flex flex-column justify-content-center align-items-center">
+        <aside>
+        <div class="container">
+          <div class="row justify-content-center">
+            <form class="w-100">
+        
+                <legend> Registro </legend>
+                  <label for="txtNombre" class="form-label"> Nombre y Apellido</label>
+                  <input type="text" id="txtNombre" class="form-control"  autofocus placeholder="Ingresa tu nombre" name="nombre">
+                </div>
+                <div class="mb-3">
+                  <label for="txtCorreo" class="form-label"> Correo Electrónico </label>
+                  <input type="email" id="txtCorreo" class="form-control" placeholder="Ingresa tu correo electrónico" name="email">
+                </div>
+                <div class="mb-3">
+                  <label for="txtTel" class="form-label"> Teléfono </label>
+                  <input type="tel" id="txtTel" class="form-control" placeholder="Ingresa tu teléfono" name="telefono" maxlength="10">
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtPassword"> Contraseña</label>
+                    <input type="password" id="txtPassword" class="form-control"  autofocus placeholder="Contraseña" name="contraseña">
+                </div>
+                <div class="mb-3">
+                  <label for="txtConfirmar"> Confirmar contraseña</label>
+                  <input type="password" id="txtConfirmar" class="form-control"  autofocus placeholder="Confirmar contraseña" name="confirmar">
+                </div>
+
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="chkTerminos">
+                  <label class="form-check-label" for="chkTerminos">Aceptar <a href="./terminosCondiciones.html" target="_blank">Términos y condiciones</a></label>
+                </div>
+
+              <button type="submit" class="btn btn-primary" id="btnEnviar"> Enviar </button>
+            </form>
+      </div>
+      </aside>
+      </div>
+
+      <div class="col-12 col-md-6 d-flex justify-content-center align-items-center" ">
+          <div class="row  w-100">
+              <div class="alert alert-danger fade show w-100" style="display:none;" role="alert" id="alertValidaciones">
+                  <p id="alertValidacionesTexto"></p>
               </div>
 
-              <div class="mb-3">
-                  <label for="txtPassword"> Contraseña</label>
-                  <input type="password" id="txtPassword" class="form-control"  autofocus placeholder="Contraseña" name="contraseña">
-              </div>
-              <div class="mb-3">
-                <label for="txtConfirmar"> Confirmar contraseña</label>
-                <input type="password" id="txtConfirmar" class="form-control"  autofocus placeholder="Confirmar contraseña" name="confirmar">
+              <div id="imgContainer" class="w-100" style="height: 300px; background-image: url('./assets/images/logoLootBox3.webp'); background-size: cover; background-position: center; background-repeat: no-repeat;" aria-label="Imagen decorativa" role="img">
               </div>
 
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="chkTerminos">
-                <label class="form-check-label" for="chkTerminos">Aceptar <a href="./terminosCondiciones.html" target="_blank">Términos y condiciones</a></label>
+              <div class="alert alert-info mt-3 p-4" role="alert" id="txtReglas">
+                  <p class="m-0"><strong>La contraseña debe tener al menos:</strong></p>
+                  <ul class="list-unstyled m-0">
+                      <li><i class="bi bi-check-circle-fill text-primary"></i> 8 caracteres.</li>
+                      <li><i class="bi bi-check-circle-fill text-primary"></i> Una mayúscula.</li>
+                      <li><i class="bi bi-check-circle-fill text-primary"></i> Una minúscula.</li>
+                      <li><i class="bi bi-check-circle-fill text-primary"></i> Un número.</li>
+                      <li><i class="bi bi-check-circle-fill text-primary"></i> Un carácter especial (e.g., #, @, $, %).</li>
+                  </ul>
               </div>
-
-            <button type="submit" class="btn btn-primary" id="btnEnviar"> Enviar </button>
-          </form>
+          </div>
+      </div>
     </div>
-    </aside>
-  </div>
-
-<div class="col-12 col-md-6 d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <div class="row  w-100">
-        <div class="alert alert-danger fade show w-100" style="display:none;" role="alert" id="alertValidaciones">
-            <p id="alertValidacionesTexto"></p>
-        </div>
-
-        <div id="imgContainer" class="w-100" style="height: 300px; background-image: url('./assets/images/logoLootBox3.webp'); background-size: cover; background-position: center; background-repeat: no-repeat;" aria-label="Imagen decorativa" role="img">
-        </div>
-
-        <div class="alert alert-info mt-3 p-4" role="alert" id="txtReglas">
-            <p class="m-0"><strong>La contraseña debe tener al menos:</strong></p>
-            <ul class="list-unstyled m-0">
-                <li><i class="bi bi-check-circle-fill text-primary"></i> 8 caracteres.</li>
-                <li><i class="bi bi-check-circle-fill text-primary"></i> Una mayúscula.</li>
-                <li><i class="bi bi-check-circle-fill text-primary"></i> Una minúscula.</li>
-                <li><i class="bi bi-check-circle-fill text-primary"></i> Un número.</li>
-                <li><i class="bi bi-check-circle-fill text-primary"></i> Un carácter especial (e.g., #, @, $, %).</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
 
   </main>
+
 
   <div id="footer-container"></div>
   
