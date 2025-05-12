@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  
+  <!-- Para los íconos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Fuentes -->
+  <title>Iniciar Sesión</title>
+</head>
+
+<body>
+
+  <!-- navbar -->
+  <div id="navbar-container"></div>
+  <div id="main-container"></div>
+  <main class="container mt-4">
+
+  <div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 mb-4 d-flex flex-column justify-content-center align-items-center">
+      <aside>
+      <div class="container px-4 px-md-8">
+        <div class="row justify-content-center">
+          <form class="w-100 p-3">
+            <div class="alert alert-danger fade show" style="display:none;" role="alert" id="alertValidaciones">
+              <p id="alertValidacionesTexto"></p>
+            </div>
+       
+              <legend> Iniciar Sesión </legend>
+
+              <div class="mb-3">
+                <label for="txtCorreo" class="form-label"> Correo Electrónico </label>
+                <input type="email" id="txtCorreo" class="form-control" placeholder="Ingresa tu correo electrónico" name="email">
+              </div>
+
+              <!-- <div class="alert alert-info mb-3" role="alert" id="txtReglas">
+                <p><strong>La contraseña debe tener al menos:</strong></p>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check-circle-fill text-primary"></i> 8 caracteres.</li>
+                  <li><i class="bi bi-check-circle-fill text-primary"></i> Una mayúscula.</li>
+                  <li><i class="bi bi-check-circle-fill text-primary"></i> Una minúscula.</li>
+                  <li><i class="bi bi-check-circle-fill text-primary"></i> Un número.</li>
+                  <li><i class="bi bi-check-circle-fill text-primary"></i> Un carácter especial (e.g., #, @, $, %).</li>
+                </ul>
+              </div> -->
+
+              <div class="mb-3">
+                  <label for="txtPassword"> Contraseña</label>
+                  <input type="password" id="txtPassword" class="form-control"  autofocus placeholder="Contraseña" name="contraseña">
+              </div>
+              <!-- <div class="mb-3">
+                <label for="txtConfirmar"> Confirmar contraseña</label>
+                <input type="password" id="txtConfirmar" class="form-control"  autofocus placeholder="Confirmar contraseña" name="confirmar">
+              </div> -->
+
+
+              <div id="alertValidaciones" style="display: none;">
+                <p id="alertValidacionesTexto"></p>
+              </div> 
+
+            <button type="submit" class="btn btn-primary" id="btnEnviar"> Enviar </button>
+          </form>
+      </div>
+    </div>
+    </aside>
+  </div>
+
+  <div class="col-12 col-md-6 d-flex justify-content-center align-items-center p-0">
+    <img src="./assets/images/logoLootBox3.webp" 
+         alt="Imagen decorativa" 
+         class="w-100 h-100" 
+         style="object-fit: cover;">
+  </div>
+
+  </main>
+
+  <div id="footer-container"></div>
+  
+  <script src="./scripts/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+  <script type="module" src="./scripts/loader.js"></script>
+  <script src="./scripts/registro.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
