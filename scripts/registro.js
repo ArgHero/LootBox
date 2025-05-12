@@ -11,6 +11,7 @@ const btnEnviar = document.getElementById("btnEnviar");
 const alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
 const alertValidaciones = document.getElementById("alertValidaciones");
 
+const imgContainer = document.getElementById("imgContainer");
 
 //Validaciones
 function validarNombre() {
@@ -163,4 +164,13 @@ btnEnviar.addEventListener("click", function(event) {
             txtNombre.focus();
         }
     }
+
+            if (!isValid) {
+    alertValidaciones.style.display = "block";
+    imgContainer.style.display = "none";
+} else {
+    alertValidaciones.style.display = "none";
+    imgContainer.style.display = "block";
+}
+
 });

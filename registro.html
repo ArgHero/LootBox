@@ -25,17 +25,13 @@
 
   <div class="container">
   <div class="row">
-    <div class="col-12 col-md-6 mb-4 d-flex flex-column justify-content-center align-items-center">
+    <div class="col-12 col-md-6 mb-0 d-flex flex-column justify-content-center align-items-center">
       <aside>
-      <div class="container px-4 px-md-8">
+      <div class="container">
         <div class="row justify-content-center">
-          <form class="w-100 p-3">
-            <div class="alert alert-danger fade show" style="display:none;" role="alert" id="alertValidaciones">
-              <p id="alertValidacionesTexto"></p>
-            </div>
+          <form class="w-100">
        
               <legend> Registro </legend>
-              <div class="mb-3">
                 <label for="txtNombre" class="form-label"> Nombre y Apellido</label>
                 <input type="text" id="txtNombre" class="form-control"  autofocus placeholder="Ingresa tu nombre" name="nombre">
               </div>
@@ -46,17 +42,6 @@
               <div class="mb-3">
                 <label for="txtTel" class="form-label"> Teléfono </label>
                 <input type="tel" id="txtTel" class="form-control" placeholder="Ingresa tu teléfono" name="telefono" maxlength="10">
-              </div>
-
-              <div class="alert alert-info mb-3" role="alert" id="txtReglas">
-                <p><strong>La contraseña debe tener al menos:</strong></p>
-                <ul class="list-unstyled">
-                  <li><i class="bi bi-check-circle-fill text-primary"></i> 8 caracteres.</li>
-                  <li><i class="bi bi-check-circle-fill text-primary"></i> Una mayúscula.</li>
-                  <li><i class="bi bi-check-circle-fill text-primary"></i> Una minúscula.</li>
-                  <li><i class="bi bi-check-circle-fill text-primary"></i> Un número.</li>
-                  <li><i class="bi bi-check-circle-fill text-primary"></i> Un carácter especial (e.g., #, @, $, %).</li>
-                </ul>
               </div>
 
               <div class="mb-3">
@@ -73,23 +58,37 @@
                 <label class="form-check-label" for="chkTerminos">Aceptar <a href="./terminosCondiciones.html" target="_blank">Términos y condiciones</a></label>
               </div>
 
-              <div id="alertValidaciones" style="display: none;">
-                <p id="alertValidacionesTexto"></p>
-              </div>
-
             <button type="submit" class="btn btn-primary" id="btnEnviar"> Enviar </button>
           </form>
-      </div>
     </div>
     </aside>
   </div>
 
-  <div class="col-12 col-md-6 d-flex justify-content-center align-items-center p-0">
-    <img src="./assets/images/logoLootBox3.webp" 
-         alt="Imagen decorativa" 
-         class="w-100 h-100" 
-         style="object-fit: cover;">
+  <div class="col-12 col-md-6 ">
+      <div class="row align-items-center">
+          <div class="alert alert-danger fade show w-100" style="display:none;" role="alert" id="alertValidaciones">
+              <p id="alertValidacionesTexto"></p>
+            </div>
+
+    <div id="imgContainer"
+     style="width: 100%; height: 300px; background-image: url('./assets/images/logoLootBox3.webp'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+     aria-label="Imagen decorativa" role="img">
+    </div>
+
+
+    <div class="alert alert-info mt-4 p-4" role="alert" id="txtReglas">
+      <p class="m-0"><strong>La contraseña debe tener al menos:</strong></p>
+      <ul class="list-unstyled m-0">
+        <li><i class="bi bi-check-circle-fill text-primary"></i> 8 caracteres.</li>
+        <li><i class="bi bi-check-circle-fill text-primary"></i> Una mayúscula.</li>
+        <li><i class="bi bi-check-circle-fill text-primary"></i> Una minúscula.</li>
+        <li><i class="bi bi-check-circle-fill text-primary"></i> Un número.</li>
+        <li><i class="bi bi-check-circle-fill text-primary"></i> Un carácter especial (e.g., #, @, $, %).</li>
+      </ul>
+    </div>
+            
   </div>
+</div>
 
   </main>
 

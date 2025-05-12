@@ -34,8 +34,7 @@ function createCards(prods) {
           <li class="list-group-item text-white bg-dark">$ ${prods.price}</li>
           <li class="list-group-item text-white bg-dark">⭐ ${prods.rating.rate} (${
             prods.rating.count
-          }) </li>
-          <li class="list-group-item text-white bg-dark">${prods.category.toUpperCase()}</li>
+          }
         </ul>
       </div>
       `
