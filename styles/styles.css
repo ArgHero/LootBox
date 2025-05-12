@@ -29,13 +29,6 @@
   
   .container {
     padding: 20px;
-    margin-bottom: 30px;
-    background-color: var(--navy);
-    border-radius: 10px;
-    color: var(--txt);
-  }
-  .container-aboutus {
-    padding: 20px;
     background-color: var(--navy);
     border-radius: 10px;
     color: var(--txt);
@@ -170,8 +163,31 @@ section.sobreNosotros article.descripcion{
     font-family: 'Irish Grover', cursive;
 }
 
+
+/* Btns stlyes */
 .btns-log-ins {
     background-color: var(--orange);
+}
+
+.btn-primary{
+  background-color: var(--sky);
+  color: #000221;
+  border: none;
+}
+.btn-primary:hover{
+  background-color: var(--orange);
+}
+
+/* Table */
+#tabla-items { 
+  width: 100%;
+  border-collapse: collapse;
+}
+#tabla-items th,
+ #tabla-items tbody{ 
+ border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
 /* Alertas debajo de los labels */
@@ -238,6 +254,72 @@ section.sobreNosotros article.descripcion{
         width: 100px;
         
     }
+}
+/* Tabla productos editar o eliminar  */
+@media (max-width: 425px) {
+  .container-tabla {
+    display: flex;
+    justify-content: center;
+    padding-left: 15px; 
+    padding-right: 15px; 
+    align-items: center;
+  }
+  #tabla-items {
+    width: 90%;
+    display: block; 
+    overflow-x: auto; 
+  }
+  #tabla-items .btn{
+    font-size: 0.8em; 
+    padding: 0.2rem 0.5rem; 
+  }
+
+  #tabla-items thead {
+    display: none; 
+  }
+  #tabla-items tbody tr {
+    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+  }
+
+  #tabla-items td:nth-child(1) img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%; 
+    height: auto;
+     text-align: center;
+  }
+  
+
+  #tabla-items td {
+    display: block; 
+    text-align: right; 
+    padding-left: 50%; 
+    position: relative; 
+  }
+
+  #tabla-items td::before {
+    content: attr(data-label); 
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+
+  #tabla-items th,
+  #tabla-items td {
+    font-size: 0.9em;
+    padding: 6px;
+  }
+
+  #tabla-items img {
+    max-width: 3rem;
+    max-height: 3rem;
+  }
+
 }
 
 
