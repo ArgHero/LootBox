@@ -29,13 +29,6 @@
   
   .container {
     padding: 20px;
-    margin-bottom: 30px;
-    background-color: var(--navy);
-    border-radius: 10px;
-    color: var(--txt);
-  }
-  .container-aboutus {
-    padding: 20px;
     background-color: var(--navy);
     border-radius: 10px;
     color: var(--txt);
