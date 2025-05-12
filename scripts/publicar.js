@@ -355,7 +355,7 @@ function addRow(element){
       <td data-label=""><img src="${element.img}" alt="${element.name}" style="max-width: 4rem; max-height: 4rem;"></td>
       <td data-label="SKU">${element.sku}</td>
       <td data-label="Producto">
-        <div class="label-mobile">Producto:</div>
+        <div class="label-mobile" hidden>Producto:</div>
         <div class="value-mobile">${element.name}</div>
       </td>
       <td data-label="Categoría">${element.category || 'Sin Categoría'}</td>
