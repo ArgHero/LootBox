@@ -1,5 +1,5 @@
 const productosL = localStorage.getItem('productos');
-const session = sessionStorage.getItem('session');
+const session = sessionStorage.getItem('usuarioActivo');
 
 const navPath = "./assets/components/navbar.html";
 const footPath = "./assets/components/footer.html";
@@ -42,6 +42,7 @@ function inicioSesion(){
     return;
   const containerBtn = navBar.getElementsByTagName("div").item(4);
   containerBtn.innerHTML=`
+  <span class="usuario-bienvenida text-white">Bienvenido, ${user.nombre || "Usuario"}</span>
     <button type="button" id="btnCerrar" class="btns-log-ins text-white px-3 py-1 rounded-4 text-center"> Cerrar Sesión </button>
     <img src="${user.img||"https://i.pinimg.com/736x/8d/59/b0/8d59b077f0c018f985ff8babeec16220.jpg"}" alt="${user.user}" class="rounded-circle" width="40px" height="40px">
   `;

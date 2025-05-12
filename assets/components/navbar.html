@@ -20,13 +20,13 @@
         <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"
           aria-label="Close"></button>
       </div>
-      <!-- SideBar  body-->
+      <!-- SideBar body-->
       <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
         <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link" href="./index.html">Inicio</a>
           </li>
-          <li class="nav-item mx-2" id="">
+          <li class="nav-item mx-2">
             <a class="nav-link" href="./sobreNosotros.html">Sobre Nosotros</a>
           </li>
           <li class="nav-item mx-2">
@@ -41,13 +41,44 @@
           <li class="nav-item mx-2" style="display: none;">
             <a class="nav-link" href="./registro.html">Publicar</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="user-name" style="display: none;"></a>
+          </li>
         </ul>
-        <!-- login / sing up -->
+        <!-- login / sign up / logout -->
         <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-          <a href="./sesion.html" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Iniciar Sesión</a>
-          <a href="./registro.html" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Regístrate</a>
+          <a href="./sesion.html" id="login-btn" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Iniciar Sesión</a>
+          <a href="./registro.html" id="signup-btn" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4">Regístrate</a>
+          <a href="#" id="logout-btn" class="btns-log-ins text-white text-decoration-none px-3 py-1 rounded-4" style="display: none;">Cerrar sesión</a>
         </div>
       </div>
     </div>
   </div>
 </nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const userNameLink = document.getElementById("user-name");
+    const loginBtn = document.getElementById("login-btn");
+    const signupBtn = document.getElementById("signup-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+
+    const usuarioActivo = JSON.parse(sessionStorage.getItem("usuarioActivo"));
+
+    if (usuarioActivo && usuarioActivo.nombre) {
+      // Si el usuario está logueado
+      userNameLink.textContent = `Hola, ${usuarioActivo.nombre}`;
+      userNameLink.style.display = "block"; // Usuario que inició sesión
+      loginBtn.style.display = "none"; // quita "Iniciar sesión"
+      signupBtn.style.display = "none"; // quita "Regístrate"
+      logoutBtn.style.display = "block"; // pone "Cerrar sesión"
+    }
+
+    // Cerrar sesión
+    logoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.removeItem("usuarioActivo"); // Elimina la sesión
+      window.location.href = "./index.html"; // Redirige a la página principal
+    });
+  });
+</script>
