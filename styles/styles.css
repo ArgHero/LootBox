@@ -190,8 +190,15 @@ section.sobreNosotros article.descripcion{
   color: #000221;
   border: none;
 }
-.btn-primary:hover, .btn-primary:active,.btn-transparent:hover {
+.btn-primary:hover, .btn-primary:active {
   background-color: var(--orange);
+}
+.btn-puntos .puntos {
+    color: white;
+    transition: color 0.3s ease;
+}
+.btn-puntos:hover .puntos {
+    color: var(--orange);
 }
 
 /* Table */

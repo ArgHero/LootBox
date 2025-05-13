@@ -35,9 +35,9 @@ function createCards(prods) {
           <li class="list-group-item text-white bg-dark">⭐ ${prods.rating.rate} (${prods.rating.count})</li>
         </ul>
 
-        <button type="button" onclick="modalProducto(event);" class="btn fs-3 btn-transparent text-white  border-0" 
+        <button type="button" onclick="modalProducto(event);" class="btn fs-3 btn-transparent text-white btn-puntos border-0" 
           data-bs-toggle="modal" data-bs-target="#modalDescripcion" >
-            . . .
+             <span class="puntos">. . .</span>
         </button>
 
       </div>
