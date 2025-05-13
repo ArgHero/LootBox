@@ -190,7 +190,7 @@ section.sobreNosotros article.descripcion{
   color: #000221;
   border: none;
 }
-.btn-primary:hover{
+.btn-primary:hover, .btn-primary:active,.btn-transparent:hover {
   background-color: var(--orange);
 }
 
