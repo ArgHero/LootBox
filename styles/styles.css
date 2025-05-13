@@ -272,7 +272,7 @@ section.sobreNosotros article.descripcion{
     }
 }
 /* Tabla productos editar o eliminar  */
-@media (max-width: 425px) {
+@media (max-width: 450px) {
   .container-tabla {
     display: flex;
     justify-content: center;
