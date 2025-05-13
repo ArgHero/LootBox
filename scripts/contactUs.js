@@ -29,7 +29,7 @@ function validarEmail() {
   return emailPattern.test(content);
 };//validarEmail()
 
-// Validar correo electrónico
+// Validar telefono
 function validarTelefono() {
     const content = txtTel.value.trim();
     if (!telPattern.test(content)) return false;

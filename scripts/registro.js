@@ -1,4 +1,4 @@
-const telPattern = new RegExp("^(?!.*(\\d)([-.\\s()]?)(?:\\1\\2?){9}$)(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{2,4}\\)?[-.\\s]?)?\\d{3,4}[-.\\s]?\\d{4}$");
+const telPattern = new RegExp("^\\(?\\d{2}\\)?[-\\s]?\\d{4}[-\\s]?\\d{4}$");
 const emailPattern = new RegExp("[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+");
 const passwordPattern = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$");
 
@@ -23,21 +23,33 @@ function validarNombre() {
 function validarEmail() {
     const content = txtCorreo.value.trim();
     return emailPattern.test(content);
-}
+}//validarEmail
 
+// Validar telefono
 function validarTelefono() {
     const content = txtTel.value.trim();
-    return telPattern.test(content);
-}
+    if (!telPattern.test(content)) return false;
+    const limpio = content.replace(/\D/g, '');
+  
+    // Verificar que haya 10 dígitos
+    if (limpio.length !== 10) return false;
+  
+    const bloque1 = limpio.slice(2, 6);
+    const bloque2 = limpio.slice(6, 10);
+    const repetidos = /(\d)\1{3}/;
+    if (repetidos.test(bloque1) || repetidos.test(bloque2)) return false;
+
+  return telPattern.test(content);
+};//validarTelefono
 
 function validarPassword() {
     const content = txtPassword.value.trim();
     return passwordPattern.test(content);
-}
+}//validarPassword
 
 function coincidenPasswords() {
     return txtPassword.value === txtConfirmar.value;
-}
+}//coincidenPasswords
 
 btnEnviar.addEventListener("click", function(event) {
     event.preventDefault();
@@ -57,7 +69,7 @@ btnEnviar.addEventListener("click", function(event) {
 
     if (txtNombre.value.trim() === "") {
         txtNombre.style.border = "2px solid red";
-        alertValidacionesTexto.innerHTML += "<strong>El campo Nombre no puede estar vacío.</strong><br/><br/>";
+        alertValidacionesTexto.innerHTML += "<strong>El nombre y apellido no puede estar vacío.</strong><br/><br/>";
         isValid = false;
     } else if (!validarNombre()) {
         txtNombre.style.border = "2px solid red";
@@ -69,7 +81,7 @@ btnEnviar.addEventListener("click", function(event) {
 
     if (txtCorreo.value.trim() === "") {
         txtCorreo.style.border = "2px solid red";
-        alertValidacionesTexto.innerHTML += "<strong>El campo Correo no puede estar vacío.</strong><br/><br/>";
+        alertValidacionesTexto.innerHTML += "<strong>El correo no puede estar vacío.</strong><br/><br/>";
         isValid = false;
     } else if (!validarEmail()) {
         txtCorreo.style.border = "2px solid red";
@@ -81,7 +93,7 @@ btnEnviar.addEventListener("click", function(event) {
 
     if (txtTel.value.trim() === "") {
         txtTel.style.border = "2px solid red";
-        alertValidacionesTexto.innerHTML += "<strong>El campo Teléfono no puede estar vacío.</strong><br/><br/>";
+        alertValidacionesTexto.innerHTML += "<strong>El teléfono no puede estar vacío.</strong><br/><br/>";
         isValid = false;
     } else if (!validarTelefono()) {
         txtTel.style.border = "2px solid red";
@@ -146,7 +158,9 @@ btnEnviar.addEventListener("click", function(event) {
         } else {
             usuarios.push(nuevoUsuario);
             localStorage.setItem('users', JSON.stringify(usuarios));
-            Swal.fire("Registro exitoso", "El usuario fue guardado correctamente", "success");
+            Swal.fire("Registro exitoso", "El usuario fue guardado correctamente", "success").then(()=>{
+                window.location.href = "./sesion.html"
+            });
 
             // Limpiar todos los campos del formulario
             txtNombre.value = "";

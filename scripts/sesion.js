@@ -25,7 +25,7 @@ btnEnviar.addEventListener("click", function (event) {
     const correo = txtCorreo.value.trim();
     if (correo === "") {
         txtCorreo.style.border = "2px solid red";
-        alertValidacionesTexto.innerHTML += "<strong>El campo Correo no puede estar vacío.</strong><br/><br/>";
+        alertValidacionesTexto.innerHTML += "<strong>El correo no puede estar vacío.</strong><br/><br/>";
         isValid = false;
     }
 
