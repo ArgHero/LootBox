@@ -63,7 +63,7 @@ btnEnviar.addEventListener("click", function(event) {
   // Validar que el campo no esté vacío o tenga al menos un nombre y apellido
   if (txtNombre.value.trim() === "") {
     txtNombre.style.border = "2px solid red";
-    alertValidacionesTexto.innerHTML += "<strong>El campo Nombre y Apellido no puede estar vacío.</strong><br/>";
+    alertValidacionesTexto.innerHTML += "<strong>El nombre y apellido no puede estar vacío.</strong><br/>";
     isValid = false;
   } else if (!validarNombre()) {
     txtNombre.style.border = "2px solid red";
@@ -74,7 +74,7 @@ btnEnviar.addEventListener("click", function(event) {
   // Validar que el campo no esté vacío o y que el correo sea válido
   if (txtCorreo.value.trim() === "") {
     txtCorreo.style.border = "2px solid red";
-    alertValidacionesTexto.innerHTML += "<strong>El campo Correo Electrónico no puede estar vacío.</strong><br/>";
+    alertValidacionesTexto.innerHTML += "<strong>El correo Electrónico no puede estar vacío.</strong><br/>";
     isValid = false;
   } else if (!validarEmail()) {
     txtCorreo.style.border = "2px solid red";
@@ -85,7 +85,7 @@ btnEnviar.addEventListener("click", function(event) {
   // Validar que el campo no esté vacío o y que el número de teléfono sea válido.
   if (txtTel.value.trim() === "") {
     txtTel.style.border = "2px solid red";
-    alertValidacionesTexto.innerHTML += "<strong>El campo Teléfono no puede estar vacío.</strong><br/>";
+    alertValidacionesTexto.innerHTML += "<strong>El teléfono no puede estar vacío.</strong><br/>";
     isValid = false;
   } else if (!validarTelefono()) {
     txtTel.style.border = "2px solid red";
@@ -98,7 +98,7 @@ btnEnviar.addEventListener("click", function(event) {
   // Validar que el campo no esté vacío o tenga entre 10 y 150 caracteres
   if (txtMensaje.value.trim() === "") {
     txtMensaje.style.border = "2px solid red";
-    alertValidacionesTexto.innerHTML += "<strong>El campo Mensaje no puede estar vacío.</strong><br/>";
+    alertValidacionesTexto.innerHTML += "<strong>El mensaje no puede estar vacío.</strong><br/>";
     isValid = false;
   } else if (!validarMensaje()) {
     txtMensaje.style.border = "2px solid red";
