@@ -21,21 +21,25 @@ function createCards(prods) {
         <div class="ratio ratio-1x1">
           <img src="${prods.img}" class="card-img-top" alt="">
         </div>
-        <div class="card-body d-flex flex-wrap justify-content-center gap-3 ">
-          <h5 class="card-title">${prods.name}</h5>
-          <p class="card-text text-truncate text-break">${
-            prods.description
-          }</p>
-          <button type="button" onclick="modalProducto(event);"  class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalDescripcion">
-            Saber más...
+        <div class="card-body d-flex flex-column flex-wrap justify-content-between gap-3 ">
+
+          <h5 class="card-title text-center">${prods.name}</h5>       
+          <p class="card-text d-none">${prods.description}</p>
+          <button class="btn btn-primary">
+            <i class="bi bi-cart-plus"></i>
           </button>
+          
         </div>
-        <ul class="list-group list-group-flush" >
+        <ul class="list-group list-group-flush text-center" >
           <li class="list-group-item text-white bg-dark">$ ${prods.price}</li>
-          <li class="list-group-item text-white bg-dark">⭐ ${prods.rating.rate} (${
-            prods.rating.count
-          }
+          <li class="list-group-item text-white bg-dark">⭐ ${prods.rating.rate} (${prods.rating.count})</li>
         </ul>
+
+        <button type="button" onclick="modalProducto(event);" class="btn fs-3 btn-transparent text-white  border-0" 
+          data-bs-toggle="modal" data-bs-target="#modalDescripcion" >
+            . . .
+        </button>
+
       </div>
       `
   );//insertAdjacentHTML
@@ -43,9 +47,8 @@ function createCards(prods) {
 
 function modalProducto(event) {
   event.preventDefault();
-  const contenedorPadre = event.target.parentElement;
+  const contenedorPadre = event.target.closest("div.card");
   modalDescripcion.removeAttribute("inert");
-
   modalTitulo.innerText = contenedorPadre
     .getElementsByTagName("h5")
     .item(0)
@@ -54,8 +57,8 @@ function modalProducto(event) {
     .getElementsByTagName("p")
     .item(0)
     .innerText.trim();
-
   modalDescripcion.querySelector("button").focus();
+
 };//modalProducto
 
 // Escuchar el evento personalizado para actualizar si el local storage no contiene PRODUCTS
