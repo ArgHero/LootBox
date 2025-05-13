@@ -58,7 +58,7 @@ btnEnviar.addEventListener("click", function (event) {
         const correoExiste = usuarios.some(usuario => usuario.email.toLowerCase() === correo.toLowerCase());
 
         if(correoExiste){
-            Swal.fire("Error", "Contraseña incorrecta", "error");
+            Swal.fire("Error", "Correo o contraseña incorrectos. Por favor, intenta nuevamente.", "error");
         } else {
             Swal.fire({
                 title: "Correo no registrado",
