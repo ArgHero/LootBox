@@ -358,3 +358,7 @@ section.sobreNosotros article.descripcion{
   padding: 0;
   border-radius: 10px;
 }
+
+#h2-inicio{
+  color: var(--orange);
+}

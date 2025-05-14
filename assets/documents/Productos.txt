@@ -1,4 +1,33 @@
 [
+        {
+    "name": "LootBox Común",
+    "img": "https://res.cloudinary.com/dsjcemt6v/image/upload/v1747185374/Lootbox-C2_tffytg.webp",
+    "description": "¡Tu LootBox gamer está lista! Sorpresas épicas, coleccionables y productos que te harán subir de nivel.",
+    "category": "LootBox",
+    "price": 2500.00,
+    "rating": { "rate": 4.7, "count": 1850 },
+    "sku": 1100,
+    "stock": 250
+  },
+      {
+    "name": "LootBox Épica",
+    "img": "https://res.cloudinary.com/dsjcemt6v/image/upload/v1747185373/Lootbox-M2_ahrznc.webp",
+    "description": "Sorpresas épicas en cada caja. ¿Estás listo para el drop?",
+    "category": "LootBox",
+    "price": 4000.00,
+    "rating": { "rate": 4.9, "count": 860 },
+    "sku": 1110,
+    "stock": 98
+  },
+    {
+    "name": "LootBox Legendaría",
+    "img": "https://res.cloudinary.com/dsjcemt6v/image/upload/v1747185375/Lootbox-G_nwkhoc.webp",
+    "description": "solo para los que se atreven a todo. El drop más épico, con ítems sorpresa de otro nivel.",
+    "price": 6000.00,
+    "rating": { "rate": 4.9, "count": 1300 },
+    "sku": 1120,
+    "stock": 349
+  },
   {
     "name": "PlayStation 5",
     "img": "https://res.cloudinary.com/dsjcemt6v/image/upload/v1745963956/619BkvKW35L._AC_SL1500__oj8efg.jpg",
