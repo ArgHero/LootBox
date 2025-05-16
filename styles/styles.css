@@ -234,6 +234,7 @@ section.sobreNosotros article.descripcion{
         position: static;
         margin-top: 1rem;
     }
+
 }
 
 @media (min-width:768px){
@@ -277,6 +278,10 @@ section.sobreNosotros article.descripcion{
         width: 100px;
         
     }
+
+    .contenedor-vertical{
+    flex-direction: column;
+    } 
 }
 /* Tabla productos editar o eliminar  */
 @media (max-width: 450px) {
@@ -343,8 +348,11 @@ section.sobreNosotros article.descripcion{
     max-height: 3rem;
   }
 
-}
+  .contenedor-vertical{
+    flex-direction: column;
+  }
 
+}
 
 
 #imgContainer {
