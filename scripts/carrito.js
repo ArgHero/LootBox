@@ -2,9 +2,9 @@ let cart = [];
 
 // Agregar producto al carrito
 function addToCart(product) {
-  const index = cart.findIndex(item => item.id === product.id);
-  if (index !== -1) {
-    cart[index].quantity++;
+  const indice = cart.findindice(item => item.id === product.id);
+  if (indice !== -1) {
+    cart[indice].quantity++;
   } else {
     cart.push({ ...product, quantity: 1 });
   }
@@ -19,12 +19,12 @@ function removeFromCart(productId) {
 
 // Cambiar cantidad de un producto
 function updateQuantity(productId, quantity) {
-  const index = cart.findIndex(item => item.id === productId);
-  if (index !== -1) {
+  const indice = cart.findindice(item => item.id === productId);
+  if (indice !== -1) {
     if (quantity <= 0) {
       removeFromCart(productId);
     } else {
-      cart[index].quantity = quantity;
+      cart[indice].quantity = quantity;
     }
     updateCartUI();
   }
