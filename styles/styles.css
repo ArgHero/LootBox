@@ -234,7 +234,6 @@ section.sobreNosotros article.descripcion{
         position: static;
         margin-top: 1rem;
     }
-
 }
 
 @media (min-width:768px){
@@ -278,10 +277,6 @@ section.sobreNosotros article.descripcion{
         width: 100px;
         
     }
-
-    .contenedor-vertical{
-    flex-direction: column;
-    } 
 }
 /* Tabla productos editar o eliminar  */
 @media (max-width: 450px) {
@@ -348,18 +343,15 @@ section.sobreNosotros article.descripcion{
     max-height: 3rem;
   }
 
-  .contenedor-vertical{
-    flex-direction: column;
-  }
-
 }
+
 
 
 #imgContainer {
   width: 100%;
   height: 300px;
   background-image: url('./assets/images/logoLootBox3.webp');
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   margin: 0;
@@ -368,30 +360,5 @@ section.sobreNosotros article.descripcion{
 }
 
 #h2-inicio{
-  color: var(--orange);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.sticky-text{
-  position: absolute;
-  color: var(--txt);
-  top: 150px;    
-  width: 100%;  
-  text-align: center;
-}
-
-#h5-sticky{
   color: var(--orange);
 }
