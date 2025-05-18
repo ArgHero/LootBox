@@ -9,10 +9,10 @@ const nombrePagina = window.location.pathname.split('/').pop();
 const navBar=document.getElementById("navbar-container");
 const cuerpo=document.getElementById("footer-container");
 const fuentes=document.getElementsByTagName("head").item(0)
-
 //Carrito de compras
 let cart = JSON.parse(localStorage.getItem("cart"))||[];
 
+//Carga contenidos compartidos entre páginas
 function loadContainers(){
   fetch(navPath)
     .then(response => response.text())
@@ -28,10 +28,11 @@ function loadContainers(){
     .then(response => response.text())
     .then(data => cuerpo.innerHTML = data)
     .catch(error => console.error('Error cargando el footer:', error));
-  fetch(fuentesPath)
-    .then(response => response.text())
-    .then(data => fuentes.insertAdjacentHTML("beforeend", data))
-    .catch(error => console.error('Error cargando las fuentes:', error));
+  // fetch(fuentesPath)
+  //   .then(response => response.text())
+  //   .then(data => fuentes.insertAdjacentHTML("beforeend", data))
+  //   .catch(error => console.error('Error cargando las fuentes:', error));
+  formatoPagina();
 };//loadContainers()
 
 function resaltarNav(){
@@ -42,6 +43,42 @@ function resaltarNav(){
     navFocus.classList.add("active");
   }
 };//resaltarNav()
+
+//Dependencias empleadas en todas las páginas
+function formatoPagina(){
+  document.head.insertAdjacentHTML("beforeend",`
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=Galindo&family=Irish+Grover&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <link rel="icon" type="image/png" href="./assets/icons/favicon-lootbox.png" />
+    `);
+  cargarScriptCDN("https://cdn.jsdelivr.net/npm/sweetalert2@11");
+  cargarScriptCDN("https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js");
+  
+}//formatoPagina()
+
+function cargarScriptCDN(url) {
+    const script = document.createElement("script");
+    script.src = url;
+    script.async = true;
+    document.body.appendChild(script); // También puedes usar document.body.appendChild(script);
+}
+
 
 //======================Sesión de usuario===============================
 function inicioSesion(){
@@ -158,8 +195,6 @@ function updateCartUI() {
 
   
   cart.forEach(item => {
-    
-
     const li = document.createElement("li");
     li.className = "list-group-item d-flex justify-content-between align-items-center bg-dark text-white";
 
@@ -229,12 +264,11 @@ function buyProducts(){
   }
 }//buyProducts
 
-
-
 //--Dejar visible la funcion hacia el DOM 
 window.handleAddToCartClick = handleAddToCartClick;
 window.removeFromCart = removeFromCart;
 window.updateQuantity = updateQuantity;
 //==================Event Listeners=====================================
 document.addEventListener("DOMContentLoaded", loadContainers);
+window.addEventListener("load",()=>document.getElementById("pantalla-carga").style.display = "none");
 
