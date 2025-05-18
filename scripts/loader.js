@@ -21,6 +21,7 @@ function loadContainers(){
       resaltarNav();
       inicioSesion();
       generateCarrito();
+      buyProducts();
     })
     .catch(error => console.error('Error cargando el navbar:', error));
   fetch(footPath)
@@ -126,7 +127,7 @@ function removeFromCart(productId) {
 // Cambiar cantidad de un producto
 function updateQuantity(event,name) {
   event.preventDefault();
-  cart.find(prod=> prod.name = name).quantity = Number(event.target.value);
+  cart.find(prod=> prod.name === name).quantity = Number(event.target.value);
   updateCartUI();
 }//updateQuantity()
 
@@ -170,6 +171,54 @@ function updateCartUI() {
   cartTotalElem.textContent = cart.reduce((cuenta, prod) => cuenta + (prod.quantity*prod.price), 0).toFixed(2);
   
 }//updateCartUI()
+
+//Boton comprar
+function buyProducts(){
+  const buyButton = document.getElementById("buy-button");
+
+  if (buyButton) {
+    buyButton.addEventListener("click", () => {
+      if (cart.length === 0) {
+        Swal.fire({
+          icon: "warning",
+          title: "Tu carrito está vacío",
+          text: "Agrega productos antes de comprar"
+        });
+        return;
+      }
+
+      Swal.fire({
+        title: "¿Confirmas la compra?",
+        text: "Tu pedido será procesado",
+        icon: "question",
+        showCancelButton: true,    
+        confirmButtonColor: "#198754",
+        cancelButtonColor: "#d33", 
+        confirmButtonText: "Sí, comprar",
+        cancelButtonText: "Cancelar"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          cart = [];
+          localStorage.setItem("cart", JSON.stringify(cart));
+          updateCartUI();
+
+          const cartModalElem = document.getElementById("cartModal");
+          if (cartModalElem) {
+            const modalInstance = bootstrap.Modal.getInstance(cartModalElem) || new bootstrap.Modal(cartModalElem);
+            modalInstance.hide();
+          }
+
+          Swal.fire({
+            icon: "success",
+            title: "¡Gracias por tu compra!",
+            text: "Tu pedido fue procesado exitosamente."
+          });
+        }
+      });
+    });
+  }
+}//buyProducts
+
 
 
 //--Dejar visible la funcion hacia el DOM 

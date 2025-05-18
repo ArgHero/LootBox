@@ -3,7 +3,7 @@ console.log("el scripy de carrito esta comentado");
 /*
 let cart = [];
 
-// Agregar producto al carrito
+// Agregar producto al carrito YA
 function addToCart(product) {
   const indice = cart.findindice(item => item.id === product.id);
   if (indice !== -1) {
@@ -14,13 +14,13 @@ function addToCart(product) {
   updateCartUI();
 }
 
-// Eliminar producto del carrito
+// Eliminar producto del carrito YA
 function removeFromCart(productId) {
   cart = cart.filter(item => item.id !== productId);
   updateCartUI();
 }
 
-// Cambiar cantidad de un producto
+// Cambiar cantidad de un producto YA
 function updateQuantity(productId, quantity) {
   const indice = cart.findindice(item => item.id === productId);
   if (indice !== -1) {
@@ -33,7 +33,7 @@ function updateQuantity(productId, quantity) {
   }
 }
 
-// Actualizar contador y mostrar productos en modal
+// Actualizar contador y mostrar productos en modal YA
 function updateCartUI() {
   const cartCountElem = document.getElementById("cart-count");
   const cartItemsList = document.getElementById("cart-items");
@@ -50,7 +50,7 @@ function updateCartUI() {
   cartItemsList.innerHTML = "";
 
   let total = 0;
-  cart.forEach(item => {
+  cart.forEach(item => { YA
     total += item.price * item.quantity;
 
     const li = document.createElement("li");
@@ -75,7 +75,7 @@ function updateCartUI() {
   cartTotalElem.textContent = total.toFixed(2);
 }
 
-// Manejar click en botón agregar a carrito en cada card
+// Manejar click en botón agregar a carrito en cada card YA
 function handleAddToCartClick(event) {
   const card = event.target.closest(".card");
   if (!card) return;
@@ -96,7 +96,7 @@ function initAddToCartButtons() {
   });
 }
 
-// Evento para botón comprar
+// Evento para botón comprar YA
 document.addEventListener("DOMContentLoaded", () => {
   const buyButton = document.getElementById("buy-button");
   if (buyButton) {
