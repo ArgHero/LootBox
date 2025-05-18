@@ -28,10 +28,6 @@ function loadContainers(){
     .then(response => response.text())
     .then(data => cuerpo.innerHTML = data)
     .catch(error => console.error('Error cargando el footer:', error));
-  // fetch(fuentesPath)
-  //   .then(response => response.text())
-  //   .then(data => fuentes.insertAdjacentHTML("beforeend", data))
-  //   .catch(error => console.error('Error cargando las fuentes:', error));
   formatoPagina();
 };//loadContainers()
 
@@ -132,6 +128,13 @@ function generateCarrito(){
 function handleAddToCartClick(event) {
   const card = event.target.closest(".card");
   if (!card) return;
+  event.target.classList.add("animado");
+  setTimeout(() => {
+        event.target.classList.remove("animado");
+    }, 500);
+
+
+
   const producto = {
      id: card.id,
      name: card.querySelector(".card-title").textContent.trim(),

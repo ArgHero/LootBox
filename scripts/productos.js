@@ -25,7 +25,7 @@ function createCards(prods) {
 
           <h5 class="card-title text-center">${prods.name}</h5>       
           <p class="card-text d-none">${prods.description}</p>
-          <button class="btn btn-primary" onclick="handleAddToCartClick(event);">
+          <button class="btn btn-primary add-cart-button" onclick="handleAddToCartClick(event);">
             <i class="bi bi-cart-plus"></i>
           </button>
           
@@ -35,7 +35,7 @@ function createCards(prods) {
           <li class="list-group-item text-white bg-dark">⭐ ${prods.rating.rate} (${prods.rating.count})</li>
         </ul>
 
-        <button type="button" onclick="modalProducto(event);" class="btn fs-3 btn-transparent text-white btn-puntos border-0" 
+        <button type="button" onclick="modalProducto(event);" class="btn fs-3 btn-transparent text-white btn-puntos border-0 " 
           data-bs-toggle="modal" data-bs-target="#modalDescripcion" >
              <span class="puntos">. . .</span>
         </button>

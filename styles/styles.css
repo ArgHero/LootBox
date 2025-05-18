@@ -258,8 +258,24 @@ section.sobreNosotros article.descripcion{
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+/*--------------------Botones de compra-------------------------*/
+button.add-cart-button{
+  cursor: pointer;
+  transition: all 0.05s ease-in-out;
+}
+button.add-cart-button:active{
+  background-color: var(--navy); 
+}
 
+button.add-cart-button.animado {
+    background-color: var(--orange);
+    transform: scale(1.05);
+}
 
+button.add-cart-button.animado::after {
+    content: "✔";
+    font-size: 1rem;
+}
 
 /*BREAK POINTS....................................................................*/
 @media (max-width: 992px) {
