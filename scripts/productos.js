@@ -25,7 +25,7 @@ function createCards(prods) {
 
           <h5 class="card-title text-center">${prods.name}</h5>       
           <p class="card-text d-none">${prods.description}</p>
-          <button class="btn btn-primary">
+          <button class="btn btn-primary" onclick="handleAddToCartClick(event);">
             <i class="bi bi-cart-plus"></i>
           </button>
           

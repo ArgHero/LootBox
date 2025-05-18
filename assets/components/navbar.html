@@ -74,9 +74,9 @@
 </nav>
 
 <!-- Modal del Carrito -->
-<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content bg-dark text-white rounded-3">
+<div class="modal fade " id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" >
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content bg-dark text-white rounded-3" style="min-height: 80vh;">
 
       <div class="modal-header border-0">
         <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
@@ -86,8 +86,8 @@
       <hr class="m-0 p-0 border-secondry"> 
       
 
-      <div class="modal-body">
-        <ul id="cart-items" class="list-group list-group-flush bg-dark"></ul>
+      <div class="modal-body" >
+        <ul id="cart-items" class="list-group list-group-flush bg-dark" style="min-height: 70vh;"></ul>
       </div>
 
       <hr class="m-0 p-0 border-secondry">
@@ -112,31 +112,6 @@
   }
 </style>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const userNameLink = document.getElementById("user-name");
-    const loginBtn = document.getElementById("login-btn");
-    const signupBtn = document.getElementById("signup-btn");
-    const logoutBtn = document.getElementById("logout-btn");
 
-    const usuarioActivo = JSON.parse(sessionStorage.getItem("usuarioActivo"));
-
-    if (usuarioActivo && usuarioActivo.nombre) {
-      // Si el usuario está logueado
-      userNameLink.textContent = `Hola, ${usuarioActivo.nombre}`;
-      userNameLink.style.display = "block"; // Usuario que inició sesión
-      loginBtn.style.display = "none"; // quita "Iniciar sesión"
-      signupBtn.style.display = "none"; // quita "Regístrate"
-      logoutBtn.style.display = "block"; // pone "Cerrar sesión"
-    }
-
-    // Cerrar sesión
-    logoutBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      sessionStorage.removeItem("usuarioActivo"); // Elimina la sesión
-      window.location.href = "./index.html"; // Redirige a la página principal
-    });
-  });
-</script>
 <script src="./scripts/productos.js"></script>
 <script src="./scripts/carrito.js"></script>

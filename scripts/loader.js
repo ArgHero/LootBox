@@ -10,6 +10,9 @@ const navBar=document.getElementById("navbar-container");
 const cuerpo=document.getElementById("footer-container");
 const fuentes=document.getElementsByTagName("head").item(0)
 
+//Carrito de compras
+let cart = JSON.parse(localStorage.getItem("cart"))||[];
+
 function loadContainers(){
   fetch(navPath)
     .then(response => response.text())
@@ -17,6 +20,7 @@ function loadContainers(){
       navBar.innerHTML = data;
       resaltarNav();
       inicioSesion();
+      generateCarrito();
     })
     .catch(error => console.error('Error cargando el navbar:', error));
   fetch(footPath)
@@ -79,5 +83,99 @@ if (!productosL) {
     console.error('Error al cargar o parsear el archivo:', error);
   });
   }
+//==================Agregar Elementos al carrito=======================
+function generateCarrito(){
+  if(cart.length===0)
+    return;
+  updateCartUI();
+}//generateCarrito()
+
+//Boton de agregar en las tarjetas
+function handleAddToCartClick(event) {
+  const card = event.target.closest(".card");
+  if (!card) return;
+  const producto = {
+     id: card.id,
+     name: card.querySelector(".card-title").textContent.trim(),
+     price: Number(card.querySelector("ul.list-group li").textContent.trim().replace(/[^0-9.-]+/g,"")),
+     img: card.querySelector("img").src,
+     quantity: 1
+  }
+  addToCart(producto);
+}//handleAddToCartClick()
+
+// Agregar producto al carrito
+function addToCart(product) {
+  //TODO: Cambiar a ID cuando exista en la base de datos
+  const alreadyIn = cart.find(item => item.name === product.name);
+  if(alreadyIn)
+    alreadyIn.quantity++;
+  else
+    cart.push(product);
+
+  updateCartUI();
+}//addToCart()
+
+// Eliminar producto del carrito
+function removeFromCart(productId) {
+  //TODO: Cambiar a id cuando exista
+  cart = cart.filter(item => item.name !== productId);
+  updateCartUI();
+}//removeFromCart()
+
+// Cambiar cantidad de un producto
+function updateQuantity(event,name) {
+  event.preventDefault();
+  cart.find(prod=> prod.name = name).quantity = Number(event.target.value);
+  updateCartUI();
+}//updateQuantity()
+
+// Actualizar contador y mostrar productos en modal
+function updateCartUI() {
+  localStorage.setItem("cart",JSON.stringify(cart));//Guarda el carrito
+
+  const cartCountElem = document.getElementById("cart-count");
+  const cartItemsList = document.getElementById("cart-items");
+  const cartTotalElem = document.getElementById("cart-total");
+  if (!cartCountElem || !cartItemsList || !cartTotalElem) 
+    return;
+  // Si alguno de los elementos no existe, evitar errores
+    
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartCountElem.textContent = cartCount;
+  cartItemsList.innerHTML = "";
+
+  
+  cart.forEach(item => {
+    
+
+    const li = document.createElement("li");
+    li.className = "list-group-item d-flex justify-content-between align-items-center bg-dark text-white";
+
+    li.innerHTML = `
+      <div class="d-flex flex-grow-1 align-items-center gap-3">
+        <img src="${item.img}" alt="${item.name}" style="width:50px; height:50px; object-fit: cover; border-radius:5px;">
+        <div class="flex-grow-1">
+          <strong>${item.name}</strong><br>
+          Precio unitario: $${item.price.toFixed(2)}<br>
+          Subtotal: $${(item.price * item.quantity).toFixed(2)}
+        </div>
+        <input type="number" min="1" value="${item.quantity}" style="width: 60px;" onchange="updateQuantity(event,'${item.name}');">
+      </div>
+      <button class="btn btn-sm btn-danger ms-3" onclick="removeFromCart('${item.name}')">&times;</button>
+    `;
+    cartItemsList.appendChild(li);
+  });
+
+  cartTotalElem.textContent = cart.reduce((cuenta, prod) => cuenta + (prod.quantity*prod.price), 0).toFixed(2);
+  
+}//updateCartUI()
+
+
+//--Dejar visible la funcion hacia el DOM 
+window.handleAddToCartClick = handleAddToCartClick;
+window.removeFromCart = removeFromCart;
+window.updateQuantity = updateQuantity;
 //==================Event Listeners=====================================
 document.addEventListener("DOMContentLoaded", loadContainers);
+

@@ -1,3 +1,6 @@
+console.log("el scripy de carrito esta comentado");
+
+/*
 let cart = [];
 
 // Agregar producto al carrito
@@ -118,3 +121,5 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartUI();
   initAddToCartButtons();
 });
+
+*/
