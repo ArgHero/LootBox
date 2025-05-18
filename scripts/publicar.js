@@ -386,10 +386,26 @@ function cleanForm(){
 function deleteComp(event){
   event.preventDefault();
   const prodName = event.target.parentElement.parentElement.getElementsByTagName("td").item(2).innerText;
-  const indexDel = listaProductos.findIndex(producto=>producto.name===prodName);
-  listaProductos.splice(indexDel,1);
-  localStorage.setItem('productos', JSON.stringify(listaProductos));
-  mostrarDatosLocal();
+    Swal.fire({
+    title: '¿Estás seguro?',
+    text: `¿Deseas eliminar ${prodName}?`,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const indexDel = listaProductos.findIndex(producto => producto.name === prodName);
+      if (indexDel !== -1) {
+        listaProductos.splice(indexDel, 1);
+        localStorage.setItem('productos', JSON.stringify(listaProductos));
+        mostrarDatosLocal();
+        Swal.fire('¡Eliminado!', 'El producto ha sido eliminado.', 'success');
+      }
+    }
+  });
 }//deleteComp()
 
 

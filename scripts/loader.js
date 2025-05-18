@@ -120,7 +120,17 @@ function addToCart(product) {
 // Eliminar producto del carrito
 function removeFromCart(productId) {
   //TODO: Cambiar a id cuando exista
+  //consigue el item que se esta borrando 
+  const item = cart.find(item => item.name === productId);
   cart = cart.filter(item => item.name !== productId);
+  let mensaje = "";
+  if(item.quantity >1) mensaje = `Se han eliminado ${item.quantity} ${item.name} de tu carrito.`
+  else  mensaje = `Se ha eliminado ${item.name} de tu carrito.`
+  Swal.fire({
+          icon: "success",
+          title: "Eliminado",
+          text: mensaje
+        });
   updateCartUI();
 }//removeFromCart()
 
