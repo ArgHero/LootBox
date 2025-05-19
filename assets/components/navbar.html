@@ -3,11 +3,24 @@
     <a class="navbar-brand" href="./index.html">
       <img src="./assets/icons/logoLoot.png" class="img-fluid" alt="Logo LootBox" style="width: 100px;">
     </a>
+    
+    <div class="d-flex align-items-center">
+    <!-- Carrito solo visible en mobile -->
+  <div class="d-lg-none position-relative me-4 mt-2">
+    <a href="#" class="text-white text-decoration-none fs-2" id="cart-button-mobile" data-bs-toggle="modal" data-bs-target="#cartModal">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span style="width: 20px; height: 20px; font-size: 18px; background-color: var(--orange);" class="position-absolute top-0 start-100 translate-middle badge rounded-circle d-flex align-items-center justify-content-center">
+        <span id="cart-count-mobile" style="margin-top: 3px;">0</span>
+      </span>
+   </a>
+  </div>
+
     <!-- Toggle -->
     <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    </div>
 
     <!-- SideBar -->
     <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
@@ -55,7 +68,7 @@
           </div>
 
           <!-- Carrito -->
-          <div class="position-relative me-lg-3 my-2 my-lg-0">
+          <div class="position-relative me-lg-3 my-2 my-lg-0 d-none d-lg-block">
             <a href="#" class="text-white text-decoration-none fs-2" id="cart-button" data-bs-toggle="modal" data-bs-target="#cartModal">
               <i class="fa-solid fa-cart-shopping"></i>
               <span style="width: 20px; height: 20px; font-size: 18px; background-color: var(--orange);" class="position-absolute top-0 start-100 translate-middle badge rounded-circle d-flex align-items-center justify-content-center">

@@ -186,6 +186,7 @@ function updateCartUI() {
   localStorage.setItem("cart",JSON.stringify(cart));//Guarda el carrito
 
   const cartCountElem = document.getElementById("cart-count");
+  const cartCountMobileElem = document.getElementById("cart-count-mobile");
   const cartItemsList = document.getElementById("cart-items");
   const cartTotalElem = document.getElementById("cart-total");
   if (!cartCountElem || !cartItemsList || !cartTotalElem) 
@@ -194,6 +195,8 @@ function updateCartUI() {
     
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   cartCountElem.textContent = cartCount;
+  if (cartCountMobileElem) cartCountMobileElem.textContent = cartCount; 
+  
   cartItemsList.innerHTML = "";
 
   
@@ -205,7 +208,7 @@ function updateCartUI() {
       <div class="d-flex flex-grow-1 align-items-center gap-3">
         <img src="${item.img}" alt="${item.name}" style="width:50px; height:50px; object-fit: cover; border-radius:5px;">
         <div class="flex-grow-1">
-          <strong>${item.name}</strong><br>
+          <span style="color: var(--sky);">${item.name}</span><br>
           Precio unitario: $${item.price.toFixed(2)}<br>
           Subtotal: $${(item.price * item.quantity).toFixed(2)}
         </div>
