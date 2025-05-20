@@ -18,6 +18,7 @@ function loadContainers(){
     .then(response => response.text())
     .then(data => {
       navBar.innerHTML = data;
+      document.body.style.marginTop = "7rem";
       resaltarNav();
       inicioSesion();
       generateCarrito();
