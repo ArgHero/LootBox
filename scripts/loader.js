@@ -225,11 +225,27 @@ function updateCartUI() {
 }//updateCartUI()
 
 //Boton comprar
-function buyProducts(){
+function buyProducts() {
   const buyButton = document.getElementById("buy-button");
 
   if (buyButton) {
     buyButton.addEventListener("click", () => {
+      const session = JSON.parse(localStorage.getItem("session"));
+
+       if (!session) {
+        Swal.fire({
+          icon: "warning",
+          title: "¡No iniciaste sesión!",
+          text: "Debes iniciar sesión antes de comprar.", 
+          confirmButtonText: "Ok",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = "./sesion.html"; 
+          }
+        });
+        return;
+      }
+
       if (cart.length === 0) {
         Swal.fire({
           icon: "warning",
@@ -243,9 +259,9 @@ function buyProducts(){
         title: "¿Confirmas la compra?",
         text: "Tu pedido será procesado",
         icon: "question",
-        showCancelButton: true,    
+        showCancelButton: true,
         confirmButtonColor: "#198754",
-        cancelButtonColor: "#d33", 
+        cancelButtonColor: "#d33",
         confirmButtonText: "Sí, comprar",
         cancelButtonText: "Cancelar"
       }).then((result) => {
@@ -275,6 +291,7 @@ function buyProducts(){
 window.handleAddToCartClick = handleAddToCartClick;
 window.removeFromCart = removeFromCart;
 window.updateQuantity = updateQuantity;
+window.addToCart = addToCart;
 //==================Event Listeners=====================================
 document.addEventListener("DOMContentLoaded", loadContainers);
 window.addEventListener("load",()=>document.getElementById("pantalla-carga").style.display = "none");

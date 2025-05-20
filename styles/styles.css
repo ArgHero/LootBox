@@ -78,7 +78,18 @@
   img {
     margin-right: 15px;
   }
-  
+/* Estilos para texto de pagina inicio */
+ .sticky-text{
+  position: absolute;
+  color: var(--txt);
+  top: 150px;    
+  width: 100%;  
+  text-align: center;
+}
+
+#h5-sticky{
+  color: var(--orange);
+} 
 
 /*ESTILOS PARA LAS TARJETAS*/
 aside section.miembros{
