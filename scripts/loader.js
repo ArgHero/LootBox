@@ -230,7 +230,6 @@ function buyProducts() {
 
   if (buyButton) {
     buyButton.addEventListener("click", () => {
-      const session = JSON.parse(localStorage.getItem("session"));
 
        if (!session) {
         Swal.fire({
