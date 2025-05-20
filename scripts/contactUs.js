@@ -57,6 +57,8 @@ btnEnviar.addEventListener("click", function(event) {
   alertValidacionesTexto.innerHTML = "";
   alertValidaciones.style.display = "none";
   txtNombre.style.border = "";
+  txtCorreo.style.border = "";
+  txtTel.style.border = "";
   txtMensaje.style.border = "";
 
   
