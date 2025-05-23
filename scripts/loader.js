@@ -83,13 +83,15 @@ function inicioSesion(){
   if(!user)
     return;
   const navActionsContainer = document.getElementById("navActionsContainer");
+  const primerNombre = (user.nombre || "Usuario").split(" ")[0];
+
   navActionsContainer.innerHTML=`
-  <span class="usuario-bienvenida text-white">Bienvenido, ${user.nombre || "Usuario"}</span>
+  <span class="usuario-bienvenida text-white">Bienvenido, ${primerNombre}</span>
     <button type="button" id="btnCerrar" class="btns-log-ins text-white px-3 py-1 rounded-4 text-center"> Cerrar Sesión </button>
     <img src="${user.img||"https://i.pinimg.com/736x/8d/59/b0/8d59b077f0c018f985ff8babeec16220.jpg"}" alt="${user.user}" class="rounded-circle" width="40px" height="40px">
   `;
   document.getElementById("btnCerrar").addEventListener("click",cerrarSesion);
-}//inicioSesion()
+}//inicioSesion
 
 function cerrarSesion(event){
   event.preventDefault();
