@@ -10,7 +10,6 @@ function actualizarProductos() {
     return;
   main.innerHTML = '';
   JSON.parse(prodsData).forEach(createCards);
-  aplicarFiltroCategoria(); // Aplicar filtro al cargar productos
 }
 
 //Carga las tarjetas en el main a partir de un objeto tipo prods
@@ -65,10 +64,12 @@ function modalProducto(event) {
 
 // Filtro por categoría
 function aplicarFiltroCategoria() {
-  
+  const prodsData = JSON.parse(localStorage.getItem('productos'))||null;
+  if(!prodsData)
+    return;
   const categoriaSeleccionada = document.getElementById("filtro-categoria").value;
   main.innerHTML = '';
-  const prodsfilter = prodsData.fileter(prod => prod.category===categoriaSeleccionada);
+  const prodsfilter = [...prodsData].filter(prod => prod.category===categoriaSeleccionada);
   prodsfilter.forEach(createCards);
 
   // const tarjetas = document.querySelectorAll("main.card");
@@ -84,7 +85,6 @@ function aplicarFiltroCategoria() {
 }
 
 document.getElementById("filtro-categoria").addEventListener("change", aplicarFiltroCategoria);
-
 // Escuchar el evento personalizado para actualizar si el local storage no contiene PRODUCTS
 document.addEventListener("DOMContentLoaded", actualizarProductos);
 // Cargar productos si ya existen al cargar la página
