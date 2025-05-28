@@ -10,19 +10,26 @@ const cantidad = document.getElementById("cantidad");
 const urlImage = document.getElementById("url-imagen");
 const btnPublicar = document.getElementById("btn-publicar");
 const selectorCategoria = document.getElementById("selector-categoria");
+const session = sessionStorage.getItem('usuarioActivo');
 //-Cargar Imagenes
+const fileInput = document.getElementById("fileUpload");
 const fileImageContainer = document.getElementById("fileImageContainer");
-const imageOutput = document.getElementById("output");
-const uploadBtn = document.getElementById("upload_widget");
-const img_fileName = document.getElementById("img_fileName");
-//const spinner = document.getElementsByClassName("spinner-border").item(0);
-
+//const imageOutput = document.getElementById("output");
+const spinner = document.getElementsByClassName("spinner-border").item(0);
+let imageCoded;
 
 const tablaItems = document.getElementById("tabla-items");
 const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
 
 let listaProductos = [];
-let imageCoded;
+
+console.log(window.location.pathname);
+if (window.location.pathname === '/publicar.html') {
+   const user = JSON.parse(session);
+    if (user.isAdmin === false) {
+    window.location.href = 'index.html';
+  }
+}
 
 function mostrarDatosLocal(){
   listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
@@ -97,11 +104,14 @@ function validarCamposProducto({ sku, producto, descripcion, precio, costo, cant
     mostrarError(cantidad, 'cantidad-alert-container', 'La cantidad debe ser un número mayor que 0 y sin decimales.');
     hayErrores = true;
   }
+
   
-  if (!img_fileName.innerText) {
+  if (!fileInput.files.length) {
     mostrarError(fileImageContainer, 'fileUpload-alert-container', 'La imagen del producto es necesaria.');
     hayErrores = true;
   }
+  
+
   return !hayErrores;
 }
 
@@ -117,7 +127,7 @@ btnPublicar.addEventListener("click", function (event) {
     precio,
     costo,
     cantidad,
-    imageOutput
+    fileInput
   });
 
   if (!valido) return;
@@ -375,10 +385,7 @@ function cleanForm(){
   precio.value = "";
   costo.value = "";
   cantidad.value = "";
-  imageCoded = null;
-  imageOutput.src="";
-  img_fileName.innerText="";
-
+  urlImage.value = "";
   sku.focus();
   selectorCategoria.selectedIndex = 0;
 }//cleanForm()
@@ -413,26 +420,26 @@ function deleteComp(event){
 
 
 //----Cargar imágenes
-const myWidget = cloudinary.createUploadWidget({
+fileInput.addEventListener("change", async () => {
+  imageCoded = null;
+  spinner.classList.remove("visually-hidden");
+  let [file] = fileInput.files;
 
-    cloudName: 'dsjcemt6v', // Reemplaza con tu Cloud Name de Cloudinary
-    uploadPreset: 'LootBox', // Reemplaza con tu Upload Preset (debes crearlo en tu consola de Cloudinary)
-    sources: ['local', 'url'], // Fuentes permitidas para la subida
-    multiple: false, // Permitir una sola subida o múltiples
-    //cropping: true, // Habilitar la herramienta de recorte
-    clientAllowedFormats: ['png', 'gif', 'jpeg','webp']
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    //imageOutput.src = event.target.result;
+    imageCoded = event.target.result;
+    spinner.classList.add("visually-hidden");
+  };
 
-}, (error, result) => {
-    if (!error && result && result.event === "success") {
-        console.log(result);
-        imageCoded = result.info.secure_url;
-        imageOutput.src=result.info.thumbnail_url;
-        img_fileName.innerText=result.info.original_filename;
-        console.log(imageCoded);    
-    }
+  reader.onerror = (err) => {
+      console.error("Error reading file:", err);
+      alert("An error occurred while reading the file.");
+      spinner.classList.add("visually-hidden");
+  };
+  reader.readAsDataURL(file);
 });
 
-uploadBtn.addEventListener("click", ()=>myWidget.open());
 //-----
 document.addEventListener("DOMContentLoaded", mostrarDatosLocal);
 //----Cargar tabla si no existia el local storage

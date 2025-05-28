@@ -150,7 +150,8 @@ btnEnviar.addEventListener("click", function(event) {
             nombre: nombre,
             email: correo,
             telefono: telefono,
-            password: password
+            password: password,
+            isAdmin: false
         };
 
         if (correoExiste) {
