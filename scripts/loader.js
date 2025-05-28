@@ -91,7 +91,7 @@ function inicioSesion(){
     <img src="${user.img||"https://i.pinimg.com/736x/8d/59/b0/8d59b077f0c018f985ff8babeec16220.jpg"}" alt="${user.user}" class="rounded-circle" width="40px" height="40px">
   `;
   document.getElementById("btnCerrar").addEventListener("click",cerrarSesion);
-if (user.isAdmin === 1) {
+if (user.isAdmin === true) {
     const publicarNavItem = document.getElementById("nav-publicar");
     if (publicarNavItem) publicarNavItem.style.display = "block";
   }

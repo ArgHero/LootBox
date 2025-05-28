@@ -10,6 +10,7 @@ const cantidad = document.getElementById("cantidad");
 const urlImage = document.getElementById("url-imagen");
 const btnPublicar = document.getElementById("btn-publicar");
 const selectorCategoria = document.getElementById("selector-categoria");
+const session = sessionStorage.getItem('usuarioActivo');
 //-Cargar Imagenes
 const fileImageContainer = document.getElementById("fileImageContainer");
 const imageOutput = document.getElementById("output");
@@ -23,6 +24,12 @@ const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
 
 let listaProductos = [];
 let imageCoded;
+if (window.location.pathname === '/publicar.html') {
+   const user = JSON.parse(session);
+    if (user.isAdmin === false) {
+    window.location.href = 'index.html';
+  }
+}
 
 function mostrarDatosLocal(){
   listaProductos = JSON.parse(localStorage.getItem('productos')) || [];
