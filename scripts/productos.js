@@ -18,11 +18,11 @@ function createCards(prods) {
   main.insertAdjacentHTML(
     "beforeend",
     `
-      <div id="${prods.id}" class="card p-3 text-white bg-dark" style="width: 18rem;" data-categoria="${prods.category}">
+      <div id="${prods.id}" class="card p-3 text-white bg-dark d-flex flex-column justify-content-between" style="width: 18rem;" data-categoria="${prods.category}">
         <div class="ratio ratio-1x1">
           <img src="${prods.img}" class="card-img-top" alt="">
         </div>
-        <div class="card-body d-flex flex-column flex-wrap justify-content-between gap-3 ">
+        <div class=" h-100 card-body d-flex flex-column flex-wrap justify-content-between gap-3">
 
           <h5 class="card-title text-center">${prods.name}</h5>       
           <p class="card-text d-none">${prods.description}</p>
@@ -31,14 +31,15 @@ function createCards(prods) {
           </button>
           
         </div>
+
         <ul class="list-group list-group-flush text-center" >
           <li class="list-group-item text-white bg-dark">$ ${prods.price}</li>
           <li class="list-group-item text-white bg-dark">⭐ ${prods.rating.rate} (${prods.rating.count})</li>
         </ul>
 
-        <button type="button" onclick="modalProducto(event);" class="btn fs-3 btn-transparent text-white btn-puntos border-0 " 
+        <button type="button" onclick="modalProducto(event);" class="btn fs-3 btn-transparent text-white btn-puntos border-0" 
           data-bs-toggle="modal" data-bs-target="#modalDescripcion" >
-             <span class="puntos">. . .</span>
+             <p class="puntos">. . .</p>
         </button>
 
       </div>
@@ -64,17 +65,22 @@ function modalProducto(event) {
 
 // Filtro por categoría
 function aplicarFiltroCategoria() {
+  
   const categoriaSeleccionada = document.getElementById("filtro-categoria").value;
-  const tarjetas = document.querySelectorAll("main .card");
+  main.innerHTML = '';
+  const prodsfilter = prodsData.fileter(prod => prod.category===categoriaSeleccionada);
+  prodsfilter.forEach(createCards);
 
-  tarjetas.forEach((card) => {
-    const categoria = card.getAttribute("data-categoria");
-    if (categoriaSeleccionada === "todos" || categoria === categoriaSeleccionada) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
+  // const tarjetas = document.querySelectorAll("main.card");
+
+  // tarjetas.forEach((card) => {
+  //   const categoria = card.getAttribute("data-categoria");
+  //   if (categoriaSeleccionada === "todos" || categoria === categoriaSeleccionada) {
+  //     card.style.display = "block";
+  //   } else {
+  //     card.style.display = "none";
+  //   }
+  // });
 }
 
 document.getElementById("filtro-categoria").addEventListener("change", aplicarFiltroCategoria);
