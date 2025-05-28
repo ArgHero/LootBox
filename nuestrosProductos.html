@@ -18,25 +18,33 @@
   <div id="navbar-container"></div>
 
   <!-- Contenedor general productos y filtro -->
-  <div class="container mt-4 d-flex flex-column flex-lg-row gap-3"></div>
-    <!-- Productos -->
-    <main class="flex-grow-1 d-flex flex-wrap justify-content-center gap-3">
-    
-    </main>
-
-    <!-- FILTROS -->
-    <aside style="width: 250px;">
-      <h5>Filtrar por Categoría</h5>
-      <select id="filtro-categoria" class="form-select mb-3">
+  <div class="container mt-4">
+  <div class="row gy-4">
+    <!-- Filtros -->
+  <aside class="col-12 col-lg-3">
+  <div class="card bg-dark text-white border-light shadow-sm rounded-4 p-3">
+    <div class="card-body">
+      <h5 class="card-title d-flex align-items-center gap-2 border-bottom pb-2 mb-3">
+        <i class="bi bi-controller"></i> Filtrar por Categoría
+      </h5>
+      <select id="filtro-categoria" class="form-select bg-secondary text-white border-0 rounded-3 py-2 px-3">
         <option value="Todas">Todas</option>
         <option value="Consolas">Consolas</option>
-         <option value="LootBox">Lootbox</option>
+        <option value="LootBox">Lootbox</option>
         <option value="Merch">Merch</option>
         <option value="Periféricos">Periféricos</option>
         <option value="Videojuegos">Videojuegos</option>
       </select>
-    </aside>
+    </div>
   </div>
+</aside>
+
+    <!-- Productos -->
+    <main class="col-12 col-lg-9 d-flex flex-wrap justify-content-center gap-3" id="productos-container">
+    </main>
+  </div>
+</div>
+
 
   <!-- Modal Descripción -->
   <div class="modal fade" id="modalDescripcion" tabindex="-1" inert>
