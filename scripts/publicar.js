@@ -375,7 +375,10 @@ function cleanForm(){
   precio.value = "";
   costo.value = "";
   cantidad.value = "";
-  urlImage.value = "";
+  imageCoded = null;
+  imageOutput.src="";
+  img_fileName.innerText="";
+
   sku.focus();
   selectorCategoria.selectedIndex = 0;
 }//cleanForm()
@@ -416,16 +419,16 @@ const myWidget = cloudinary.createUploadWidget({
     uploadPreset: 'LootBox', // Reemplaza con tu Upload Preset (debes crearlo en tu consola de Cloudinary)
     sources: ['local', 'url'], // Fuentes permitidas para la subida
     multiple: false, // Permitir una sola subida o múltiples
-    cropping: true, // Habilitar la herramienta de recorte
+    //cropping: true, // Habilitar la herramienta de recorte
     clientAllowedFormats: ['png', 'gif', 'jpeg','webp']
 
 }, (error, result) => {
-    imageCoded = null;
     if (!error && result && result.event === "success") {
         console.log(result);
         imageCoded = result.info.secure_url;
         imageOutput.src=result.info.thumbnail_url;
         img_fileName.innerText=result.info.original_filename;
+        console.log(imageCoded);    
     }
 });
 
