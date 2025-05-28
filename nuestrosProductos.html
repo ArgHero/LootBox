@@ -2,25 +2,44 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <title> Nuestros Productos </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title> Nuestros Productos </title>
 </head>
 
-<div id="pantalla-carga">
-    <div class="spinner"></div>
-</div>
-
 <body>
-  <!-- navbar -->
-  <div id="navbar-container"> 
+  <div id="pantalla-carga">
+    <div class="spinner"></div>
+  </div>
 
-  </div>  <!-- NavBar -->
-  
-  <div id="main-container"></div>
-  <!--cuerpo-->
-  <div class="modal fade " id="modalDescripcion" tabindex="-1" inert>
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- Contenedor general productos y filtro -->
+  <div class="container mt-4 d-flex flex-row gap-3">
+    <!-- Productos -->
+    <main class="flex-grow-1 d-flex flex-wrap justify-content-center gap-3">
+    
+    </main>
+
+    <!-- FILTROS -->
+    <aside style="width: 250px;">
+      <h5>Filtrar por Categoría</h5>
+      <select id="filtro-categoria" class="form-select mb-3">
+        <option value="Todas">Todas</option>
+        <option value="Consolas">Consolas</option>
+         <option value="LootBox">Lootbox</option>
+        <option value="Merch">Merch</option>
+        <option value="Periféricos">Periféricos</option>
+        <option value="Videojuegos">Videojuegos</option>
+      </select>
+    </aside>
+  </div>
+
+  <!-- Modal Descripción -->
+  <div class="modal fade" id="modalDescripcion" tabindex="-1" inert>
     <div class="modal-dialog">
       <div class="modal-content bg-dark text-white">
         <div class="modal-header">
@@ -29,20 +48,89 @@
         </div>
         <div class="modal-body"></div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button> 
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
   </div>
-  
-  <main class="container mt-4 d-flex flex-wrap   justify-content-center gap-3">
-    <!-- Modal -->    
-  </main>
 
-<!-- Footer -->
+  <!-- Footer -->
   <div id="footer-container"></div>
+
+  <!-- Scripts -->
   <script type="module" src="./scripts/loader.js"></script>
-  <script src="./scripts/productos.js"></script>
+
+  <script>
+    const main = document.getElementsByTagName("main").item(0);
+    const modalTitulo = document.getElementById("modalTitulo");
+    const modalBody = document.getElementsByClassName("modal-body").item(0);
+    const modalDescripcion = document.getElementById("modalDescripcion");
+
+    function actualizarProductos() {
+      const prodsData = localStorage.getItem('productos');
+      if (!prodsData) return;
+      main.innerHTML = '';
+      JSON.parse(prodsData).forEach(createCards);
+    }
+
+    function createCards(prods) {
+      main.insertAdjacentHTML(
+        "beforeend",
+        `
+        <div id="${prods.id}" class="card p-3 text-white bg-dark" style="width: 18rem;" data-categoria="${prods.category}">
+          <div class="ratio ratio-1x1">
+            <img src="${prods.img}" class="card-img-top" alt="">
+          </div>
+          <div class="card-body d-flex flex-column flex-wrap justify-content-between gap-3">
+            <h5 class="card-title text-center">${prods.name}</h5>
+            <p class="card-text d-none">${prods.description}</p>
+            <button class="btn btn-primary add-cart-button" onclick="handleAddToCartClick(event);">
+              <i class="bi bi-cart-plus"></i>
+            </button>
+          </div>
+          <ul class="list-group list-group-flush text-center">
+            <li class="list-group-item text-white bg-dark">$ ${prods.price}</li>
+            <li class="list-group-item text-white bg-dark">⭐ ${prods.rating.rate} (${prods.rating.count})</li>
+          </ul>
+          <button type="button" onclick="modalProducto(event);" class="btn fs-3 btn-transparent text-white btn-puntos border-0"
+            data-bs-toggle="modal" data-bs-target="#modalDescripcion">
+            <span class="puntos">. . .</span>
+          </button>
+        </div>
+        `
+      );
+    }
+
+    function modalProducto(event) {
+      event.preventDefault();
+      const contenedorPadre = event.target.closest("div.card");
+      modalDescripcion.removeAttribute("inert");
+      modalTitulo.innerText = contenedorPadre.getElementsByTagName("h5").item(0).innerText.trim();
+      modalBody.innerText = contenedorPadre.getElementsByTagName("p").item(0).innerText.trim();
+      modalDescripcion.querySelector("button").focus();
+    }
+
+    // Filtro por categoría
+    document.getElementById("filtro-categoria").addEventListener("change", function () {
+      const categoriaSeleccionada = this.value;
+      const tarjetas = document.querySelectorAll("main .card");
+
+      tarjetas.forEach((card) => {
+        const categoria = card.getAttribute("data-categoria");
+        if (categoriaSeleccionada === "todos" || categoria === categoriaSeleccionada) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", actualizarProductos);
+    window.addEventListener('productosCargados', actualizarProductos);
+  </script>
+
+  <!-- Bootstrap JS para modales -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

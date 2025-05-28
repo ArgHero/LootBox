@@ -10,14 +10,15 @@ function actualizarProductos() {
     return;
   main.innerHTML = '';
   JSON.parse(prodsData).forEach(createCards);
-}//actualizarProductos()
+  aplicarFiltroCategoria(); // Aplicar filtro al cargar productos
+}
 
 //Carga las tarjetas en el main a partir de un objeto tipo prods
 function createCards(prods) {
   main.insertAdjacentHTML(
     "beforeend",
     `
-      <div id="${prods.id}" class="card p-3 text-white bg-dark" style="width: 18rem;">
+      <div id="${prods.id}" class="card p-3 text-white bg-dark" style="width: 18rem;" data-categoria="${prods.category}">
         <div class="ratio ratio-1x1">
           <img src="${prods.img}" class="card-img-top" alt="">
         </div>
@@ -60,6 +61,23 @@ function modalProducto(event) {
   modalDescripcion.querySelector("button").focus();
 
 };//modalProducto
+
+// Filtro por categoría
+function aplicarFiltroCategoria() {
+  const categoriaSeleccionada = document.getElementById("filtro-categoria").value;
+  const tarjetas = document.querySelectorAll("main .card");
+
+  tarjetas.forEach((card) => {
+    const categoria = card.getAttribute("data-categoria");
+    if (categoriaSeleccionada === "todos" || categoria === categoriaSeleccionada) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+document.getElementById("filtro-categoria").addEventListener("change", aplicarFiltroCategoria);
 
 // Escuchar el evento personalizado para actualizar si el local storage no contiene PRODUCTS
 document.addEventListener("DOMContentLoaded", actualizarProductos);

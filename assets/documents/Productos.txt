@@ -23,6 +23,7 @@
     "name": "LootBox Legendaria",
     "img": "https://res.cloudinary.com/dsjcemt6v/image/upload/v1747185375/Lootbox-G_nwkhoc.webp",
     "description": "solo para los que se atreven a todo. El drop más épico, con ítems sorpresa de otro nivel.",
+    "category": "LootBox",
     "price": 6000.00,
     "rating": { "rate": 4.9, "count": 1300 },
     "sku": 1120,
