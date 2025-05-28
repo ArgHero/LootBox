@@ -23,7 +23,6 @@ const cuerpoTabla = tablaItems.getElementsByTagName("tbody").item(0);
 
 let listaProductos = [];
 
-console.log(window.location.pathname);
 if (window.location.pathname === '/publicar.html') {
    const user = JSON.parse(session);
     if (user.isAdmin === false) {
