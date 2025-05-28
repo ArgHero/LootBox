@@ -67,9 +67,13 @@ function aplicarFiltroCategoria() {
   const prodsData = JSON.parse(localStorage.getItem('productos'))||null;
   if(!prodsData)
     return;
-  const categoriaSeleccionada = document.getElementById("filtro-categoria").value;
   main.innerHTML = '';
-  const prodsfilter = [...prodsData].filter(prod => prod.category===categoriaSeleccionada);
+  let prodsfilter;
+  const categoriaSeleccionada = document.getElementById("filtro-categoria").value;
+  if(categoriaSeleccionada==="Todos")
+    prodsfilter = prodsData;
+  else 
+   prodsfilter = prodsData.filter(prod => prod.category===categoriaSeleccionada);
   prodsfilter.forEach(createCards);
 
   // const tarjetas = document.querySelectorAll("main.card");
