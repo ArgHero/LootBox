@@ -28,7 +28,7 @@
         <i class="bi bi-controller"></i> Filtrar por Categoría
       </h5>
       <select id="filtro-categoria" class="form-select bg-secondary text-white border-0 rounded-3 py-2 px-3">
-        <option value="Todas">Todas</option>
+        <option value="Todos">Todas</option>
         <option value="Consolas">Consolas</option>
         <option value="LootBox">Lootbox</option>
         <option value="Merch">Merch</option>
@@ -100,6 +100,7 @@
             <li class="list-group-item text-white bg-dark">$ ${prods.price}</li>
             <li class="list-group-item text-white bg-dark">⭐ ${prods.rating.rate} (${prods.rating.count})</li>
           </ul>
+          <div class="text-end d-flex justify-content-center mt-2">
           <button type="button" onclick="modalProducto(event);" class="btn fs-3 btn-transparent text-white btn-puntos border-0"
             data-bs-toggle="modal" data-bs-target="#modalDescripcion">
             <span class="puntos">. . .</span>
@@ -125,7 +126,7 @@
 
       tarjetas.forEach((card) => {
         const categoria = card.getAttribute("data-categoria");
-        if (categoriaSeleccionada === "todos" || categoria === categoriaSeleccionada) {
+        if (categoriaSeleccionada === "Todos" || categoria === categoriaSeleccionada) {
           card.style.display = "block";
         } else {
           card.style.display = "none";
